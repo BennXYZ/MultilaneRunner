@@ -15,16 +15,13 @@ public class SinglePlayers : MonoBehaviour {
         rigid = gameObject.GetComponent<Rigidbody2D>();
 	}
 	
+    public void Jump()
+    {
+        rigid.AddForce(new Vector2(Physics2D.gravity.x * jumpForce * 100 * -rigid.gravityScale, Physics2D.gravity.y * jumpForce * 100 * -rigid.gravityScale));
+    }
+
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && rigid.gravityScale > 0)
-        {
-            rigid.AddForce(new Vector2(Physics2D.gravity.x * jumpForce *100 * -rigid.gravityScale, Physics2D.gravity.y * jumpForce * 100 * - rigid.gravityScale));
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow) && rigid.gravityScale < 0)
-        {
-            rigid.AddForce(new Vector2(Physics2D.gravity.x * jumpForce * 100 * -rigid.gravityScale, Physics2D.gravity.y * jumpForce * 100 * -rigid.gravityScale));
-        }
         if (transform.localPosition.x > 0.5f)
             transform.localPosition = new Vector3(transform.localPosition.x - 0.1f, transform.localPosition.y, transform.localPosition.z);
         if (transform.localPosition.x < -0.5f)
