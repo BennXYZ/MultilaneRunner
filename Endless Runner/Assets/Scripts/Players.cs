@@ -14,7 +14,9 @@ public class Players : MonoBehaviour {
         direction = Directions.Right;
         rotating = 0;
         targetRotation = 0;
-	}
+        Physics2D.gravity = new Vector2(Mathf.Sin(transform.rotation.eulerAngles.z / 180 * Mathf.PI)
+, -Mathf.Cos(transform.rotation.eulerAngles.z / 180 * Mathf.PI));
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -44,8 +46,8 @@ public class Players : MonoBehaviour {
 
     public void RotateLeft()
     {
-        transform.Rotate(0, 0, 90 * Time.deltaTime);
-        if (transform.rotation.eulerAngles.z > targetRotation || (transform.rotation.eulerAngles.z < 10 && targetRotation >= 360))
+        transform.Rotate(0, 0, 90 * Time.deltaTime / 4);
+        if (transform.rotation.eulerAngles.z > targetRotation || (transform.rotation.eulerAngles.z < 30 && targetRotation >= 330))
         {
             transform.Rotate(0, 0, targetRotation - transform.rotation.eulerAngles.z);
             rotating = 0;
@@ -56,13 +58,11 @@ public class Players : MonoBehaviour {
 
     public void RotateRight()
     {
-        Debug.Log(targetRotation);
-
-        transform.Rotate(0, 0, - 90 * Time.deltaTime);
+        transform.Rotate(0, 0, - 90 * Time.deltaTime / 4);
 
         if (targetRotation < 0)
             targetRotation = 270;
-        if (transform.rotation.eulerAngles.z < targetRotation || (transform.rotation.eulerAngles.z > 350 && targetRotation <= 0))
+        if (transform.rotation.eulerAngles.z < targetRotation || (transform.rotation.eulerAngles.z > 330 && targetRotation <= 30))
         {
             transform.Rotate(0, 0, targetRotation - transform.rotation.eulerAngles.z);
             rotating = 0;

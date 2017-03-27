@@ -19,12 +19,10 @@ public class SinglePlayers : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.UpArrow) && rigid.gravityScale > 0)
         {
-            Debug.Log("LOL");
             rigid.AddForce(new Vector2(Physics2D.gravity.x * jumpForce *100 * -rigid.gravityScale, Physics2D.gravity.y * jumpForce * 100 * - rigid.gravityScale));
         }
         if (Input.GetKeyDown(KeyCode.DownArrow) && rigid.gravityScale < 0)
         {
-            Debug.Log("LOL");
             rigid.AddForce(new Vector2(Physics2D.gravity.x * jumpForce * 100 * -rigid.gravityScale, Physics2D.gravity.y * jumpForce * 100 * -rigid.gravityScale));
         }
         if (transform.localPosition.x > 0.5f)
@@ -34,5 +32,14 @@ public class SinglePlayers : MonoBehaviour {
         else
             transform.localPosition = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Spikes")
+        {
+            Debug.Log("Exit");
+            Application.Quit();
+        }
     }
 }
