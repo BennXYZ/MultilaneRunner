@@ -22,10 +22,10 @@ public class SinglePlayers : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (transform.localPosition.x > 0.5f)
-            transform.localPosition = new Vector3(transform.localPosition.x - 0.1f, transform.localPosition.y, transform.localPosition.z);
-        if (transform.localPosition.x < -0.5f)
-            transform.localPosition = new Vector3(transform.localPosition.x + 0.1f, transform.localPosition.y, transform.localPosition.z);
+        if (transform.localPosition.x > 0.01f)
+            transform.localPosition = new Vector3(transform.localPosition.x - 0.8f * Time.deltaTime, transform.localPosition.y, transform.localPosition.z);
+        else if (transform.localPosition.x < -0.01f)
+            transform.localPosition = new Vector3(transform.localPosition.x + 0.8f * Time.deltaTime, transform.localPosition.y, transform.localPosition.z);
         else
             transform.localPosition = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
 
@@ -35,8 +35,8 @@ public class SinglePlayers : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Spikes")
         {
-            Debug.Log("Exit");
-            Application.Quit();
+            transform.parent.parent.gameObject.GetComponent<Players>().TakeDamage();
+            rigid.AddForce(new Vector2(Physics2D.gravity.y * jumpForce * 50 * rigid.gravityScale, Physics2D.gravity.x * jumpForce * 50 * rigid.gravityScale));
         }
     }
 }
