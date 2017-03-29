@@ -24,6 +24,10 @@ public class Controller : MonoBehaviour
     List<Vector2> touchEnd;
     List<Vector2> touchMovement;
 
+    Vector2 mouseOrigin;
+    Vector2 mouseEnd;
+    Vector2 mouseMovement;
+
     // Use this for initialization
     void Start()
     {
@@ -51,37 +55,89 @@ public class Controller : MonoBehaviour
                 Down.Invoke();
         }
 
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButtonDown(0))
         {
-            for (int i = 0; i < Input.touches.Length; i++)
-            {
-                touches.Add(Input.touches[i]);
-            }
-            for (int i = 0; i < touches.Count; i++)
-            {
-                if (touches[i].phase == TouchPhase.Began)
-                {
-                    touchOrigin.Add(touches[i].position);
-                    touchEnd.Add(Vector2.zero);
-                    touchMovement.Add(Vector2.zero);
-                }
-                else if (touches[i].phase == TouchPhase.Ended && touchOrigin[i].x >= 0)
-                {
-                    touchEnd[i] = touches[i].position;
-                    touchMovement[i] = new Vector2(touchEnd[i].x - touchOrigin[i].x, touchEnd[i].y - touchOrigin[i].y);
-                    touchOrigin.RemoveAt(i);
-                    touchEnd.RemoveAt(i);
-
-                    if (touchMovement[i].y > Mathf.Abs(touchMovement[i].x))
-                        Up.Invoke();
-                    else if (touchMovement[i].y < Mathf.Abs(touchMovement[i].x))
-                        Down.Invoke();
-                    else if (touchMovement[i].x > Mathf.Abs(touchMovement[i].y))
-                        Right.Invoke();
-                    else if (touchMovement[i].x < Mathf.Abs(touchMovement[i].y))
-                        Left.Invoke();
-                }
-            }
+            mouseOrigin = Input.mousePosition;
         }
+        if(Input.GetMouseButtonUp(0))
+        {
+            mouseEnd = Input.mousePosition;
+            mouseMovement = mouseEnd - mouseOrigin;
+
+            if (Mathf.Abs(mouseMovement.y) > Mathf.Abs(mouseMovement.x))
+                if (mouseMovement.y > 0)
+                    Up.Invoke();
+                else
+                    Down.Invoke();
+            else if (Mathf.Abs(mouseMovement.x) > Mathf.Abs(mouseMovement.y))
+                if (mouseMovement.x > 0)
+                    Right.Invoke();
+                else
+                    Left.Invoke();
+
+        }
+        //    for (int i = 0; i < Input.touches.Length; i++)
+        //    {
+        //        touches.Add(Input.touches[i]);
+        //    }
+        //    for (int i = 0; i < touches.Count; i++)
+        //    {
+        //        if (touches[i].phase == TouchPhase.Began)
+        //        {
+        //            touchOrigin.Add(touches[i].position);
+        //            touchEnd.Add(Vector2.zero);
+        //            touchMovement.Add(Vector2.zero);
+        //        }
+        //        else if (touches[i].phase == TouchPhase.Ended && touchOrigin[i].x >= 0)
+        //        {
+        //            touchEnd[i] = touches[i].position;
+        //            touchMovement[i] = new Vector2(touchEnd[i].x - touchOrigin[i].x, touchEnd[i].y - touchOrigin[i].y);
+        //            touchOrigin.RemoveAt(i);
+        //            touchEnd.RemoveAt(i);
+
+        //            if (touchMovement[i].y > Mathf.Abs(touchMovement[i].x))
+        //                Up.Invoke();
+        //            else if (touchMovement[i].y < Mathf.Abs(touchMovement[i].x))
+        //                Down.Invoke();
+        //            else if (touchMovement[i].x > Mathf.Abs(touchMovement[i].y))
+        //                Right.Invoke();
+        //            else if (touchMovement[i].x < Mathf.Abs(touchMovement[i].y))
+        //                Left.Invoke();
+        //        }
+        //    }
+        //}
+
+        //if (Input.touchCount > 0)
+        //{
+        //    for (int i = 0; i < Input.touches.Length; i++)
+        //    {
+        //        touches.Add(Input.touches[i]);
+        //    }
+        //    for (int i = 0; i < touches.Count; i++)
+        //    {
+        //        if (touches[i].phase == TouchPhase.Began)
+        //        {
+        //            touchOrigin.Add(touches[i].position);
+        //            touchEnd.Add(Vector2.zero);
+        //            touchMovement.Add(Vector2.zero);
+        //        }
+        //        else if (touches[i].phase == TouchPhase.Ended && touchOrigin[i].x >= 0)
+        //        {
+        //            touchEnd[i] = touches[i].position;
+        //            touchMovement[i] = new Vector2(touchEnd[i].x - touchOrigin[i].x, touchEnd[i].y - touchOrigin[i].y);
+        //            touchOrigin.RemoveAt(i);
+        //            touchEnd.RemoveAt(i);
+
+        //            if (touchMovement[i].y > Mathf.Abs(touchMovement[i].x))
+        //                Up.Invoke();
+        //            else if (touchMovement[i].y < Mathf.Abs(touchMovement[i].x))
+        //                Down.Invoke();
+        //            else if (touchMovement[i].x > Mathf.Abs(touchMovement[i].y))
+        //                Right.Invoke();
+        //            else if (touchMovement[i].x < Mathf.Abs(touchMovement[i].y))
+        //                Left.Invoke();
+        //        }
+        //    }
+        //}
     }
 }
