@@ -9,13 +9,13 @@ public class HealthDisplay : MonoBehaviour {
 
     List<GameObject> drawnSprites;
 
-    Players players;
+    HealthController healther;
 
     bool first;
 
 	// Use this for initialization
 	void Start () {
-        players = GameObject.FindGameObjectWithTag("Game").GetComponent<Players>();
+        healther = GameObject.FindGameObjectWithTag("Game").GetComponent<HealthController>();
         drawnSprites = new List<GameObject>();
         first = true;
     }
@@ -24,7 +24,7 @@ public class HealthDisplay : MonoBehaviour {
     void Update() {
         if(first)
         {
-            for (int i = drawnSprites.Count; i < players.GetHealth(); i++)
+            for (int i = drawnSprites.Count; i < healther.Health; i++)
             {
                 drawnSprites.Add(Sprite.Instantiate(healthSprite, transform.position, transform.rotation, transform));
                 drawnSprites[i].transform.Translate(new Vector3(i * 2, 0, 0));
@@ -35,17 +35,17 @@ public class HealthDisplay : MonoBehaviour {
 
     public void UpdateHealth()
     {
-        if (players.GetHealth() < drawnSprites.Count)
+        if (healther.Health < drawnSprites.Count)
         {
-            for (int i = players.GetHealth(); i < drawnSprites.Count; i++)
+            for (int i = healther.Health; i < drawnSprites.Count; i++)
             {
                 GameObject.Destroy(drawnSprites[drawnSprites.Count - 1]);
                 drawnSprites.RemoveAt(drawnSprites.Count - 1);
             }
         }
-        else if (players.GetHealth() > drawnSprites.Count)
+        else if (healther.Health > drawnSprites.Count)
         {
-            for (int i = drawnSprites.Count; i < players.GetHealth(); i++)
+            for (int i = drawnSprites.Count; i < healther.Health; i++)
             {
                 drawnSprites.Add(Sprite.Instantiate(healthSprite, transform.position, transform.rotation, transform));
                 drawnSprites[i].transform.Translate(new Vector3(i * 2, 0, 0));
