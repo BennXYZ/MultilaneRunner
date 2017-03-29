@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.iOS;
 
 public class FortuneWheel : MonoBehaviour {
 
@@ -80,6 +82,9 @@ public class FortuneWheel : MonoBehaviour {
 
     private void Result()
     {
-        Debug.Log("Result Logic");
+        SceneManager.LoadScene("FortuneWheel");
     }
+    
 }
+
+
