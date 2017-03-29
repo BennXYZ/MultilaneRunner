@@ -25,6 +25,7 @@ public class ScoreTracker : MonoBehaviour {
     public void coinCollected()
     {
         score += multiplier;
+        GameObject.Find("ScoreDisplay").GetComponent<ScoreDisplay>().UpdateText();
     }
 
     public int Score
