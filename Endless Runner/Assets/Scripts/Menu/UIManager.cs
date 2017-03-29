@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour {
     /// </summary>
     public enum MenuStates
     {
-        Splashscreen,
+        //Splashscreen,
         Main,
         Play,
         Store,
@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour {
     GameObject[] pauseObjects;
     
     // Menu panel objects as GameObjects.
-    public GameObject splashScreen;
+    //public GameObject splashScreen;
     public GameObject mainMenu;
     public GameObject playMenu;
     public GameObject shopMenu;
@@ -67,8 +67,6 @@ public class UIManager : MonoBehaviour {
     /// </summary>
     void Awake()
     {
-        // Always sets first state to splashscreen
-        //currentState = MenuStates.Splashscreen;
         currentState = MenuStates.Main;
     }
 
@@ -86,35 +84,20 @@ public class UIManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        // Debug input mode only!
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if(Time.timeScale == 1)
-            {
-                Time.timeScale = 0;
-                showPaused();
-            }
-            else if(Time.timeScale == 0)
-            {
-                Time.timeScale = 1;
-                hidePaused();
-            }
-        }
-
         // Checks current menu state
         switch (currentState)
         {
-            case MenuStates.Splashscreen:
-                splashScreen.SetActive(true);
-                mainMenu.SetActive(false);
-                playMenu.SetActive(false);
-                shopMenu.SetActive(false);
-                optionsMenu.SetActive(false);
-                break;
+            //case MenuStates.Splashscreen:
+            //    splashScreen.SetActive(true);
+            //    mainMenu.SetActive(false);
+            //    playMenu.SetActive(false);
+            //    shopMenu.SetActive(false);
+            //    optionsMenu.SetActive(false);
+            //    break;
 
             case MenuStates.Main:
                 mainMenu.SetActive(true);
-                splashScreen.SetActive(false);
+                //splashScreen.SetActive(false);
                 playMenu.SetActive(false);
                 shopMenu.SetActive(false);
                 optionsMenu.SetActive(false);
@@ -122,7 +105,7 @@ public class UIManager : MonoBehaviour {
 
             case MenuStates.Play:
                 playMenu.SetActive(true);
-                splashScreen.SetActive(false);
+                //splashScreen.SetActive(false);
                 mainMenu.SetActive(false);
                 shopMenu.SetActive(false);
                 optionsMenu.SetActive(false);
@@ -130,7 +113,7 @@ public class UIManager : MonoBehaviour {
                 
             case MenuStates.Store:
                 shopMenu.SetActive(true);
-                splashScreen.SetActive(false);
+                //splashScreen.SetActive(false);
                 mainMenu.SetActive(false);
                 playMenu.SetActive(false);
                 optionsMenu.SetActive(false);
@@ -138,11 +121,26 @@ public class UIManager : MonoBehaviour {
 
             case MenuStates.Options:
                 optionsMenu.SetActive(true);
-                splashScreen.SetActive(false);
+                //splashScreen.SetActive(false);
                 mainMenu.SetActive(false);
                 playMenu.SetActive(false);
                 shopMenu.SetActive(false);
                 break;
+        }
+
+        // Debug input mode only!
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                showPaused();
+            }
+            else if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+                hidePaused();
+            }
         }
     }
 
