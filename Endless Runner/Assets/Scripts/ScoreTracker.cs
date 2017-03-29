@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ScoreTracker : MonoBehaviour {
 
+    private int score;
+    private int multiplier;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +16,22 @@ public class ScoreTracker : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void SetMultiplier(int multiplier)
+    {
+        this.multiplier = multiplier;
+    }
+
+    public void coinCollected()
+    {
+        score += multiplier;
+    }
+
+    public int Score
+    {
+        get
+        {
+            return score;
+        }
+    }
 }
