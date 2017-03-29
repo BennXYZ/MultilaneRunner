@@ -17,9 +17,8 @@ public class FortuneWheel : MonoBehaviour {
     bool locked;
     bool hasRotated = false;
 
-
     Vector3 rotation;
-
+    
     // Use this for initialization
     void Start()
     {
@@ -71,8 +70,12 @@ public class FortuneWheel : MonoBehaviour {
     //Mouse klick (Rotation drag starts)
     private void OnMouseDown()
     {
-        if (!locked) isClicking = true;
-        mouseReference = Input.mousePosition;
+        if (!locked && GameObject.FindGameObjectWithTag("FortuneWheelManager").GetComponent<FortuneWheelManager>().SpinAmount > 0)
+        {
+            isClicking = true;
+            mouseReference = Input.mousePosition;
+            GameObject.FindGameObjectWithTag("FortuneWheelManager").GetComponent<FortuneWheelManager>().SpinAmount -= 1;
+        }
     }
 
     private void OnMouseUp()
@@ -82,7 +85,8 @@ public class FortuneWheel : MonoBehaviour {
 
     private void Result()
     {
-        SceneManager.LoadScene("FortuneWheel");
+        Debug.Log("Result");
+        hasRotated = false;
     }
     
 }
