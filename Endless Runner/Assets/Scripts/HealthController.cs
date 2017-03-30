@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour {
 
@@ -50,6 +51,10 @@ public class HealthController : MonoBehaviour {
         if (invincibilityCounter >= iFramesCooldown && !invincibility)
         {
             health--;
+            if(health <= 0)
+            {
+                SceneManager.LoadScene("FortuneWheel");
+            }
             invincibilityCounter = 0;
             UpdateHealth.Invoke();
         }
