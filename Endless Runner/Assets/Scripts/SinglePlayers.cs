@@ -6,29 +6,39 @@ public class SinglePlayers : MonoBehaviour {
 
     Rigidbody2D rigid;
 
+    GameController game;
+
     [SerializeField]
     float jumpForce;
 
     // Use this for initialization
     void Start () {
 
+        game = GameObject.FindGameObjectWithTag("Game").GetComponent<GameController>();
         rigid = gameObject.GetComponent<Rigidbody2D>();
 	}
 	
+    public void Jump(int direction)
+    {
+        if(game.direction == GameController.Directions.Right && direction == 4)
+        rigid.AddForce(new Vector2(Physics2D.gravity.x * jumpForce * 100 * -rigid.gravityScale, Physics2D.gravity.y * jumpForce * 100 * -rigid.gravityScale));
+
+        if (game.direction == GameController.Directions.Down && direction == 1)
+            rigid.AddForce(new Vector2(Physics2D.gravity.x * jumpForce * 100 * -rigid.gravityScale, Physics2D.gravity.y * jumpForce * 100 * -rigid.gravityScale));
+
+        if (game.direction == GameController.Directions.Left && direction == 2)
+            rigid.AddForce(new Vector2(Physics2D.gravity.x * jumpForce * 100 * -rigid.gravityScale, Physics2D.gravity.y * jumpForce * 100 * -rigid.gravityScale));
+
+        if (game.direction == GameController.Directions.Up && direction == 3)
+            rigid.AddForce(new Vector2(Physics2D.gravity.x * jumpForce * 100 * -rigid.gravityScale, Physics2D.gravity.y * jumpForce * 100 * -rigid.gravityScale));
+    }
+
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && rigid.gravityScale > 0)
-        {
-            rigid.AddForce(new Vector2(Physics2D.gravity.x * jumpForce *100 * -rigid.gravityScale, Physics2D.gravity.y * jumpForce * 100 * - rigid.gravityScale));
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow) && rigid.gravityScale < 0)
-        {
-            rigid.AddForce(new Vector2(Physics2D.gravity.x * jumpForce * 100 * -rigid.gravityScale, Physics2D.gravity.y * jumpForce * 100 * -rigid.gravityScale));
-        }
-        if (transform.localPosition.x > 0.5f)
-            transform.localPosition = new Vector3(transform.localPosition.x - 0.1f, transform.localPosition.y, transform.localPosition.z);
-        if (transform.localPosition.x < -0.5f)
-            transform.localPosition = new Vector3(transform.localPosition.x + 0.1f, transform.localPosition.y, transform.localPosition.z);
+        if (transform.localPosition.x > 0.01f)
+            transform.localPosition = new Vector3(transform.localPosition.x - 0.8f * Time.deltaTime, transform.localPosition.y, transform.localPosition.z);
+        else if (transform.localPosition.x < -0.01f)
+            transform.localPosition = new Vector3(transform.localPosition.x + 0.8f * Time.deltaTime, transform.localPosition.y, transform.localPosition.z);
         else
             transform.localPosition = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
 
@@ -38,8 +48,7 @@ public class SinglePlayers : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Spikes")
         {
-            Debug.Log("Exit");
-            Application.Quit();
+            GameObject.FindGameObjectWithTag("Game").GetComponent<HealthController>().TakeDamage();
         }
     }
 }

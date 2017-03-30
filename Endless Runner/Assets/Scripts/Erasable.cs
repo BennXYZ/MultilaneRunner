@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class Erasable : MonoBehaviour {
 
+    GameObject mainCamera;
+
 	// Use this for initialization
 	void Start () {
-		
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Eraser")
-        {
+        if (Vector3.Distance(transform.position, mainCamera.transform.position) > 40)
             GameObject.Destroy(gameObject);
-        }
     }
+    
 }
