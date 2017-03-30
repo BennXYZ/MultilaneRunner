@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthDisplay : MonoBehaviour {
 
@@ -28,7 +29,7 @@ public class HealthDisplay : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        Debug.Log(SceneManager.GetActiveScene().name);
     }
 
     public void UpdateHealth()
