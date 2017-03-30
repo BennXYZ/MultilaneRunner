@@ -37,7 +37,7 @@ public class FortuneWheelManager : MonoBehaviour
 
         if(timer >= timerToSwitch)
         {
-            SceneManager.LoadScene("FortuneWheel");
+            SceneManager.LoadScene("MenuScene");
         }
 	}
 }
