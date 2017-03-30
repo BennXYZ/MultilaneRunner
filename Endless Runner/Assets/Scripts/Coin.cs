@@ -9,6 +9,7 @@ public class Coin : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        ScoreUp = new UnityEvent();
         ScoreUp.AddListener(GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreTracker>().coinCollected);
 	}
 	

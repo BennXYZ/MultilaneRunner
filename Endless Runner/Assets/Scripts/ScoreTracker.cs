@@ -9,7 +9,7 @@ public class ScoreTracker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        multiplier = 1;
 	}
 	
 	// Update is called once per frame

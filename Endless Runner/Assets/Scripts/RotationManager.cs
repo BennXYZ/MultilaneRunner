@@ -21,7 +21,7 @@ public class RotationManager : MonoBehaviour {
     public void RotateLeft()
     {
         transform.Rotate(new Vector3(0, 0, 90));
-        transform.localPosition = new Vector3(transform.localPosition.x + Mathf.Cos(Mathf.Deg2Rad * transform.localRotation.eulerAngles.z) * 4, transform.localPosition.y + Mathf.Cos(Mathf.Deg2Rad * (transform.localRotation.eulerAngles.z - 90)) * 4, transform.localPosition.z);
+        transform.localPosition = new Vector3(transform.localPosition.x + Mathf.Cos(Mathf.Deg2Rad * transform.localRotation.eulerAngles.z) * 8, transform.localPosition.y + Mathf.Cos(Mathf.Deg2Rad * (transform.localRotation.eulerAngles.z - 90)) * 8, transform.localPosition.z);
     }
 
     public void RotateRight()
