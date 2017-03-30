@@ -162,7 +162,8 @@ public class UIManager : MonoBehaviour {
         Debug.Log("You pressed Play!");
 
         sourceSounds.Play();
-        currentState = MenuStates.Play;
+        //currentState = MenuStates.Play;
+        SceneManager.LoadScene("TestsBenny");
     }
 
     /// <summary>
