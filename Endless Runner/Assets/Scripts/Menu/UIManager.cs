@@ -52,8 +52,12 @@ public class UIManager : MonoBehaviour {
     public bool isMusicMuted;
 
     // AudioSources
-    public AudioSource sourceAudio;
+    public AudioSource sourceSounds;
     public AudioSource sourceMusic;
+
+    // AudioClip
+    public AudioClip clickSound;
+    public AudioClip menuMusic;
 
     // Slider
     public Slider volumeSound;
@@ -75,6 +79,9 @@ public class UIManager : MonoBehaviour {
     /// </summary>
     void Start ()
     {
+        // Load sounds and music
+        //clickSound = GetComponent<AudioClip>();
+
         // Used for pause menu
         Time.timeScale = 1;
         pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
@@ -154,6 +161,7 @@ public class UIManager : MonoBehaviour {
         // Log activity
         Debug.Log("You pressed Play!");
 
+        sourceSounds.Play();
         currentState = MenuStates.Play;
     }
 
@@ -165,6 +173,7 @@ public class UIManager : MonoBehaviour {
         // Log activity
         Debug.Log("You pressed Start Game!");
 
+        sourceSounds.Play();
         SceneManager.LoadScene("GameScene");
     }
 
@@ -176,6 +185,7 @@ public class UIManager : MonoBehaviour {
         // Log activity
         Debug.Log("You pressed options!");
 
+        sourceSounds.Play();
         currentState = MenuStates.Options;
     }
 
@@ -188,6 +198,7 @@ public class UIManager : MonoBehaviour {
         // Log activity
         Debug.Log("Store button clicked.");
 
+        sourceSounds.Play();
         // Change menu state
         currentState = MenuStates.Store;
     }
@@ -201,6 +212,7 @@ public class UIManager : MonoBehaviour {
         // Log activity
         Debug.Log("Go back to main menu.");
 
+        sourceSounds.Play();
         // Change menu state
         currentState = MenuStates.Main;
     }
@@ -213,6 +225,7 @@ public class UIManager : MonoBehaviour {
         // Log activity
         Debug.Log("Exit button clicked.");
 
+        sourceSounds.Play();
         Application.Quit();
     }
 
@@ -264,6 +277,7 @@ public class UIManager : MonoBehaviour {
     /// </summary>
     public void missionsScreen()
     {
+        sourceSounds.Play();
         currentState = MenuStates.Play;
     }
 
@@ -272,6 +286,7 @@ public class UIManager : MonoBehaviour {
     /// </summary>
     public void storeScreen()
     {
+        sourceSounds.Play();
         currentState = MenuStates.Store;
     }
     
@@ -280,6 +295,7 @@ public class UIManager : MonoBehaviour {
     /// </summary>
     public void optionsScreen()
     {
+        sourceSounds.Play();
         currentState = MenuStates.Options;
     }
 
@@ -306,21 +322,25 @@ public class UIManager : MonoBehaviour {
     {
         if (isSoundMuted == true)
         {
-            sourceAudio.volume = 0.0f;
-            volumeSound.value = sourceAudio.volume;
+            sourceSounds.mute = true;
+            //sourceSounds.volume = 0.0f;
+            //volumeSound.value = sourceSounds.volume;
         }
         else
         {
-            sourceAudio.volume = volumeSound.value;
+            sourceSounds.volume = volumeSound.value;
         }
     }
+
+
 
     public void MusicController()
     {
         if (isMusicMuted == true)
         {
-            sourceMusic.volume = 0.0f;
-            volumeMusic.value = sourceMusic.volume;
+            sourceMusic.mute = true;
+            //sourceMusic.volume = 0.0f;
+            //volumeMusic.value = sourceMusic.volume;
         }
         else
         {
