@@ -12,24 +12,29 @@ public class GroundSpawning : MonoBehaviour
     private int[] blockChance;
 
     [SerializeField]
-    float offSetX;
-    [SerializeField]
-    float offSetY;
+    Vector2 OffSet;
 
+    [SerializeField]
+    float SpawnDistance;
+
+    [SerializeField]
     bool blockSpawned = false;
 
     GameObject mainCamera;
+
+    MovementManager manager;
 
     // Use this for initialization
     void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        manager = GameObject.FindGameObjectWithTag("GroundParent").GetComponent<MovementManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, mainCamera.transform.position) < 20 && !blockSpawned)
+        if (Vector3.Distance(transform.position, mainCamera.transform.position) < SpawnDistance && !blockSpawned)
         {
             SpawnNextGround();
             blockSpawned = true;
@@ -52,17 +57,19 @@ public class GroundSpawning : MonoBehaviour
             if (currentChance >= Chance)
             {
                 GameObject nextBlock = GameObject.Instantiate(groundTiles[i],
-                    new Vector3(transform.localPosition.x + offSetX, transform.localPosition.y + offSetY, transform.localPosition.z),
+                    new Vector3(transform.localPosition.x + OffSet.x, transform.localPosition.y + OffSet.y, transform.localPosition.z),
                     transform.rotation, transform.parent);
+                nextBlock.transform.Translate(manager.Direction * manager.Speed * Time.deltaTime);
                 nextBlock.name = groundTiles[i].name;
                 return true;
             }
         }
 
         GameObject Catch = GameObject.Instantiate(groundTiles[groundTiles.Length - 1],
-    new Vector3(transform.localPosition.x + offSetX, transform.localPosition.y + offSetY, transform.localPosition.z),
+    new Vector3(transform.localPosition.x + OffSet.x, transform.localPosition.y + OffSet.y, transform.localPosition.z),
     transform.rotation, transform.parent);
         Catch.name = groundTiles[groundTiles.Length - 1].name;
+        Catch.transform.Translate(manager.Direction * manager.Speed * Time.deltaTime);
 
         return true;
     }
