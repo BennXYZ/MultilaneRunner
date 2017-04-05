@@ -12,6 +12,13 @@ public class HealthManager : MonoBehaviour {
     int maxHealth;
 
     [SerializeField]
+    float iFrames;
+    float iFrameCounter;
+
+    [SerializeField]
+    bool showIFrames;
+
+    [SerializeField]
     UnityEvent Death;
 
     [SerializeField]
@@ -20,17 +27,35 @@ public class HealthManager : MonoBehaviour {
     [SerializeField]
     UnityEvent Healed;
 
+    Rigidbody2D rigid;
+
+    SpriteRenderer renderer;
+
     int health;
 
 	// Use this for initialization
 	void Start () {
         health = startHealth;
+        iFrameCounter = iFrames;
+        if (showIFrames)
+            renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+        rigid = gameObject.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+		if(Input.GetKeyDown(KeyCode.Space))
+            Debug.Log(health);
+        if (iFrameCounter < iFrames)
+        {
+            if (showIFrames)
+                ShowIFrames();
+            iFrameCounter += Time.deltaTime;
+        }
+        else if (showIFrames)
+            if (!renderer.enabled)
+                renderer.enabled = true;
+    }
 
     public void Heal(int healing)
     {
@@ -42,10 +67,26 @@ public class HealthManager : MonoBehaviour {
 
     public void Damage(int damage)
     {
-        health -= damage;
-        if(health <= 0)
+        if(iFrameCounter >= iFrames)
         {
-            Death.Invoke();
+            iFrameCounter = 0;
+            health -= damage;
+            rigid.AddForce(new Vector2(-300,0));
+            if (health <= 0)
+            {
+                Death.Invoke();
+                Debug.Log("Death");
+            }
         }
+    }
+
+    private void ShowIFrames()
+    {
+        renderer.enabled = !renderer.enabled;
+    }
+
+    public void Destroy()
+    {
+        GameObject.Destroy(gameObject);
     }
 }

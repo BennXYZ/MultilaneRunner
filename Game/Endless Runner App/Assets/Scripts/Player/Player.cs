@@ -12,9 +12,17 @@ public class Player : MonoBehaviour
     [SerializeField]
     float moveSpeed;
 
+    [Range(0, 1)]
+    [SerializeField]
+    float forwardJump;
+
     [Range(0,10)]
     [SerializeField]
     float dashForce;
+
+    [Range(0, 2)]
+    [SerializeField]
+    float dashRange;
 
     Vector2 velocity;
 
@@ -24,6 +32,7 @@ public class Player : MonoBehaviour
 
     private bool grounded;
     private bool falling;
+    private bool dashing;
 
     // Use this for initialization
     void Start()
@@ -31,6 +40,9 @@ public class Player : MonoBehaviour
         rigid = gameObject.GetComponent<Rigidbody2D>();
         playerPositioner = GameObject.FindGameObjectWithTag("PlayerPosition");
         velocity = Vector2.zero;
+        dashing = false;
+        falling = false;
+        grounded = false;
     }
 
     // Update is called once per frame
@@ -38,6 +50,8 @@ public class Player : MonoBehaviour
     {
         if (rigid.velocity.y < 0 && !grounded)
             falling = true;
+        if (!grounded)
+            CeckJumpState();
     }
 
     private void FixedUpdate()
@@ -59,20 +73,27 @@ public class Player : MonoBehaviour
             }
             transform.Translate(velocity.x, velocity.y, 0);
             velocity = velocity * (1 - dashForce * 0.1f);
+            if(velocity.x <= 0.1f)
+                dashing = false;
+        }
+    }
+
+    private void CeckJumpState()
+    {
+        if (!falling && rigid.velocity.y < 0)
+            falling = true;
+        else if(falling && rigid.velocity.y == 0)
+        {
+            falling = false;
+            grounded = true;
         }
     }
 
     public void Jump()
     {
-        if (Physics2D.gravity.x != 0)
+        if(grounded)
         {
-            rigid.AddForce(new Vector2((Physics2D.gravity.x / Mathf.Abs(Physics2D.gravity.x)) * -jumpForce *
-                (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200, 0));
-            grounded = false;
-        }
-        else
-        {
-            rigid.AddForce(new Vector2(0, Physics2D.gravity.y / Mathf.Abs(Physics2D.gravity.y) * -jumpForce *
+            rigid.AddForce(new Vector2(250 * forwardJump, Physics2D.gravity.y / Mathf.Abs(Physics2D.gravity.y) * -jumpForce *
                 (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200));
             grounded = false;
         }
@@ -80,6 +101,19 @@ public class Player : MonoBehaviour
 
     public void DashRight()
     {
-        velocity += new Vector2(dashForce, 0);
+        if(!dashing)
+        {
+            velocity += new Vector2(dashForce * dashRange, 0);
+            dashing = true;
+        }
+    }
+
+    public void DashLeft()
+    {
+        if (!dashing)
+        {
+            velocity += new Vector2(-dashForce * dashRange / 2, 0);
+            dashing = true;
+        }
     }
 }
