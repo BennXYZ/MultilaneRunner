@@ -27,8 +27,6 @@ public class HealthManager : MonoBehaviour {
     [SerializeField]
     UnityEvent Healed;
 
-    Rigidbody2D rigid;
-
     SpriteRenderer renderer;
 
     int health;
@@ -39,13 +37,10 @@ public class HealthManager : MonoBehaviour {
         iFrameCounter = iFrames;
         if (showIFrames)
             renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
-        rigid = gameObject.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Space))
-            Debug.Log(health);
         if (iFrameCounter < iFrames)
         {
             if (showIFrames)
@@ -71,7 +66,6 @@ public class HealthManager : MonoBehaviour {
         {
             iFrameCounter = 0;
             health -= damage;
-            rigid.AddForce(new Vector2(-300,0));
             if (health <= 0)
             {
                 Death.Invoke();

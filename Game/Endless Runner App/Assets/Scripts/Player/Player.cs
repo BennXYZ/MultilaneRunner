@@ -37,12 +37,15 @@ public class Player : MonoBehaviour
 
     BoxCollider2D collisionBox;
 
-    enum States { Walking, Jumping, Dashing, Sliding}
+    enum States { Default, Walking, Jumping, Falling, Dashing, Sliding}
+    States previousState;
     States currentState;
     States nextState;
 
+    int dashDirection;
+
     private bool grounded;
-    private bool falling;
+    private float previousFallSpeed;
     private bool dashing;
     private bool sneaking;
 
@@ -54,70 +57,49 @@ public class Player : MonoBehaviour
         collisionBox = gameObject.GetComponent<BoxCollider2D>();
         velocity = Vector2.zero;
         sneakCounter = sneakTime;
+        previousState = States.Default;
         currentState = States.Walking;
         nextState = States.Walking;
-        dashing = false;
-        falling = false;
-        grounded = false;
-        sneaking = false;
+        dashDirection = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (rigid.velocity.y < 0 && !grounded)
-            falling = true;
-        if (!grounded || sneaking)
-            CheckStates();
+        //if (rigid.velocity.y < 0 && !grounded)
+        //    falling = true;
+        //if (!grounded || sneaking)
+        //    CheckStates();
+        currentState = nextState;
+
+        switch(currentState)
+        {
+            case States.Walking:
+                WalkUpdate();
+                break;
+            case States.Jumping:
+                JumpUpdate();
+                break;
+            case States.Dashing:
+                DashUpdate();
+                break;
+            case States.Sliding:
+                SlideUpdate();
+                break;
+            case States.Falling:
+                FallUpdate();
+                break;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            Debug.Log(currentState);
+
+        previousState = currentState;
     }
 
     private void FixedUpdate()
     {
-        if (playerPositioner != null)
-        {
-            if (transform.position.x >= playerPositioner.transform.position.x + 0.05f)
-            {
-                transform.Translate(new Vector3(-moveSpeed * Time.deltaTime, 0, 0));
-            }
-            else if(transform.position.x <= playerPositioner.transform.position.x - 0.05f)
-            {
-                transform.Translate(new Vector3(moveSpeed * Time.deltaTime, 0, 0));
-            }
-            else if (transform.position.x != playerPositioner.transform.position.x && playerPositioner != null)
-            {
-                transform.position = new Vector3(playerPositioner.transform.position.x, transform.position.y, transform.position.z);
-                velocity = Vector2.zero;
-            }
-            transform.Translate(velocity.x, velocity.y, 0);
-            velocity = velocity * (1 - dashForce * 0.1f);
-            if(velocity.x <= 0.1f)
-                dashing = false;
-        }
-    }
 
-    private void CheckStates()
-    {
-
-        if (!falling && rigid.velocity.y < 0)
-        {
-            falling = true;
-            grounded = false;
-            if(sneaking)
-                RevertSneaking();
-        }
-        else if(falling && !grounded && rigid.velocity.y == 0)
-        {
-            falling = false;
-            grounded = true;
-        }
-        if (sneaking)
-            Debug.Log(sneakCounter);
-        if (sneakCounter < sneakTime)
-            sneakCounter += Time.deltaTime;
-        else if (sneakCounter >= sneakTime && sneaking)
-        {
-            RevertSneaking();
-        }
     }
 
     private void RevertSneaking()
@@ -129,47 +111,118 @@ public class Player : MonoBehaviour
         collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y + offset);
     }
 
+    #region StateUpdates
+
+    private void JumpUpdate()
+    {
+        if (previousState != currentState)
+            rigid.AddForce(new Vector2(250 * forwardJump, Physics2D.gravity.y / Mathf.Abs(Physics2D.gravity.y) * -jumpForce *
+                 (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200));
+        if (rigid.velocity.y < 0)
+            nextState = States.Falling;
+    }
+
+    private void FallUpdate()
+    {
+        if (rigid.velocity.y == 0)
+            nextState = States.Walking;
+    }
+
+    private void DashUpdate()
+    {
+
+    }
+
+    private void WalkUpdate()
+    {
+        if (transform.position.x >= playerPositioner.transform.position.x + 0.05f)
+        {
+            rigid.velocity = new Vector2(-moveSpeed, rigid.velocity.y);
+        }
+        else if (transform.position.x <= playerPositioner.transform.position.x - 0.05f)
+        {
+            rigid.velocity = new Vector2(moveSpeed, rigid.velocity.y);
+        }
+        else if (transform.position.x != playerPositioner.transform.position.x)
+        {
+            transform.position = new Vector3(playerPositioner.transform.position.x, transform.position.y, transform.position.z);
+            rigid.velocity = Vector2.zero;
+        }
+        if (rigid.velocity.y < 0)
+            nextState = States.Falling;
+    }
+
+    private void SlideUpdate()
+    {
+        
+    }
+
+    #endregion
+
     public void Jump()
     {
-        if(grounded)
-        {
-            rigid.AddForce(new Vector2(250 * forwardJump, Physics2D.gravity.y / Mathf.Abs(Physics2D.gravity.y) * -jumpForce *
-                (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200));
-            grounded = false;
-            if (sneaking)
-                RevertSneaking();
-        }
+        //if(grounded)
+        //{
+        //    rigid.AddForce(new Vector2(250 * forwardJump, Physics2D.gravity.y / Mathf.Abs(Physics2D.gravity.y) * -jumpForce *
+        //        (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200));
+        //    grounded = false;
+        //    if (sneaking)
+        //        RevertSneaking();
+        //}
+
+        if (currentState == States.Walking || currentState == States.Dashing || currentState == States.Sliding)
+            nextState = States.Jumping;
     }
 
     public void DashRight()
     {
-        if(!dashing && !sneaking)
+        //if(!dashing && !sneaking)
+        //{
+        //    velocity += new Vector2(dashForce * dashRange, 0);
+        //    dashing = true;
+        //}
+
+        if (currentState == States.Walking || currentState == States.Jumping || currentState == States.Falling)
         {
-            velocity += new Vector2(dashForce * dashRange, 0);
-            dashing = true;
+            nextState = States.Dashing;
+            dashDirection = 1;
         }
     }
 
     public void DashLeft()
     {
-        if (!dashing && !sneaking)
+        //if (!dashing && !sneaking)
+        //{
+        //    velocity += new Vector2(-dashForce * dashRange / 2, 0);
+        //    dashing = true;
+        //}
+
+        if (currentState == States.Walking || currentState == States.Jumping || currentState == States.Falling)
         {
-            velocity += new Vector2(-dashForce * dashRange / 2, 0);
-            dashing = true;
+            nextState = States.Dashing;
+            dashDirection = -1;
         }
     }
 
     public void Sneak()
     {
-        if(!sneaking && grounded)
-        {
-            velocity += new Vector2(dashForce * dashRange * 0.75f, 0);
-            dashing = true;
-            sneaking = true;
-            sneakCounter = 0;
-            float offset = collisionBox.size.y / 4;
-            collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y / 2);
-            collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y - offset);
-        }
+        //if(!sneaking && grounded)
+        //{
+        //    velocity += new Vector2(dashForce * dashRange * 0.75f, 0);
+        //    dashing = true;
+        //    sneaking = true;
+        //    sneakCounter = 0;
+        //    float offset = collisionBox.size.y / 4;
+        //    collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y / 2);
+        //    collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y - offset);
+        //}
+
+        if (currentState == States.Walking || currentState == States.Dashing)
+            nextState = States.Sliding;
+    }
+
+    public void GetHurt()
+    {
+        rigid.AddForce(new Vector2(-200, 0));
     }
 }
