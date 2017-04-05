@@ -24,25 +24,42 @@ public class Player : MonoBehaviour
     [SerializeField]
     float dashRange;
 
+    [Range(0, 5)]
+    [SerializeField]
+    float sneakTime;
+    float sneakCounter;
+
     Vector2 velocity;
 
     GameObject playerPositioner;
 
     Rigidbody2D rigid;
 
+    BoxCollider2D collisionBox;
+
+    enum States { Walking, Jumping, Dashing, Sliding}
+    States currentState;
+    States nextState;
+
     private bool grounded;
     private bool falling;
     private bool dashing;
+    private bool sneaking;
 
     // Use this for initialization
     void Start()
     {
         rigid = gameObject.GetComponent<Rigidbody2D>();
         playerPositioner = GameObject.FindGameObjectWithTag("PlayerPosition");
+        collisionBox = gameObject.GetComponent<BoxCollider2D>();
         velocity = Vector2.zero;
+        sneakCounter = sneakTime;
+        currentState = States.Walking;
+        nextState = States.Walking;
         dashing = false;
         falling = false;
         grounded = false;
+        sneaking = false;
     }
 
     // Update is called once per frame
@@ -50,8 +67,8 @@ public class Player : MonoBehaviour
     {
         if (rigid.velocity.y < 0 && !grounded)
             falling = true;
-        if (!grounded)
-            CeckJumpState();
+        if (!grounded || sneaking)
+            CheckStates();
     }
 
     private void FixedUpdate()
@@ -78,15 +95,38 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void CeckJumpState()
+    private void CheckStates()
     {
+
         if (!falling && rigid.velocity.y < 0)
+        {
             falling = true;
-        else if(falling && rigid.velocity.y == 0)
+            grounded = false;
+            if(sneaking)
+                RevertSneaking();
+        }
+        else if(falling && !grounded && rigid.velocity.y == 0)
         {
             falling = false;
             grounded = true;
         }
+        if (sneaking)
+            Debug.Log(sneakCounter);
+        if (sneakCounter < sneakTime)
+            sneakCounter += Time.deltaTime;
+        else if (sneakCounter >= sneakTime && sneaking)
+        {
+            RevertSneaking();
+        }
+    }
+
+    private void RevertSneaking()
+    {
+        sneaking = false;
+        sneakCounter = sneakTime;
+        float offset = collisionBox.size.y / 2;
+        collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y * 2);
+        collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y + offset);
     }
 
     public void Jump()
@@ -96,12 +136,14 @@ public class Player : MonoBehaviour
             rigid.AddForce(new Vector2(250 * forwardJump, Physics2D.gravity.y / Mathf.Abs(Physics2D.gravity.y) * -jumpForce *
                 (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200));
             grounded = false;
+            if (sneaking)
+                RevertSneaking();
         }
     }
 
     public void DashRight()
     {
-        if(!dashing)
+        if(!dashing && !sneaking)
         {
             velocity += new Vector2(dashForce * dashRange, 0);
             dashing = true;
@@ -110,10 +152,24 @@ public class Player : MonoBehaviour
 
     public void DashLeft()
     {
-        if (!dashing)
+        if (!dashing && !sneaking)
         {
             velocity += new Vector2(-dashForce * dashRange / 2, 0);
             dashing = true;
+        }
+    }
+
+    public void Sneak()
+    {
+        if(!sneaking && grounded)
+        {
+            velocity += new Vector2(dashForce * dashRange * 0.75f, 0);
+            dashing = true;
+            sneaking = true;
+            sneakCounter = 0;
+            float offset = collisionBox.size.y / 4;
+            collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y / 2);
+            collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y - offset);
         }
     }
 }

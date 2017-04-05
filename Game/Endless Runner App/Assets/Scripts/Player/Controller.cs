@@ -26,9 +26,13 @@ public class Controller : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.UpArrow))
             Up.Invoke();
+        if (Input.GetMouseButtonDown(0))
+            Up.Invoke();
         if (Input.GetKeyDown(KeyCode.RightArrow))
             Right.Invoke();
         if (Input.GetKeyDown(KeyCode.LeftArrow))
             Left.Invoke();
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            Down.Invoke();
     }
 }
