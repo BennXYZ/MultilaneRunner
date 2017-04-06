@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class Boss : MonoBehaviour {
 
     [SerializeField]
-    UnityEvent GotHit;
+    HealthManager Health;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +22,7 @@ public class Boss : MonoBehaviour {
     {
         if(collision.gameObject.tag == "PlayerProjectile")
         {
-            GotHit.Invoke();
+            Health.Damage(collision.gameObject.GetComponent<Projectile>().GetDamage());
         }
     }
 }

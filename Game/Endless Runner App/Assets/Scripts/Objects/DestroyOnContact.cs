@@ -8,6 +8,9 @@ public class DestroyOnContact : MonoBehaviour {
     [SerializeField]
     UnityEvent OnDestroy;
 
+    [SerializeField]
+    string destroyTag;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -20,7 +23,7 @@ public class DestroyOnContact : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == destroyTag)
         {
             OnDestroy.Invoke();
             GameObject.Destroy(gameObject);

@@ -30,6 +30,12 @@ public class Player : MonoBehaviour
     float slideDuration;
     float slideCounter;
 
+    [SerializeField]
+    GameObject projectile;
+
+    [SerializeField]
+    Vector2 projectileOffset;
+
     Vector2 velocity;
 
     GameObject playerPositioner;
@@ -214,18 +220,12 @@ public class Player : MonoBehaviour
 
     public void Sneak()
     {
-        //if(!sneaking && grounded)
-        //{
-        //    velocity += new Vector2(dashForce * dashRange * 0.75f, 0);
-        //    dashing = true;
-        //    sneaking = true;
-        //    sneakCounter = 0;
-        //    float offset = collisionBox.size.y / 4;
-        //    collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y / 2);
-        //    collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y - offset);
-        //}
-
         if (currentState == States.Walking || currentState == States.Dashing)
             nextState = States.Sliding;
+    }
+
+    public void Shoot()
+    {
+        GameObject.Instantiate(projectile, transform.position + new Vector3(projectileOffset.x, projectileOffset.y, 0), transform.rotation);
     }
 }
