@@ -20,14 +20,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     float dashForce;
 
-    [Range(0, 2)]
+    [Range(0, 5)]
     [SerializeField]
-    float dashRange;
+    float dashDuration;
+    float dashCounter;
 
     [Range(0, 5)]
     [SerializeField]
-    float sneakTime;
-    float sneakCounter;
+    float slideDuration;
+    float slideCounter;
 
     Vector2 velocity;
 
@@ -42,7 +43,7 @@ public class Player : MonoBehaviour
     States currentState;
     States nextState;
 
-    int dashDirection;
+    float dashDirection;
 
     private bool grounded;
     private float previousFallSpeed;
@@ -56,7 +57,8 @@ public class Player : MonoBehaviour
         playerPositioner = GameObject.FindGameObjectWithTag("PlayerPosition");
         collisionBox = gameObject.GetComponent<BoxCollider2D>();
         velocity = Vector2.zero;
-        sneakCounter = sneakTime;
+        slideCounter = slideDuration;
+        dashCounter = dashDuration;
         previousState = States.Default;
         currentState = States.Walking;
         nextState = States.Walking;
@@ -71,6 +73,9 @@ public class Player : MonoBehaviour
         //if (!grounded || sneaking)
         //    CheckStates();
         currentState = nextState;
+
+        if (previousState == States.Sliding && nextState != States.Sliding)
+            RevertSliding();
 
         switch(currentState)
         {
@@ -97,15 +102,9 @@ public class Player : MonoBehaviour
         previousState = currentState;
     }
 
-    private void FixedUpdate()
+    private void RevertSliding()
     {
-
-    }
-
-    private void RevertSneaking()
-    {
-        sneaking = false;
-        sneakCounter = sneakTime;
+        slideCounter = slideDuration;
         float offset = collisionBox.size.y / 2;
         collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y * 2);
         collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y + offset);
@@ -124,83 +123,89 @@ public class Player : MonoBehaviour
 
     private void FallUpdate()
     {
+        if (transform.position.x <= playerPositioner.transform.position.x)
+        {
+            rigid.velocity = rigid.velocity * 0.9f;
+        }
+
+        rigid.AddForce(new Vector2(-8, 0));
+
         if (rigid.velocity.y == 0)
             nextState = States.Walking;
     }
 
     private void DashUpdate()
     {
+        if (previousState != currentState)
+            rigid.AddForce(new Vector2(dashForce * 100 * dashDirection,0));
 
+            if (rigid.velocity.y != 0)
+                nextState = States.Falling;
+            else
+                nextState = States.Walking;
+        
     }
 
     private void WalkUpdate()
     {
-        if (transform.position.x >= playerPositioner.transform.position.x + 0.05f)
+        if (transform.position.x <= playerPositioner.transform.position.x)
         {
-            rigid.velocity = new Vector2(-moveSpeed, rigid.velocity.y);
+            rigid.velocity = rigid.velocity * 0.9f;
         }
-        else if (transform.position.x <= playerPositioner.transform.position.x - 0.05f)
-        {
-            rigid.velocity = new Vector2(moveSpeed, rigid.velocity.y);
-        }
-        else if (transform.position.x != playerPositioner.transform.position.x)
-        {
-            transform.position = new Vector3(playerPositioner.transform.position.x, transform.position.y, transform.position.z);
-            rigid.velocity = Vector2.zero;
-        }
+
+        rigid.AddForce(new Vector2(-8,0));
+
         if (rigid.velocity.y < 0)
             nextState = States.Falling;
     }
 
     private void SlideUpdate()
     {
-        
+        if (previousState != currentState)
+        {
+            rigid.AddForce(new Vector2(dashForce * 100, 0));
+            slideCounter = 0;
+            float offset = collisionBox.size.y / 4;
+            collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y / 2);
+            collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y - offset);
+        }
+
+        slideCounter += Time.deltaTime;
+
+        if (slideCounter >= slideDuration)
+        {
+            if (rigid.velocity.y < 0)
+                nextState = States.Falling;
+            else
+                nextState = States.Walking;
+        }
     }
 
     #endregion
 
     public void Jump()
     {
-        //if(grounded)
-        //{
-        //    rigid.AddForce(new Vector2(250 * forwardJump, Physics2D.gravity.y / Mathf.Abs(Physics2D.gravity.y) * -jumpForce *
-        //        (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200));
-        //    grounded = false;
-        //    if (sneaking)
-        //        RevertSneaking();
-        //}
-
         if (currentState == States.Walking || currentState == States.Dashing || currentState == States.Sliding)
             nextState = States.Jumping;
     }
 
     public void DashRight()
     {
-        //if(!dashing && !sneaking)
-        //{
-        //    velocity += new Vector2(dashForce * dashRange, 0);
-        //    dashing = true;
-        //}
-
         if (currentState == States.Walking || currentState == States.Jumping || currentState == States.Falling)
         {
             nextState = States.Dashing;
+            dashCounter = 0;
             dashDirection = 1;
         }
     }
 
     public void DashLeft()
     {
-        //if (!dashing && !sneaking)
-        //{
-        //    velocity += new Vector2(-dashForce * dashRange / 2, 0);
-        //    dashing = true;
-        //}
-
         if (currentState == States.Walking || currentState == States.Jumping || currentState == States.Falling)
         {
             nextState = States.Dashing;
-            dashDirection = -1;
+            dashCounter = 0;
+            dashDirection = -0.5f;
         }
     }
 
@@ -219,10 +224,5 @@ public class Player : MonoBehaviour
 
         if (currentState == States.Walking || currentState == States.Dashing)
             nextState = States.Sliding;
-    }
-
-    public void GetHurt()
-    {
-        rigid.AddForce(new Vector2(-200, 0));
     }
 }
