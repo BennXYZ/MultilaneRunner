@@ -80,19 +80,19 @@ public class Player : MonoBehaviour
         switch(currentState)
         {
             case States.Walking:
-                WalkUpdate();
+                nextState = WalkUpdate();
                 break;
             case States.Jumping:
-                JumpUpdate();
+                nextState = JumpUpdate();
                 break;
             case States.Dashing:
-                DashUpdate();
+                nextState = DashUpdate();
                 break;
             case States.Sliding:
-                SlideUpdate();
+                nextState = SlideUpdate();
                 break;
             case States.Falling:
-                FallUpdate();
+                nextState = FallUpdate();
                 break;
         }
 
@@ -112,16 +112,17 @@ public class Player : MonoBehaviour
 
     #region StateUpdates
 
-    private void JumpUpdate()
+    private States JumpUpdate()
     {
         if (previousState != currentState)
             rigid.AddForce(new Vector2(250 * forwardJump, Physics2D.gravity.y / Mathf.Abs(Physics2D.gravity.y) * -jumpForce *
                  (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200));
         if (rigid.velocity.y < 0)
-            nextState = States.Falling;
+            return States.Falling;
+        return currentState;
     }
 
-    private void FallUpdate()
+    private States FallUpdate()
     {
         if (transform.position.x <= playerPositioner.transform.position.x)
         {
@@ -131,39 +132,40 @@ public class Player : MonoBehaviour
         rigid.AddForce(new Vector2(-8, 0));
 
         if (rigid.velocity.y == 0)
-            nextState = States.Walking;
+            return States.Walking;
+        return currentState;
     }
 
-    private void DashUpdate()
+    private States DashUpdate()
     {
         if (previousState != currentState)
-            rigid.AddForce(new Vector2(dashForce * 100 * dashDirection,0));
+            rigid.AddForce(new Vector2(dashForce * 100 * dashDirection, 0));
 
-            if (rigid.velocity.y != 0)
-                nextState = States.Falling;
-            else
-                nextState = States.Walking;
-        
+        if (rigid.velocity.y != 0)
+            return States.Falling;
+        else
+            return States.Walking;
     }
 
-    private void WalkUpdate()
+    private States WalkUpdate()
     {
         if (transform.position.x <= playerPositioner.transform.position.x)
         {
             rigid.velocity = rigid.velocity * 0.9f;
         }
 
-        rigid.AddForce(new Vector2(-8,0));
+        rigid.AddForce(new Vector2(-8, 0));
 
         if (rigid.velocity.y < 0)
-            nextState = States.Falling;
+            return States.Falling;
+        return currentState;
     }
 
-    private void SlideUpdate()
+    private States SlideUpdate()
     {
         if (previousState != currentState)
         {
-            rigid.AddForce(new Vector2(dashForce * 100, 0));
+            rigid.velocity = new Vector2(dashForce * 2, 0);
             slideCounter = 0;
             float offset = collisionBox.size.y / 4;
             collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y / 2);
@@ -175,10 +177,11 @@ public class Player : MonoBehaviour
         if (slideCounter >= slideDuration)
         {
             if (rigid.velocity.y < 0)
-                nextState = States.Falling;
+                return States.Falling;
             else
-                nextState = States.Walking;
+                return States.Walking;
         }
+        return currentState;
     }
 
     #endregion

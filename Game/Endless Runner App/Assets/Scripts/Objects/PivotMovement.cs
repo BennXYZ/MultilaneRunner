@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PivotMovement : MonoBehaviour {
+public class PivotMovement : MonoBehaviour
+{
 
     [SerializeField]
     GameObject[] Pivots;
@@ -14,55 +15,65 @@ public class PivotMovement : MonoBehaviour {
     bool backtrackMovement;
     bool backtracking;
 
-    Vector2 velocity;
+    Rigidbody2D rigid;
 
     int nextPivot;
 
-	// Use this for initialization
-	void Start () {
-        nextPivot = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        velocity += (new Vector2(Pivots[nextPivot].transform.position.x - transform.position.x, Pivots[nextPivot].transform.position.y - transform.position.y).normalized);
-        transform.Translate(velocity * Time.deltaTime * speed);
-	}
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    // Use this for initialization
+    void Start()
     {
-        if (collision.gameObject.tag == "MovementPivot" && collision.gameObject == Pivots[nextPivot])
-        {
-            if (!backtrackMovement)
+        rigid = gameObject.GetComponent<Rigidbody2D>();
+        nextPivot = 0;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) * speed)
+            rigid.velocity = (Pivots[nextPivot].transform.position - transform.position) * speed;
+        else
+            rigid.AddForce((Pivots[nextPivot].transform.position - transform.position).normalized * speed);
+
+        if (Pivots.Length > 1)
+            if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) < 0.5f)
             {
-                if (nextPivot + 1 >= Pivots.Length)
-                    nextPivot = 0;
-                else
+                rigid.velocity = Vector2.zero;
+                ChangePivot();
+            }
+    }
+
+    private void ChangePivot()
+    {
+        if (!backtrackMovement)
+        {
+            if (nextPivot + 1 >= Pivots.Length)
+                nextPivot = 0;
+            else
+                nextPivot++;
+        }
+        else
+        {
+            if (backtracking)
+            {
+                if (nextPivot - 1 < 0)
+                {
+                    backtracking = false;
                     nextPivot++;
+                }
+                else
+                    nextPivot--;
             }
             else
             {
-                if (backtracking)
+                if (nextPivot + 1 == Pivots.Length)
                 {
-                    if (nextPivot - 1 < 0)
-                    {
-                        backtracking = false;
-                        nextPivot++;
-                    }
-                    else
-                        nextPivot--;
+                    backtracking = true;
+                    nextPivot--;
                 }
                 else
-                {
-                    if (nextPivot + 1 == Pivots.Length)
-                    {
-                        backtracking = true;
-                        nextPivot--;
-                    }
-                    else
-                        nextPivot++;
-                }
+                    nextPivot++;
             }
         }
     }
 }
+
