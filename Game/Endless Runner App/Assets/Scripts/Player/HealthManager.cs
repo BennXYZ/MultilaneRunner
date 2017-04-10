@@ -27,6 +27,9 @@ public class HealthManager : MonoBehaviour {
     [SerializeField]
     UnityEvent Healed;
 
+    [SerializeField]
+    GameObject DestroyObject;
+
     SpriteRenderer renderer;
 
     int health;
@@ -81,6 +84,9 @@ public class HealthManager : MonoBehaviour {
 
     public void Destroy()
     {
-        GameObject.Destroy(gameObject);
+        if (DestroyObject == null)
+            GameObject.Destroy(gameObject);
+        else
+            GameObject.Destroy(DestroyObject);
     }
 }

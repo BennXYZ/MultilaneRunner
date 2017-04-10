@@ -74,10 +74,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (rigid.velocity.y < 0 && !grounded)
-        //    falling = true;
-        //if (!grounded || sneaking)
-        //    CheckStates();
+
+        Debug.DrawLine(Vector2.zero, Vector2.zero + (Vector2)(Quaternion.Euler(0, 0, (Random.value * 180) - (180 / 2)) * new Vector2(0,-1)).normalized);
+
         currentState = nextState;
 
         if (previousState == States.Sliding && nextState != States.Sliding)

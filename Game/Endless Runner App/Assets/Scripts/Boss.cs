@@ -8,14 +8,19 @@ public class Boss : MonoBehaviour {
     [SerializeField]
     HealthManager Health;
 
-	// Use this for initialization
-	void Start () {
-		
+    UnityEvent Death;
+
+    // Use this for initialization
+    void Start () {
+
+        Death = new UnityEvent();
+        Death.AddListener(GameObject.FindGameObjectWithTag("BossSpawner").GetComponent<BossSpawning>().BossKilled);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,5 +29,10 @@ public class Boss : MonoBehaviour {
         {
             Health.Damage(collision.gameObject.GetComponent<Projectile>().GetDamage());
         }
+    }
+
+    private void OnDestroy()
+    {
+        Death.Invoke();
     }
 }
