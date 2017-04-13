@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -77,7 +78,10 @@ public class Player : MonoBehaviour
 
         Debug.DrawLine(Vector2.zero, Vector2.zero + (Vector2)(Quaternion.Euler(0, 0, (Random.value * 180) - (180 / 2)) * new Vector2(0,-1)).normalized);
 
-        currentState = nextState;
+        if (Time.timeScale != 0)
+            currentState = nextState;
+        else
+            nextState = currentState;
 
         if (previousState == States.Sliding && nextState != States.Sliding)
             RevertSliding();
@@ -121,7 +125,7 @@ public class Player : MonoBehaviour
     {
         if (previousState != currentState)
             rigid.AddForce(new Vector2(250 * forwardJump, Physics2D.gravity.y / Mathf.Abs(Physics2D.gravity.y) * -jumpForce *
-                 (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200));
+                 (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200) * Time.timeScale);
         if (rigid.velocity.y < 0)
             return States.Falling;
         return currentState;
@@ -134,7 +138,7 @@ public class Player : MonoBehaviour
             rigid.velocity = rigid.velocity * 0.9f;
         }
 
-        rigid.AddForce(new Vector2(-8, 0));
+        rigid.AddForce(new Vector2(-8, 0) * Time.timeScale);
 
         if (rigid.velocity.y == 0)
             return States.Walking;
@@ -144,7 +148,7 @@ public class Player : MonoBehaviour
     private States DashUpdate()
     {
         if (previousState != currentState)
-            rigid.AddForce(new Vector2(dashForce * 100 * dashDirection, 0));
+            rigid.AddForce(new Vector2(dashForce * 100 * dashDirection, 0) * Time.timeScale);
 
         if (rigid.velocity.y != 0)
             return States.Falling;
@@ -159,7 +163,7 @@ public class Player : MonoBehaviour
             rigid.velocity = rigid.velocity * 0.9f;
         }
 
-        rigid.AddForce(new Vector2(-8, 0));
+        rigid.AddForce(new Vector2(-8 , 0) * Time.timeScale);
 
         if (rigid.velocity.y < 0)
             return States.Falling;
@@ -225,6 +229,7 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
+        if(Time.timeScale != 0)
         GameObject.Instantiate(projectile, transform.position + new Vector3(projectileOffset.x, projectileOffset.y, 0), transform.rotation);
     }
 }
