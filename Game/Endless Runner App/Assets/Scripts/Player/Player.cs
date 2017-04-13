@@ -174,7 +174,7 @@ public class Player : MonoBehaviour
     {
         if (previousState != currentState)
         {
-            rigid.velocity = new Vector2(dashForce * 2, 0);
+            rigid.velocity = rigid.velocity / 2;
             slideCounter = 0;
             float offset = collisionBox.size.y / 4;
             collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y / 2);
