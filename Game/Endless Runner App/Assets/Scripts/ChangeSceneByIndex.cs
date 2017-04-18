@@ -9,4 +9,9 @@ public class ChangeSceneByIndex : MonoBehaviour {
     {
         SceneManager.LoadScene(sceneIndex);
     }
+
+    public void LoadScene(int sceneIndex)
+    {
+        SceneManager.LoadSceneAsync(sceneIndex);
+    }
 }

@@ -6,10 +6,9 @@ public class checkSettings : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gameSettings settings = GameObject.FindGameObjectWithTag("GameSettings").GetComponent<gameSettings>();
-        if(settings != null)
+        if(GameObject.FindGameObjectWithTag("GameSettings").GetComponent<gameSettings>() != null)
         {
-            settings.DoUpdate();
+            GameObject.FindGameObjectWithTag("GameSettings").GetComponent<gameSettings>().DoUpdate();
         }
 	}
 	
