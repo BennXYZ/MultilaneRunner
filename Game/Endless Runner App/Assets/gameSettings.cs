@@ -40,6 +40,12 @@ public class gameSettings : MonoBehaviour {
         UpdateSound(true);
     }
 
+    public void DoUpdate()
+    {
+        UpdateSound(true);
+        UpdateSound(false);
+    }
+
     private void UpdateSound(bool music)
     {
 
