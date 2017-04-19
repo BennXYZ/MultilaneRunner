@@ -12,6 +12,7 @@ public class scoreTrackerScript : MonoBehaviour {
         if (GameObject.FindGameObjectsWithTag("ScoreTracker").Length > 1)
             GameObject.Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
+        totalScore = PlayerPrefs.GetInt("Score", 0);
 	}
 	
 	// Update is called once per frame
@@ -31,20 +32,25 @@ public class scoreTrackerScript : MonoBehaviour {
 
     public int TotalScore()
     {
+        totalScore = PlayerPrefs.GetInt("Score", 0);
         return totalScore;
     }
 
     public void TransportScore()
     {
+        totalScore = PlayerPrefs.GetInt("Score", 0);
         totalScore += currentScore;
         currentScore = 0;
+        PlayerPrefs.SetInt("Score", totalScore);
     }
 
     public bool TrySpendingCoins(int amount)
     {
-        if(totalScore >= amount)
+        totalScore = PlayerPrefs.GetInt("Score", 0);
+        if (totalScore >= amount)
         {
             totalScore -= amount;
+            PlayerPrefs.SetInt("Score", totalScore);
             return true;
         }
         return false;

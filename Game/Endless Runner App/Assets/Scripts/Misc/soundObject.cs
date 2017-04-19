@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class soundObject : MonoBehaviour {
 
-    AudioSource sound;
+    [SerializeField]
+    AudioSource[] sound;
 
 	// Use this for initialization
 	void Start () {
-        sound = gameObject.GetComponent<AudioSource>();
 	}
 	
 	public void UpdateSound(bool muted)
     {
-        if (muted)
-            sound.volume = 0;
-        else
-            sound.volume = 1;
+        for(int i = 0; i < sound.Length; i++)
+        {
+            if (muted)
+                sound[i].volume = 0;
+            else
+                sound[i].volume = 1;
+        }
+
     }
 }

@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 public class HealthManager : MonoBehaviour {
 
-    [SerializeField]
-    int startHealth;
+
+    int maxHealth;
 
     [SerializeField]
-    int maxHealth;
+    int startHealth;
 
     [SerializeField]
     float iFrames;
@@ -39,7 +39,16 @@ public class HealthManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        health = startHealth;
+        if(startHealth == 0)
+        {
+            maxHealth = PlayerPrefs.GetInt("PlayerHealth", 1);
+            health = maxHealth;
+        }
+        else
+        {
+            maxHealth = startHealth;
+            health = maxHealth;
+        }
         Beginning.Invoke();
         iFrameCounter = iFrames;
         if (showIFrames)
