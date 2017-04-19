@@ -23,12 +23,6 @@ public class Controller : MonoBehaviour {
     [SerializeField]
     float shootingClickRange;
 
-    [SerializeField]
-    UnityEvent Pause;
-
-    [SerializeField]
-    UnityEvent Unpause;
-
     Vector2 clickBegin;
     Vector2 clickEnd;
 
