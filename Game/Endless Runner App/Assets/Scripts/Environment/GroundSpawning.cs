@@ -68,7 +68,7 @@ public class GroundSpawning : MonoBehaviour
                     GameObject nextBlock = GameObject.Instantiate(groundTiles[i],
                         new Vector3(transform.localPosition.x + OffSet.x, transform.localPosition.y + OffSet.y, transform.localPosition.z),
                         transform.rotation, transform.parent);
-                    nextBlock.transform.Translate(manager.Direction * manager.Speed * Time.deltaTime);
+                    //nextBlock.transform.Translate(manager.Direction * manager.Speed * Time.deltaTime);
                     nextBlock.name = groundTiles[i].name;
                     return true;
                 }
@@ -78,7 +78,7 @@ public class GroundSpawning : MonoBehaviour
         new Vector3(transform.localPosition.x + OffSet.x, transform.localPosition.y + OffSet.y, transform.localPosition.z),
         transform.rotation, transform.parent);
             Catch.name = groundTiles[groundTiles.Length - 1].name;
-            Catch.transform.Translate(manager.Direction * manager.Speed * Time.deltaTime);
+            //Catch.transform.Translate(manager.Direction * manager.Speed * Time.deltaTime);
 
             return true;
         }
@@ -87,7 +87,7 @@ public class GroundSpawning : MonoBehaviour
             GameObject nextBlock = GameObject.Instantiate(groundTiles[0],
                         new Vector3(transform.localPosition.x + OffSet.x, transform.localPosition.y + OffSet.y, transform.localPosition.z),
                         transform.rotation, transform.parent);
-            nextBlock.transform.Translate(manager.Direction * manager.Speed * Time.deltaTime);
+            //nextBlock.transform.Translate(manager.Direction * manager.Speed * Time.deltaTime);
             nextBlock.name = groundTiles[0].name;
             nextBlock.GetComponent<GroundSpawning>().SetBoss(true);
             return true;
