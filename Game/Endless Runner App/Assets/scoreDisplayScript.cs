@@ -16,16 +16,16 @@ public class scoreDisplayScript : MonoBehaviour {
         if (GameObject.FindGameObjectWithTag("ScoreTracker") != null)
         {
             tracker = GameObject.FindGameObjectWithTag("ScoreTracker").GetComponent<scoreTrackerScript>();
-            score = tracker.CurrentScore();
+            score = 0;
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
         if(tracker != null)
-        if (score != tracker.CurrentScore())
+        if (score != tracker.TotalScore())
         {
-            score = tracker.CurrentScore();
+            score = tracker.TotalScore();
             text.text = score.ToString();
         }
 	}

@@ -9,6 +9,8 @@ public class scoreTrackerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        if (GameObject.FindGameObjectsWithTag("ScoreTracker").Length > 1)
+            GameObject.Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 	}
 	
@@ -16,6 +18,11 @@ public class scoreTrackerScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnLevelWasLoaded(int level)
+    {
+        TransportScore();
+    }
 
     public int CurrentScore()
     {
