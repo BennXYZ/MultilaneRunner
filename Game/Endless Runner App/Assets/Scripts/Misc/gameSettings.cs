@@ -51,16 +51,14 @@ public class gameSettings : MonoBehaviour {
 
         if (!music)
         {
-            soundObject[] sounds = GameObject.Find("SoundManager").GetComponentsInChildren<soundObject>();
-            for (int i = 0; i < sounds.Length; i++)
-                sounds[i].UpdateSound(soundMuted);
+            soundObject sounds = GameObject.Find("SoundManager").GetComponent<soundObject>();
+                sounds.UpdateSound(soundMuted);
         }
 
         else
         {
-            soundObject[] musics = GameObject.Find("MusicManager").GetComponentsInChildren<soundObject>();
-            for (int i = 0; i < musics.Length; i++)
-                musics[i].UpdateSound(musicMuted);
+            soundObject musics = GameObject.Find("MusicManager").GetComponent<soundObject>();
+                musics.UpdateSound(musicMuted);
         }
 
     }

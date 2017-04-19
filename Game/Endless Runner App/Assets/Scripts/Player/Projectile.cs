@@ -7,12 +7,11 @@ public class Projectile : MonoBehaviour {
     [SerializeField]
     float speed;
 
-    [SerializeField]
     int damage;
 
 	// Use this for initialization
 	void Start () {
-		
+        damage = PlayerPrefs.GetInt("PlayerStrength", 1);
 	}
 	
 	// Update is called once per frame
