@@ -19,6 +19,9 @@ public class HealthManager : MonoBehaviour {
     bool showIFrames;
 
     [SerializeField]
+    UnityEvent Beginning;
+
+    [SerializeField]
     UnityEvent Death;
 
     [SerializeField]
@@ -37,6 +40,7 @@ public class HealthManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         health = startHealth;
+        Beginning.Invoke();
         iFrameCounter = iFrames;
         if (showIFrames)
             renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
@@ -61,6 +65,7 @@ public class HealthManager : MonoBehaviour {
             health = maxHealth;
         else
             health += healing;
+        Healed.Invoke();
     }
 
     public void Damage(int damage)
@@ -69,12 +74,18 @@ public class HealthManager : MonoBehaviour {
         {
             iFrameCounter = 0;
             health -= damage;
+            Hurt.Invoke();
             if (health <= 0)
             {
                 Death.Invoke();
                 Debug.Log("Death");
             }
         }
+    }
+
+    public int Health()
+    {
+        return health;
     }
 
     private void ShowIFrames()

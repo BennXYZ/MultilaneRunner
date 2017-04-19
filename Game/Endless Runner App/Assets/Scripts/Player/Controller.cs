@@ -29,7 +29,7 @@ public class Controller : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -41,6 +41,14 @@ public class Controller : MonoBehaviour {
             Left.Invoke();
         if (Input.GetKeyDown(KeyCode.DownArrow))
             Down.Invoke();
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (Time.timeScale != 0)
+                Time.timeScale = 0;
+            else
+                Time.timeScale = 1;
+        }
+
 
         if (Input.GetMouseButtonDown(0))
             clickBegin = Input.mousePosition;
