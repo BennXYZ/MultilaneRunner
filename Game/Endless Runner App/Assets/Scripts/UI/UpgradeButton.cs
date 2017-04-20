@@ -2,10 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class UpgradeButton: MonoBehaviour {
 
     UnityEvent buttonPressed;
+
+    [SerializeField]
+    Text text;
+    int prize;
+
+    UpgradeScript upgrader;
 
     enum Status { Health, Strength}
 
@@ -14,23 +21,40 @@ public class UpgradeButton: MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        upgrader = GameObject.FindGameObjectWithTag("UpgradeManager").GetComponent<UpgradeScript>();
+        UpdateText();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
+    private void UpdateText()
+    {
+        switch (currentStatus)
+        {
+            case Status.Health:
+
+                text.text = upgrader.getHealthPrize().ToString() + " Coins";
+                break;
+            case Status.Strength:
+                text.text = upgrader.getShotPrize().ToString() + " Coins";
+                break;
+        }
+    }
+
     public void TryUpgrade()
     {
         switch (currentStatus)
         {
             case Status.Health:
-                GameObject.FindGameObjectWithTag("UpgradeManager").GetComponent<UpgradeScript>().TryUpgradeHealth();
+                upgrader.TryUpgradeHealth();
+                UpdateText();
                 break;
             case Status.Strength:
-                GameObject.FindGameObjectWithTag("UpgradeManager").GetComponent<UpgradeScript>().TryUpgradeShot();
+                upgrader.TryUpgradeShot();
+                UpdateText();
                 break;
         }
 

@@ -24,8 +24,9 @@ public class UpgradeScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
-	}
+        HealthSize = PlayerPrefs.GetInt("PlayerHealth", 1);
+        ShotStrength = PlayerPrefs.GetInt("PlayerStrength", 1);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -47,12 +48,28 @@ public class UpgradeScript : MonoBehaviour {
         }
     }
 
+    public string getHealthPrize()
+    {
+        if (HealthSize < maxHealth)
+            return healthPrices[HealthSize - 1].ToString();
+        else
+            return "---";
+    }
+
+    public string getShotPrize()
+    {
+        if (ShotStrength < maxStrength)
+            return shotPrices[ShotStrength - 1].ToString();
+        else
+            return "---";
+    }
+
     public void TryUpgradeShot()
     {
         ShotStrength = PlayerPrefs.GetInt("PlayerStrength", 1);
         if (ShotStrength < maxStrength)
         {
-            if (score.TrySpendingCoins(3))
+            if (score.TrySpendingCoins(shotPrices[ShotStrength - 1]))
                 UpgradeStrength();
         }
     }
@@ -82,5 +99,7 @@ public class UpgradeScript : MonoBehaviour {
     private void ResetPlayerPrefs()
     {
         PlayerPrefs.DeleteAll();
+        HealthSize = PlayerPrefs.GetInt("PlayerHealth", 1);
+        ShotStrength = PlayerPrefs.GetInt("PlayerStrength", 1);
     }
 }

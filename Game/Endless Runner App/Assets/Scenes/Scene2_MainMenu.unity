@@ -426,7 +426,7 @@ MonoBehaviour:
   maxHealth: 5
   maxStrength: 3
   healthPrices: 00000000010000000200000003000000
-  shotPrices: 00000000000000000000000000000000
+  shotPrices: 05000000050000000500000005000000
 --- !u!4 &338843603
 Transform:
   m_ObjectHideFlags: 0
@@ -2023,6 +2023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2eb97444507234582b8f3c2760e1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 1969537551}
   currentStatus: 0
 --- !u!1 &1251760516
 GameObject:
@@ -2227,6 +2228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2eb97444507234582b8f3c2760e1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 651130965}
   currentStatus: 1
 --- !u!1 &1265383116
 GameObject:
