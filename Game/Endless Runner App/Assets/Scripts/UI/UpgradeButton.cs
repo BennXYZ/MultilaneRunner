@@ -14,7 +14,7 @@ public class UpgradeButton: MonoBehaviour {
 
     UpgradeScript upgrader;
 
-    enum Status { Health, Strength}
+    enum Status { Health, Strength, Coins}
 
     [SerializeField]
     Status currentStatus;
@@ -41,6 +41,10 @@ public class UpgradeButton: MonoBehaviour {
             case Status.Strength:
                 text.text = upgrader.getShotPrize().ToString() + " Coins";
                 break;
+
+            case Status.Coins:
+                text.text = upgrader.getCoinPrize().ToString() + " Coins";
+                break;
         }
     }
 
@@ -54,6 +58,10 @@ public class UpgradeButton: MonoBehaviour {
                 break;
             case Status.Strength:
                 upgrader.TryUpgradeShot();
+                UpdateText();
+                break;
+            case Status.Coins:
+                upgrader.TryUpgradeCoins();
                 UpdateText();
                 break;
         }

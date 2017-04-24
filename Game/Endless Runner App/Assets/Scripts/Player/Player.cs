@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    Animator animator;
 
     [SerializeField]
     float jumpForce;
@@ -32,10 +34,28 @@ public class Player : MonoBehaviour
     float slideCounter;
 
     [SerializeField]
-    GameObject projectile;
+    GameObject[] projectiles;
 
     [SerializeField]
     Vector2 projectileOffset;
+
+    [SerializeField]
+    UnityEvent StartJumping;
+
+    [SerializeField]
+    UnityEvent StartDashing;
+
+    [SerializeField]
+    UnityEvent StartBackDashing;
+
+    [SerializeField]
+    UnityEvent StartSliding;
+
+    [SerializeField]
+    UnityEvent StartWalking;
+
+    [SerializeField]
+    UnityEvent ShootEvent;
 
     Vector2 velocity;
 
@@ -108,7 +128,15 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             Debug.Log(currentState);
 
+        UpdateCooldowns();
+
         previousState = currentState;
+    }
+
+    private void UpdateCooldowns()
+    {
+        if (dashCounter < dashDuration)
+            dashCounter += Time.deltaTime;
     }
 
     private void RevertSliding()
@@ -124,8 +152,11 @@ public class Player : MonoBehaviour
     private States JumpUpdate()
     {
         if (previousState != currentState)
+        {
             rigid.AddForce(new Vector2(250 * forwardJump, Physics2D.gravity.y / Mathf.Abs(Physics2D.gravity.y) * -jumpForce *
-                 (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200) * Time.timeScale);
+     (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200) * Time.timeScale);
+        }
+
         if (rigid.velocity.y < 0)
             return States.Falling;
         return currentState;
@@ -133,6 +164,7 @@ public class Player : MonoBehaviour
 
     private States FallUpdate()
     {
+
         if (transform.position.x <= playerPositioner.transform.position.x)
         {
             rigid.velocity = rigid.velocity * 0.9f;
@@ -141,23 +173,36 @@ public class Player : MonoBehaviour
         rigid.AddForce(new Vector2(-8, 0) * Time.timeScale);
 
         if (rigid.velocity.y == 0)
+        {
+            StartWalking.Invoke();
             return States.Walking;
+        }
         return currentState;
     }
 
     private States DashUpdate()
     {
         if (previousState != currentState)
+        {
             rigid.AddForce(new Vector2(dashForce * 100 * dashDirection, 0) * Time.timeScale);
+        }
 
-        if (rigid.velocity.y != 0)
-            return States.Falling;
+        if (dashCounter >= dashDuration)
+        {
+            if (rigid.velocity.y != 0)
+                return States.Falling;
+            else
+                return States.Walking;
+        }
         else
-            return States.Walking;
+            return currentState;
     }
 
     private States WalkUpdate()
     {
+        if (animator.GetBool("InAir"))
+            animator.SetBool("InAir", false);
+
         if (transform.position.x <= playerPositioner.transform.position.x)
         {
             rigid.velocity = rigid.velocity * 0.9f;
@@ -198,13 +243,20 @@ public class Player : MonoBehaviour
     public void Jump()
     {
         if (currentState == States.Walking || currentState == States.Dashing || currentState == States.Sliding)
+        {
+            StartJumping.Invoke();
             nextState = States.Jumping;
+            animator.SetTrigger("Jump");
+            animator.SetBool("InAir", true);
+        }
     }
 
     public void DashRight()
     {
-        if (currentState == States.Walking || currentState == States.Jumping || currentState == States.Falling)
+        if ((currentState == States.Walking || currentState == States.Jumping || currentState == States.Falling) && dashCounter >= dashDuration)
         {
+            StartDashing.Invoke();
+            animator.SetTrigger("Dash");
             nextState = States.Dashing;
             dashCounter = 0;
             dashDirection = 1;
@@ -215,6 +267,8 @@ public class Player : MonoBehaviour
     {
         if (currentState == States.Walking || currentState == States.Jumping || currentState == States.Falling)
         {
+            StartBackDashing.Invoke();
+            animator.SetTrigger("DashB");
             nextState = States.Dashing;
             dashCounter = 0;
             dashDirection = -0.5f;
@@ -224,12 +278,19 @@ public class Player : MonoBehaviour
     public void Sneak()
     {
         if (currentState == States.Walking || currentState == States.Dashing)
+        {
             nextState = States.Sliding;
+            StartSliding.Invoke();
+        }
     }
 
     public void Shoot()
     {
-        if(Time.timeScale != 0)
-        GameObject.Instantiate(projectile, transform.position + new Vector3(projectileOffset.x, projectileOffset.y, 0), transform.rotation);
+        if (Time.timeScale != 0)
+            if (currentState != States.Dashing)
+            {
+                GameObject.Instantiate(projectiles[PlayerPrefs.GetInt("PlayerStrength", 0)], transform.position + new Vector3(projectileOffset.x, projectileOffset.y, 0), transform.rotation);
+                ShootEvent.Invoke();
+            }
     }
 }

@@ -7,8 +7,13 @@ public class coinScript : MonoBehaviour {
     [SerializeField]
     int score;
 
+    [SerializeField]
+    int coinLVL;
+
 	// Use this for initialization
 	void Start () {
+        if (PlayerPrefs.GetInt("CoinLvl", 0) < coinLVL)
+            GameObject.Destroy(gameObject);
 	}
 	
 	// Update is called once per frame

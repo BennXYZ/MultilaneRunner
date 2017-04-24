@@ -1,0 +1,532 @@
+fileFormatVersion: 2
+guid: 8d4481d7c4369c74dbe2b24f62e36aaf
+timeCreated: 1492761496
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Dash_Forwards_0
+    21300002: Dash_Forwards_1
+    21300004: Dash_Forwards_2
+    21300006: Dash_Forwards_3
+    21300008: Dash_Forwards_4
+    21300010: Dash_Forwards_5
+    21300012: Dash_Forwards_6
+    21300014: Dash_Forwards_7
+    21300016: Dash_Forwards_8
+    21300018: Dash_Forwards_9
+    21300020: Dash_Forwards_10
+    21300022: Dash_Forwards_11
+    21300024: Dash_Forwards_12
+    21300026: Dash_Forwards_13
+    21300028: Dash_Forwards_14
+    21300030: Dash_Forwards_15
+    21300032: Dash_Forwards_16
+    21300034: Dash_Forwards_17
+    21300036: Dash_Forwards_18
+    21300038: Dash_Forwards_19
+    21300040: Dash_Forwards_20
+    21300042: Dash_Forwards_21
+    21300044: Dash_Forwards_22
+    21300046: Dash_Forwards_23
+    21300048: Dash_Forwards_24
+    21300050: Dash_Forwards_25
+    21300052: Dash_Forwards_26
+    21300054: Dash_Forwards_27
+    21300056: Dash_Forwards_28
+    21300058: Dash_Forwards_29
+    21300060: Dash_Forwards_30
+    21300062: Dash_Forwards_31
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dash_Forwards_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 597
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_1
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 597
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_2
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 597
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_3
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 597
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_4
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 597
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_5
+      rect:
+        serializedVersion: 2
+        x: 2115
+        y: 597
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_6
+      rect:
+        serializedVersion: 2
+        x: 2538
+        y: 597
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_7
+      rect:
+        serializedVersion: 2
+        x: 2961
+        y: 597
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 398
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_9
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 398
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_10
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 398
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_11
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 398
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_12
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 398
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_13
+      rect:
+        serializedVersion: 2
+        x: 2115
+        y: 398
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_14
+      rect:
+        serializedVersion: 2
+        x: 2538
+        y: 398
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_15
+      rect:
+        serializedVersion: 2
+        x: 2961
+        y: 398
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 199
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_17
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 199
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_18
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 199
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_19
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 199
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_20
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 199
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_21
+      rect:
+        serializedVersion: 2
+        x: 2115
+        y: 199
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_22
+      rect:
+        serializedVersion: 2
+        x: 2538
+        y: 199
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_23
+      rect:
+        serializedVersion: 2
+        x: 2961
+        y: 199
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_25
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 0
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_26
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 0
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_27
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 0
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_28
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 0
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_29
+      rect:
+        serializedVersion: 2
+        x: 2115
+        y: 0
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_30
+      rect:
+        serializedVersion: 2
+        x: 2538
+        y: 0
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Forwards_31
+      rect:
+        serializedVersion: 2
+        x: 2961
+        y: 0
+        width: 423
+        height: 199
+      alignment: 9
+      pivot: {x: 0.75, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

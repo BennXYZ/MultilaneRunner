@@ -25,18 +25,45 @@ public class gameSettings : MonoBehaviour {
         if (GameObject.FindGameObjectsWithTag("GameSettings").Length > 1)
             GameObject.Destroy(gameObject);
         GameObject.DontDestroyOnLoad(gameObject);
+
+        if (PlayerPrefs.GetInt("Music", 1) == 0)
+            musicMuted = true;
+        else
+            musicMuted = false;
+
+        if (PlayerPrefs.GetInt("Sound", 1) == 0)
+            soundMuted = true;
+        else
+            soundMuted = false;
+
+        Debug.Log(PlayerPrefs.GetInt("Sound", 1));
+
         SoundUpdated = new UnityEvent();
+
+        DoUpdate();
 	}
 
     public void SetSoundMute()
     {
         soundMuted = !soundMuted;
+
+        if (soundMuted)
+            PlayerPrefs.SetInt("Sound", 0);
+        else
+            PlayerPrefs.SetInt("Sound", 1);
+
         UpdateSound(false);
     }
 
     public void SetMusicMute()
     {
         musicMuted = !musicMuted;
+
+        if (musicMuted)
+            PlayerPrefs.SetInt("Music", 0);
+        else
+            PlayerPrefs.SetInt("Music", 1);
+
         UpdateSound(true);
     }
 
@@ -54,7 +81,6 @@ public class gameSettings : MonoBehaviour {
             soundObject sounds = GameObject.Find("SoundManager").GetComponent<soundObject>();
                 sounds.UpdateSound(soundMuted);
         }
-
         else
         {
             soundObject musics = GameObject.Find("MusicManager").GetComponent<soundObject>();

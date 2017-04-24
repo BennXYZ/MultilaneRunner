@@ -15,6 +15,9 @@ public class acutalScoreScript : MonoBehaviour
     [SerializeField]
     UnityEvent newHighscore;
 
+    [SerializeField]
+    MovementManager movement;
+
     // Use this for initialization
     void Start()
     {
@@ -27,7 +30,7 @@ public class acutalScoreScript : MonoBehaviour
     {
         if (!outOfBoss)
         {
-            score += Time.deltaTime * ScoreMultiplicator;
+            score += Time.deltaTime * movement.Speed * ScoreMultiplicator;
         }
     }
 

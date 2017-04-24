@@ -14,6 +14,7 @@ TagManager:
   - GameSettings
   - ScoreTracker
   - UpgradeManager
+  - Coin
   layers:
   - Default
   - TransparentFX
