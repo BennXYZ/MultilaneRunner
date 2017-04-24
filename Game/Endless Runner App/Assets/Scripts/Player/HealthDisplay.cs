@@ -9,7 +9,9 @@ public class HealthDisplay : MonoBehaviour
     Sprite[] HealthSprites;
 
     [SerializeField]
+#pragma warning disable CS0108 // Element blendet vererbte Element aus; fehlendes 'new'-Schlüsselwort
     SpriteRenderer renderer;
+#pragma warning restore CS0108 // Element blendet vererbte Element aus; fehlendes 'new'-Schlüsselwort
 
     [SerializeField]
     HealthManager manager;
