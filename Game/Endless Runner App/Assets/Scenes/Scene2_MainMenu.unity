@@ -562,7 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 284643848}
   healthPrices: 00000000010000000200000003000000
-  shotPrices: 05000000050000000500000005000000
+  shotPrices: 05000000
   coinPrices: 000000000100000000000000
 --- !u!4 &338843603
 Transform:

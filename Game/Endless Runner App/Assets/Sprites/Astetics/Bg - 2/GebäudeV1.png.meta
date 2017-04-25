@@ -1,0 +1,252 @@
+fileFormatVersion: 2
+guid: 7e09ddb899af7f74fb60a6c3c450eeab
+timeCreated: 1493131188
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "Geb\xE4udeV1_0"
+    21300002: "Geb\xE4udeV1_1"
+    21300004: "Geb\xE4udeV1_2"
+    21300006: "Geb\xE4udeV1_3"
+    21300008: "Geb\xE4udeV1_4"
+    21300010: "Geb\xE4udeV1_5"
+    21300012: "Geb\xE4udeV1_6"
+    21300014: "Geb\xE4udeV1_7"
+    21300016: "Geb\xE4udeV1_8"
+    21300018: "Geb\xE4udeV1_9"
+    21300020: "Geb\xE4udeV1_10"
+    21300022: "Geb\xE4udeV1_11"
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_0"
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 88
+        width: 336
+        height: 815
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.023085855}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_1"
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 87
+        width: 152
+        height: 671
+      alignment: 9
+      pivot: {x: 0.412427, y: 0.011991339}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_2"
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 92
+        width: 228
+        height: 591
+      alignment: 9
+      pivot: {x: 0.441618, y: 0.045034032}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_3"
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 85
+        width: 240
+        height: 697
+      alignment: 9
+      pivot: {x: 0.477815, y: 0.03783444}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_4"
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 82
+        width: 194
+        height: 316
+      alignment: 9
+      pivot: {x: 0.4862778, y: 0.07033708}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_5"
+      rect:
+        serializedVersion: 2
+        x: 1389
+        y: 84
+        width: 98
+        height: 594
+      alignment: 9
+      pivot: {x: 0.44566998, y: 0.042850006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_6"
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 47
+        width: 179
+        height: 338
+      alignment: 9
+      pivot: {x: 0.5297463, y: 0.09830326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_7"
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 45
+        width: 306
+        height: 527
+      alignment: 9
+      pivot: {x: 0.44779977, y: 0.16659021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_8"
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 60
+        width: 186
+        height: 437
+      alignment: 9
+      pivot: {x: 0.44274902, y: 0.067464486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_9"
+      rect:
+        serializedVersion: 2
+        x: 2214
+        y: 106
+        width: 157
+        height: 447
+      alignment: 9
+      pivot: {x: 0.44913012, y: 0.053317793}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_10"
+      rect:
+        serializedVersion: 2
+        x: 2390
+        y: 74
+        width: 146
+        height: 473
+      alignment: 9
+      pivot: {x: 0.42706382, y: 0.055357516}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "Geb\xE4udeV1_11"
+      rect:
+        serializedVersion: 2
+        x: 2603
+        y: 84
+        width: 202
+        height: 453
+      alignment: 9
+      pivot: {x: 0.5395387, y: 0.047480267}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
