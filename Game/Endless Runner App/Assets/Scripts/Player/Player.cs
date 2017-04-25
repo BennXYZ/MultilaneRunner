@@ -277,11 +277,11 @@ public class Player : MonoBehaviour
 
     public void Sneak()
     {
-        if (currentState == States.Walking || currentState == States.Dashing)
-        {
-            nextState = States.Sliding;
-            StartSliding.Invoke();
-        }
+        //if (currentState == States.Walking || currentState == States.Dashing)
+        //{
+        //    nextState = States.Sliding;
+        //    StartSliding.Invoke();
+        //}
     }
 
     public void Shoot()

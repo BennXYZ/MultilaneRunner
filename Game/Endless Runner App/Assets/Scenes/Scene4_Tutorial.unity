@@ -364,7 +364,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4885605036991756, guid: f6256417f4655c34faed816a50453485, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.48
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4885605036991756, guid: f6256417f4655c34faed816a50453485, type: 2}
       propertyPath: m_LocalPosition.y
@@ -821,7 +821,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_Sprite: {fileID: 21300000, guid: c3c35e733d03f0b41947a14dfa414c03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -898,7 +898,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 716151344
+  randomSeed: -1919934354
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6366,15 +6366,15 @@ ParticleSystem:
         - serializedVersion: 2
           time: 0
           value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
+          inSlope: -1
+          outSlope: -1
+          tangentMode: 34
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
+          inSlope: -1
+          outSlope: -1
+          tangentMode: 34
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
@@ -9293,15 +9293,15 @@ ParticleSystem:
         - serializedVersion: 2
           time: 0
           value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
+          inSlope: -0.8648649
+          outSlope: -0.8648649
+          tangentMode: 34
         - serializedVersion: 2
           time: 1
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
+          value: 0.13513511
+          inSlope: -0.8648649
+          outSlope: -0.8648649
+          tangentMode: 34
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
@@ -12247,15 +12247,15 @@ ParticleSystem:
         - serializedVersion: 2
           time: 0
           value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
+          inSlope: -1
+          outSlope: -1
+          tangentMode: 34
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
+          inSlope: -1
+          outSlope: -1
+          tangentMode: 34
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
@@ -12548,7 +12548,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -298615849
+  randomSeed: -1444351998
   InitialModule:
     serializedVersion: 3
     enabled: 1

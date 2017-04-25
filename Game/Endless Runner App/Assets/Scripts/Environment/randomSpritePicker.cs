@@ -17,11 +17,12 @@ public class randomSpritePicker : MonoBehaviour {
 	void Start () {
         if (Random.Range(0.0f, 1.0f) < spawnChance || spawnChance == 1)
         {
-            if(sprites.Length > 0)
+            renderer.enabled = true;
+            if (sprites.Length > 0)
                 renderer.sprite = sprites[Random.Range(0, sprites.Length)];
         }
         else
-            GameObject.Destroy(gameObject);
+            renderer.enabled = false;
 	}
 	
 	// Update is called once per frame

@@ -490,7 +490,7 @@ MonoBehaviour:
   jumpForce: 3
   moveSpeed: 1.61
   forwardJump: 0.36
-  dashForce: 7.58
+  dashForce: 4.4
   dashDuration: 0.5
   slideDuration: 1
   projectiles:
@@ -760,7 +760,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 9000
   m_Sprite: {fileID: 21300000, guid: 5d041ce5f661cc44fb8f3342306fcce5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
