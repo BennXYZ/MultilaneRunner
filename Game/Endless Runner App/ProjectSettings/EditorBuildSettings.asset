@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene3_Game.unity
   - enabled: 1
     path: Assets/Scenes/BZ-Testing.unity
+  - enabled: 1
+    path: Assets/Scenes/Scene4_Tutorial.unity

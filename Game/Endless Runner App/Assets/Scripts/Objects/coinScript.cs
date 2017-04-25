@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class coinScript : MonoBehaviour {
-    
+
+    [SerializeField]
+    int coins;
+
     [SerializeField]
     int score;
 
     [SerializeField]
-    int coinLVL;
+    int requiredCoinLVL;
 
 	// Use this for initialization
 	void Start () {
-        if (PlayerPrefs.GetInt("CoinLvl", 0) < coinLVL)
+        if (PlayerPrefs.GetInt("CoinLvl", 0) < requiredCoinLVL)
             GameObject.Destroy(gameObject);
 	}
 	
@@ -23,13 +26,14 @@ public class coinScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && GameObject.FindGameObjectWithTag("ScoreTracker") != null)
+        if (collision.gameObject.tag == "Player")
         {
-            GameObject.FindGameObjectWithTag("ScoreTracker").GetComponent<scoreTrackerScript>().CollectCoin(score);
+            if(GameObject.FindGameObjectWithTag("ScoreTracker") != null)
+            GameObject.FindGameObjectWithTag("ScoreTracker").GetComponent<scoreTrackerScript>().CollectCoin(coins);
+            if (GameObject.Find("ScoreManager") != null)
+                GameObject.Find("ScoreManager").GetComponent<acutalScoreScript>().addPoints(score);
             GameObject.Destroy(gameObject);
         }
-        else if(collision.gameObject.tag == "Player")
-            GameObject.Destroy(gameObject);
     }
 
 
