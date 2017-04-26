@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 81142ed455dfa8d4092cfda6adeb6205
+timeCreated: 1493210936
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Conthrax
+  fontNames:
+  - Conthrax
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
