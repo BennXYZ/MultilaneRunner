@@ -8,6 +8,9 @@ public class displayHighscore : MonoBehaviour {
     enum ScoreTypes { Points, Coins, Bosses}
 
     [SerializeField]
+    ScoreTypes scoreType;
+
+    [SerializeField]
     Text text;
 
     [SerializeField]
@@ -15,7 +18,12 @@ public class displayHighscore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        text.text = text.text + PlayerPrefs.GetInt("HighScorePoints" + highscore.ToString(), 0).ToString();
+        if(scoreType == ScoreTypes.Points)
+            text.text = text.text + PlayerPrefs.GetInt("HighScorePoints" + highscore.ToString(), 0).ToString();
+        else if (scoreType == ScoreTypes.Coins)
+            text.text = text.text + PlayerPrefs.GetInt("HighScoreCoins" + highscore.ToString(), 0).ToString();
+        else if (scoreType == ScoreTypes.Bosses)
+            text.text = text.text + PlayerPrefs.GetInt("HighScoreBosses" + highscore.ToString(), 0).ToString();
     }
 	
 	// Update is called once per frame

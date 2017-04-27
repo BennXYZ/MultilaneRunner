@@ -2915,6 +2915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fba710d8a677c344b0610f097c89184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreType: 0
   text: {fileID: 643135448}
   highscore: 1
 --- !u!114 &643135448
@@ -3480,6 +3481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fba710d8a677c344b0610f097c89184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreType: 0
   text: {fileID: 918403630}
   highscore: 2
 --- !u!114 &918403630
@@ -6476,6 +6478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fba710d8a677c344b0610f097c89184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreType: 0
   text: {fileID: 1974888428}
   highscore: 3
 --- !u!114 &1974888428
