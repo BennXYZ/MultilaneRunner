@@ -36,14 +36,14 @@ public class UpgradeButton: MonoBehaviour {
         {
             case Status.Health:
 
-                text.text = upgrader.getHealthPrize().ToString() + " Coins";
+                text.text = upgrader.getHealthPrize().ToString() + "\nCoins";
                 break;
             case Status.Strength:
-                text.text = upgrader.getShotPrize().ToString() + " Coins";
+                text.text = upgrader.getShotPrize().ToString() + "\nCoins";
                 break;
 
             case Status.Coins:
-                text.text = upgrader.getCoinPrize().ToString() + " Coins";
+                text.text = upgrader.getCoinPrize().ToString() + "\nCoins";
                 break;
         }
     }
