@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class displayHighscore : MonoBehaviour {
 
+    enum ScoreTypes { Points, Coins, Bosses}
+
     [SerializeField]
     Text text;
 
