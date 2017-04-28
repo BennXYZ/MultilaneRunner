@@ -8,6 +8,9 @@ public class Boss : MonoBehaviour {
     [SerializeField]
     HealthManager Health;
 
+    [SerializeField]
+    int scoreAdded;
+
     UnityEvent Death;
 
     // Use this for initialization
@@ -15,13 +18,17 @@ public class Boss : MonoBehaviour {
 
         Death = new UnityEvent();
         Death.AddListener(GameObject.FindGameObjectWithTag("BossSpawner").GetComponent<BossSpawning>().BossKilled);
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 	}
+
+    public void AddPoints()
+    {
+        GameObject.Find("ScoreManager").GetComponent<acutalScoreScript>().addPoints(scoreAdded, 1, 0);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

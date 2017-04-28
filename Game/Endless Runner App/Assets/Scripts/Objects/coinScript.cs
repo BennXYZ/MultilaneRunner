@@ -31,7 +31,7 @@ public class coinScript : MonoBehaviour {
             if(GameObject.FindGameObjectWithTag("ScoreTracker") != null)
             GameObject.FindGameObjectWithTag("ScoreTracker").GetComponent<scoreTrackerScript>().CollectCoin(coins);
             if (GameObject.Find("ScoreManager") != null)
-                GameObject.Find("ScoreManager").GetComponent<acutalScoreScript>().addPoints(score);
+                GameObject.Find("ScoreManager").GetComponent<acutalScoreScript>().addPoints(score,0,coins);
             GameObject.Destroy(gameObject);
         }
     }

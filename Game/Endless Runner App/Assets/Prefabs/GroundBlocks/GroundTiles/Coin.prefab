@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 61445731866800616}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1429149102246582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.52, y: -0.77, z: 0}
+  m_LocalPosition: {x: -214.7815, y: -43.45111, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4632127044978154}
@@ -64,13 +64,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225158818200376}
-  m_LocalRotation: {x: -0, y: -0, z: 0.38268322, w: 0.9238797}
+  m_LocalRotation: {x: -0, y: -0, z: -0.00000004470348, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4763605, y: 0.47636056, z: 0.47636056}
   m_Children: []
   m_Father: {fileID: 4303381441848842}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45.000004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61445731866800616
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -96,8 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9421bdf5a73d047bdf757b3aa899ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 1
-  coinLVL: 0
+  coins: 1
+  score: 0
+  requiredCoinLVL: 0
 --- !u!212 &212739670904537430
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -129,7 +130,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: faae6b7c5b5f6b74eba99e948df58b9a, type: 3}
-  m_Color: {r: 1, g: 0.93103445, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e4107371f5a43834386865e961213fca, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
