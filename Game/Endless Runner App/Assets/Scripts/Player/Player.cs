@@ -33,6 +33,11 @@ public class Player : MonoBehaviour
     float slideDuration;
     float slideCounter;
 
+
+    [Range(0, 1)]
+    [SerializeField]
+    float slideAmount;
+
     [SerializeField]
     GameObject[] projectiles;
 
@@ -92,19 +97,24 @@ public class Player : MonoBehaviour
         dashDirection = 0;
     }
 
+    private void CompareStates()
+    {
+        if (previousState == States.Dashing && nextState != States.Dashing)
+            RevertSliding();
+
+        if (currentState == States.Dashing && previousState != States.Dashing)
+            Shrink();
+    }
+
     // Update is called once per frame
     void Update()
     {
-
-        Debug.DrawLine(Vector2.zero, Vector2.zero + (Vector2)(Quaternion.Euler(0, 0, (Random.value * 180) - (180 / 2)) * new Vector2(0,-1)).normalized);
-
         if (Time.timeScale != 0)
             currentState = nextState;
         else
             nextState = currentState;
 
-        if (previousState == States.Sliding && nextState != States.Sliding)
-            RevertSliding();
+        CompareStates();
 
         switch(currentState)
         {
@@ -139,11 +149,20 @@ public class Player : MonoBehaviour
             dashCounter += Time.deltaTime;
     }
 
+    private void Shrink()
+    {
+        float offset = collisionBox.size.y;
+        collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y / (1 / slideAmount));
+        offset = (offset - collisionBox.size.y) / 2;
+        collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y - offset);
+    }
+
     private void RevertSliding()
     {
         slideCounter = slideDuration;
-        float offset = collisionBox.size.y / 2;
-        collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y * 2);
+        float offset = collisionBox.size.y;
+        collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y * (1 / slideAmount));
+        offset = (collisionBox.size.y - offset) / 2;
         collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y + offset);
     }
 
