@@ -41,7 +41,24 @@ public class muteButtonScript : MonoBehaviour {
     public void Mutemusic()
     {
         gameSettings settings = GameObject.FindGameObjectWithTag("GameSettings").GetComponent<gameSettings>();
-        settings.SetMusicMute();
+        //settings.SetMusicMute();
+
+        if (state == States.Music)
+        {
+            if (PlayerPrefs.GetInt("Music", 1) == 0)
+                PlayerPrefs.SetInt("Music", 1);
+            else
+                PlayerPrefs.SetInt("Music", 0);
+        }
+
+        else if (state == States.Sound)
+        {
+            if (PlayerPrefs.GetInt("Sound", 1) == 0)
+                PlayerPrefs.SetInt("Sound", 1);
+            else
+                PlayerPrefs.SetInt("Sound", 0);
+        }
+
         UpdateImage(settings);
     }
 
@@ -49,7 +66,7 @@ public class muteButtonScript : MonoBehaviour {
     {
         if(state == States.Music)
         {
-            if (settings.MusicMuted())
+            if (PlayerPrefs.GetInt("Music",1) == 0)
                 renderer.sprite = muteSprite;
             else
                 renderer.sprite = playSprite;
@@ -57,7 +74,7 @@ public class muteButtonScript : MonoBehaviour {
 
         else if(state == States.Sound)
         {
-            if (settings.SoundMuted())
+            if (PlayerPrefs.GetInt("Sound", 1) == 0)
                 renderer.sprite = muteSprite;
             else
                 renderer.sprite = playSprite;

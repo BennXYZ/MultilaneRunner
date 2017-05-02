@@ -1868,8 +1868,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c2fc17370b79948ac3e1d1be5292c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound:
-  - {fileID: 630305864}
+  volume: 0
+  state: 0
 --- !u!1 &569695495
 GameObject:
   m_ObjectHideFlags: 0
@@ -6106,8 +6106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c2fc17370b79948ac3e1d1be5292c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound:
-  - {fileID: 690909494}
+  volume: 0
+  state: 0
 --- !u!1 &2029022536
 GameObject:
   m_ObjectHideFlags: 0
@@ -6538,7 +6538,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.09031437, g: 0, b: 0.09558821, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

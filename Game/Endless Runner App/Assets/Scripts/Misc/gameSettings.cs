@@ -67,11 +67,13 @@ public class gameSettings : MonoBehaviour {
         if (!music)
         {
             soundObject sounds = GameObject.Find("SoundManager").GetComponent<soundObject>();
+            if(sounds != null)
                 sounds.UpdateSound();
         }
         else
         {
             soundObject musics = GameObject.Find("MusicManager").GetComponent<soundObject>();
+            if(musics != null)
                 musics.UpdateSound();
         }
 

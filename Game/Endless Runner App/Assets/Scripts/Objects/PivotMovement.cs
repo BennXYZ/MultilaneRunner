@@ -9,6 +9,11 @@ public class PivotMovement : MonoBehaviour
     GameObject[] Pivots;
 
     [SerializeField]
+    GameObject singleTargetPivot;
+
+    bool singleTarget;
+
+    [SerializeField]
     float speed;
 
     [SerializeField]
@@ -29,17 +34,40 @@ public class PivotMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) * speed)
-            rigid.velocity = (Pivots[nextPivot].transform.position - transform.position) * speed;
-        else
-            rigid.AddForce((Pivots[nextPivot].transform.position - transform.position).normalized * speed);
+        if (!singleTarget)
+        {
+            if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) * speed)
+                rigid.velocity = (Pivots[nextPivot].transform.position - transform.position) * speed;
+            else
+                rigid.AddForce((Pivots[nextPivot].transform.position - transform.position).normalized * speed);
 
-        if (Pivots.Length > 1)
-            if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) < 0.5f)
-            {
-                rigid.velocity = Vector2.zero;
-                ChangePivot();
-            }
+            if (Pivots.Length > 1)
+                if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) < 0.5f)
+                {
+                    rigid.velocity = Vector2.zero;
+                    ChangePivot();
+                }
+        }
+        else
+        {
+            if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, singleTargetPivot.transform.position) * speed)
+                rigid.velocity = (singleTargetPivot.transform.position - transform.position) * speed;
+            else
+                rigid.AddForce((singleTargetPivot.transform.position - transform.position).normalized * speed);
+
+            if (Pivots.Length > 1)
+                if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, singleTargetPivot.transform.position) < 0.5f)
+                {
+                    rigid.velocity = Vector2.zero;
+                    singleTarget = false;
+                }
+        }
+    }
+
+    public void GotToSingleTarget()
+    {
+        rigid.velocity = Vector2.zero;
+        singleTarget = true;
     }
 
     private void ChangePivot()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Attack : MonoBehaviour {
 
@@ -44,6 +45,9 @@ public class Attack : MonoBehaviour {
     float instantSpawnDelayTimer;
 
     bool attacking;
+
+    [SerializeField]
+    UnityEvent onAttack;
 
 	// Use this for initialization
 	void Start () {
@@ -122,6 +126,7 @@ public class Attack : MonoBehaviour {
 
     public void StartAttack()
     {
+        onAttack.Invoke();
         attacking = true;
         bulletCooldownCounter = bulletCooldown;
         attacksDone = 0;

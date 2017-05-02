@@ -7,6 +7,8 @@ public class scoreTrackerScript : MonoBehaviour {
     private int totalScore;
     private int currentScore;
 
+    int doubleScore = 1;
+
 	// Use this for initialization
 	void Start () {
         if (GameObject.FindGameObjectsWithTag("ScoreTracker").Length > 1)
@@ -58,6 +60,6 @@ public class scoreTrackerScript : MonoBehaviour {
 
     public void CollectCoin(int amount)
     {
-        currentScore += amount;
+        currentScore += amount * doubleScore;
     }
 }

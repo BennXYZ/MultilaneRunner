@@ -289,7 +289,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: PlayerAnimDash
-  m_Speed: 4
+  m_Speed: 6
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101834333981370964}
@@ -338,7 +338,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: PlayerAnimDashB
-  m_Speed: 4
+  m_Speed: 6
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101840843996727500}

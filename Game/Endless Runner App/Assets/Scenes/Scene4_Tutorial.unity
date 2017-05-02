@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e74d4fa1952304dbfd6e039345d3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progressBar: {fileID: 0}
 --- !u!114 &384547915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,6 +734,11 @@ Prefab:
         type: 2}
       propertyPath: StartDashing.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114338396384912084, guid: f6256417f4655c34faed816a50453485,
+        type: 2}
+      propertyPath: slideAmount
+      value: 0.62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6256417f4655c34faed816a50453485, type: 2}
@@ -3578,6 +3584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e74d4fa1952304dbfd6e039345d3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progressBar: {fileID: 0}
 --- !u!114 &677896894
 MonoBehaviour:
   m_ObjectHideFlags: 0

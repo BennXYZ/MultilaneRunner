@@ -17,6 +17,7 @@ public class acutalScoreScript : MonoBehaviour
     [SerializeField]
     float ScoreMultiplicator;
 
+    [Range(0,1)]
     [SerializeField]
     float BossMultiplicator;
 
@@ -38,7 +39,7 @@ public class acutalScoreScript : MonoBehaviour
     {
         if (!outOfBoss)
         {
-            score += Time.deltaTime * movement.Speed * ScoreMultiplicator * Mathf.Pow(BossMultiplicator, bosses);
+            score += Time.deltaTime * movement.Speed * ScoreMultiplicator + ((Time.deltaTime * movement.Speed * ScoreMultiplicator) * BossMultiplicator) * bosses;
         }
     }
 

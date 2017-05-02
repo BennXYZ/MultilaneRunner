@@ -36,6 +36,11 @@ public class MovementManager : MonoBehaviour {
         }
     }
 
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
     // Use this for initialization
     void Start () {
 		
