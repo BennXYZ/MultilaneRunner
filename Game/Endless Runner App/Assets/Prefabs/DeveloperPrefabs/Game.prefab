@@ -1062,6 +1062,7 @@ MonoBehaviour:
   projectiles:
   - {fileID: 1089224980173328, guid: acbcddf17c61f7e4d99d644e21b672c3, type: 2}
   - {fileID: 1089224980173328, guid: f215c0de41b7d304d97c51662172abcd, type: 2}
+  shootCooldown: 1
   projectileOffset: {x: 0.4, y: 0.7}
   StartJumping:
     m_PersistentCalls:
@@ -1358,6 +1359,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c3c35e733d03f0b41947a14dfa414c03, type: 3}
   renderer: {fileID: 212341705626961574}
   manager: {fileID: 114706277706891030}
+  bossHealth: 0
 --- !u!114 &114990308149804996
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -19,9 +19,8 @@ public class muteButtonScript : MonoBehaviour {
     [SerializeField]
     States state;
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         gameSettings settings = GameObject.FindGameObjectWithTag("GameSettings").GetComponent<gameSettings>();
         UpdateImage(settings);
     }

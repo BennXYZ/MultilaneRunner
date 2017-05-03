@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488ef41e314ae0a4a85fbca7edec66a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 3
+  startHealth: 12
   iFrames: 5
   showIFrames: 1
   Beginning:

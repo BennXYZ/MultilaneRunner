@@ -42,6 +42,10 @@ public class Player : MonoBehaviour
     GameObject[] projectiles;
 
     [SerializeField]
+    float shootCooldown;
+    float shootCooldownCounter;
+
+    [SerializeField]
     Vector2 projectileOffset;
 
     [SerializeField]
@@ -90,6 +94,7 @@ public class Player : MonoBehaviour
         collisionBox = gameObject.GetComponent<BoxCollider2D>();
         velocity = Vector2.zero;
         slideCounter = slideDuration;
+        shootCooldownCounter = shootCooldown;
         dashCounter = dashDuration;
         previousState = States.Default;
         currentState = States.Walking;
@@ -156,6 +161,9 @@ public class Player : MonoBehaviour
     {
         if (dashCounter < dashDuration)
             dashCounter += Time.deltaTime;
+
+        if (shootCooldownCounter < shootCooldown)
+            shootCooldownCounter += Time.deltaTime;
     }
 
     private void Shrink()
@@ -313,11 +321,12 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        if (Time.timeScale != 0)
+        if (Time.timeScale != 0 && shootCooldownCounter >= shootCooldown)
             if (currentState != States.Dashing)
             {
                 GameObject.Instantiate(projectiles[PlayerPrefs.GetInt("PlayerStrength", 0)], transform.position + new Vector3(projectileOffset.x, projectileOffset.y, 0), transform.rotation);
                 ShootEvent.Invoke();
+                shootCooldownCounter = 0;
             }
     }
 }

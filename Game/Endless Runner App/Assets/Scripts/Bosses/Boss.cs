@@ -16,6 +16,8 @@ public class Boss : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        GameObject.Find("BossHealth").GetComponent<HealthDisplay>().CheckForBoss();
+
         Death = new UnityEvent();
         Death.AddListener(GameObject.FindGameObjectWithTag("BossSpawner").GetComponent<BossSpawning>().BossKilled);
 	}
@@ -24,6 +26,11 @@ public class Boss : MonoBehaviour {
 	void Update () {
 
 	}
+
+    public void GetHurt()
+    {
+        GameObject.Find("BossHealth").GetComponent<HealthDisplay>().UpdateHealth();
+    }
 
     public void AddPoints()
     {
@@ -40,6 +47,7 @@ public class Boss : MonoBehaviour {
 
     private void OnDestroy()
     {
+        GameObject.Find("BossHealth").GetComponent<HealthDisplay>().CheckForBoss();
         Death.Invoke();
     }
 }
