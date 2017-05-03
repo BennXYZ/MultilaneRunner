@@ -44,6 +44,9 @@ public class Attack : MonoBehaviour {
     float instantSpawnDelay;
     float instantSpawnDelayTimer;
 
+    [SerializeField]
+    bool stickWithAttacker;
+
     bool attacking;
 
     [SerializeField]
@@ -67,14 +70,21 @@ public class Attack : MonoBehaviour {
             {
                 if (spawnAtPlayer)
                 {
-                    GameObject.Instantiate(Projectile, GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(Random.value *
+                    GameObject projectile = GameObject.Instantiate(Projectile, GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(Random.value *
     maxSpawndistance.x * 2 - maxSpawndistance.x, Random.value * maxSpawndistance.y * 2 - maxSpawndistance.y, 0), transform.rotation);
+
+                    if (stickWithAttacker)
+                        projectile.transform.parent = gameObject.transform;
+
                     bulletCooldownCounter = 0;
                     attacksDone++;
                 }
                 else if (SpawnPivots.Length == 0)
                 {
                     GameObject projectile = GameObject.Instantiate(Projectile, transform.position, transform.rotation);
+
+                    if (stickWithAttacker)
+                        projectile.transform.parent = gameObject.transform;
 
                     bulletCooldownCounter = 0;
 
@@ -86,6 +96,9 @@ public class Attack : MonoBehaviour {
                     {
                         GameObject projectile = GameObject.Instantiate(Projectile, SpawnPivots[Random.Range(0, (int)SpawnPivots.Length)].transform.position + new Vector3(Random.value * maxSpawndistance.x * 2 - maxSpawndistance.x, Random.value * maxSpawndistance.y * 2 - maxSpawndistance.y, 0), transform.rotation);
 
+                        if (stickWithAttacker)
+                            projectile.transform.parent = gameObject.transform;
+
                         bulletCooldownCounter = 0;
 
                         attacksDone++;
@@ -93,6 +106,8 @@ public class Attack : MonoBehaviour {
                     else
                     {
                         GameObject projectile = GameObject.Instantiate(Projectile, SpawnPivots[n].transform.position + new Vector3(Random.value * maxSpawndistance.x * 2 - maxSpawndistance.x, Random.value * maxSpawndistance.y * 2 - maxSpawndistance.y, 0), transform.rotation);
+                        if (stickWithAttacker)
+                            projectile.transform.parent = gameObject.transform;
                         if (n + 1 >= SpawnPivots.Length)
                             n = 0;
                         else

@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1813447113297318}
   m_IsPrefabParent: 1
+--- !u!1 &1010958742131450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4876798773302662}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1813447113297318
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,6 +40,7 @@ GameObject:
   - component: {fileID: 61888715510098874}
   - component: {fileID: 50631208951187700}
   - component: {fileID: 114484909306132932}
+  - component: {fileID: 114669944148034088}
   m_Layer: 0
   m_Name: BossProjectile2
   m_TagString: Untagged
@@ -39,10 +55,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813447113297318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.092514, y: 2.602263, z: 0}
+  m_LocalPosition: {x: 6.143304, y: -2.032919, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4876798773302662}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4876798773302662
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010958742131450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 1.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4498326697743228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50631208951187700
@@ -105,6 +135,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 9000
+--- !u!114 &114669944148034088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1813447113297318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 358e65f5fdfe48e4e94737d6f7122711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackType: 0
+  Projectile: {fileID: 1501605431549222, guid: 298107a01e980e94d8f061b6e5d9169d, type: 2}
+  rotateInDirection: 0
+  SpawnPivots:
+  - {fileID: 1010958742131450}
+  spawnAtPlayer: 0
+  maxSpawndistance: {x: 0, y: 0}
+  randomlySpawned: 0
+  numberOfAttacks: 1
+  bulletCooldown: 0
+  instantSpawning: 1
+  instantSpawnDelay: 2
+  stickWithAttacker: 1
+  onAttack:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114751528714857250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileType: 0
-  shootDirection: {x: -1, y: 0}
+  shootDirection: {x: -1, y: 0.5}
   sprayAngle: 0
   aimingAtPlayer: 0
   rotateInDirection: 0

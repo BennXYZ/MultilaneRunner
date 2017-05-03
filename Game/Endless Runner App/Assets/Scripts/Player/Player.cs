@@ -104,6 +104,15 @@ public class Player : MonoBehaviour
 
         if (currentState == States.Dashing && previousState != States.Dashing)
             Shrink();
+
+        //if (currentState == States.Dashing && previousState != States.Dashing)
+        //    StartDashing.Invoke();
+        if (currentState == States.Jumping && previousState != States.Jumping)
+            StartJumping.Invoke();
+        if (currentState == States.Sliding && previousState != States.Sliding)
+            StartSliding.Invoke();
+        if (currentState == States.Walking && previousState != States.Walking)
+            StartWalking.Invoke();
     }
 
     // Update is called once per frame
@@ -263,7 +272,6 @@ public class Player : MonoBehaviour
     {
         if (currentState == States.Walking || currentState == States.Dashing || currentState == States.Sliding)
         {
-            StartJumping.Invoke();
             nextState = States.Jumping;
             animator.SetTrigger("Jump");
             animator.SetBool("InAir", true);

@@ -65,22 +65,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1294953069534594
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4415923669708610}
-  - component: {fileID: 114339210268269732}
-  m_Layer: 0
-  m_Name: Attacker 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1481902509709244
 GameObject:
   m_ObjectHideFlags: 1
@@ -100,7 +84,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1539513710901098
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -178,21 +162,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1926172422240964
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4429332485023742}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 7240890024493199768, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1944854107796724
 GameObject:
   m_ObjectHideFlags: 1
@@ -263,8 +232,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4850125329287388}
+  m_Children: []
   m_Father: {fileID: 4941790843193224}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -292,7 +260,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4941790843193224}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4376509265069250
 Transform:
@@ -308,33 +276,6 @@ Transform:
   m_Father: {fileID: 4941790843193224}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4415923669708610
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1294953069534594}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4429332485023742}
-  m_Father: {fileID: 4941790843193224}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4429332485023742
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1926172422240964}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.12, y: 0.04, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4415923669708610}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4562528993023780
 Transform:
   m_ObjectHideFlags: 1
@@ -342,12 +283,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1585794249400786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.135956, y: -0.71943593, z: -0.08984375}
+  m_LocalPosition: {x: 8.658402, y: -1.0671214, z: -0.08984375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4941790843193224}
   - {fileID: 4605077540759436}
   - {fileID: 4987234792627482}
+  - {fileID: 4850125329287388}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -383,12 +325,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1539513710901098}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.12, y: 0.04, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.82, y: 4.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4199080477097320}
-  m_RootOrder: 0
+  m_Father: {fileID: 4562528993023780}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4864877842228832
 Transform:
@@ -403,7 +345,7 @@ Transform:
   - {fileID: 4242329188853864}
   - {fileID: 4142618052432628}
   m_Father: {fileID: 4941790843193224}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4941790843193224
 Transform:
@@ -417,7 +359,6 @@ Transform:
   m_Children:
   - {fileID: 4199080477097320}
   - {fileID: 4376509265069250}
-  - {fileID: 4415923669708610}
   - {fileID: 4864877842228832}
   - {fileID: 4299268576940476}
   m_Father: {fileID: 4562528993023780}
@@ -580,12 +521,13 @@ MonoBehaviour:
   SpawnPivots:
   - {fileID: 1539513710901098}
   spawnAtPlayer: 0
-  maxSpawndistance: {x: 0, y: 0}
+  maxSpawndistance: {x: 3, y: 0}
   randomlySpawned: 0
-  numberOfAttacks: 3
-  bulletCooldown: 0.3
+  numberOfAttacks: 25
+  bulletCooldown: 0.1
   instantSpawning: 0
   instantSpawnDelay: 5
+  stickWithAttacker: 0
   onAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -673,34 +615,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   DestroyObject: {fileID: 1585794249400786}
---- !u!114 &114339210268269732
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1294953069534594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 358e65f5fdfe48e4e94737d6f7122711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackType: 0
-  Projectile: {fileID: 1986429058609796, guid: 0fac339a75c6c34459cfdb7fc2956ae8, type: 2}
-  rotateInDirection: 1
-  SpawnPivots:
-  - {fileID: 1926172422240964}
-  spawnAtPlayer: 0
-  maxSpawndistance: {x: 0, y: 0}
-  randomlySpawned: 0
-  numberOfAttacks: 3
-  bulletCooldown: 0.3
-  instantSpawning: 0
-  instantSpawnDelay: 5
-  onAttack:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &114592598931814342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -744,8 +658,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   initialDelay: 3
-  minAttackDelay: 5
-  maxAttackDelay: 8
+  minAttackDelay: 2.5
+  maxAttackDelay: 4
 --- !u!114 &114649116134362106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -769,6 +683,7 @@ MonoBehaviour:
   bulletCooldown: 0.3
   instantSpawning: 0
   instantSpawnDelay: 5
+  stickWithAttacker: 0
   onAttack:
     m_PersistentCalls:
       m_Calls: []
