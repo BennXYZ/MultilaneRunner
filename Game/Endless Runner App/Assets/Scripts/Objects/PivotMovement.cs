@@ -20,6 +20,10 @@ public class PivotMovement : MonoBehaviour
     bool backtrackMovement;
     bool backtracking;
 
+    [SerializeField]
+    float delay;
+    float delayCounter;
+
     Rigidbody2D rigid;
 
     int nextPivot;
@@ -29,39 +33,45 @@ public class PivotMovement : MonoBehaviour
     {
         rigid = gameObject.GetComponent<Rigidbody2D>();
         nextPivot = 0;
+        delayCounter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!singleTarget)
+        if (delayCounter >= delay)
         {
-            if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) * speed)
-                rigid.velocity = (Pivots[nextPivot].transform.position - transform.position) * speed;
-            else
-                rigid.AddForce((Pivots[nextPivot].transform.position - transform.position).normalized * speed);
+            if (!singleTarget)
+            {
+                if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) * speed)
+                    rigid.velocity = (Pivots[nextPivot].transform.position - transform.position) * speed;
+                else
+                    rigid.AddForce((Pivots[nextPivot].transform.position - transform.position).normalized * speed);
 
-            if (Pivots.Length > 1)
-                if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) < 0.5f)
-                {
-                    rigid.velocity = Vector2.zero;
-                    ChangePivot();
-                }
-        }
-        else
-        {
-            if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, singleTargetPivot.transform.position) * speed)
-                rigid.velocity = (singleTargetPivot.transform.position - transform.position) * speed;
+                if (Pivots.Length > 1)
+                    if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) < 0.5f)
+                    {
+                        rigid.velocity = Vector2.zero;
+                        ChangePivot();
+                    }
+            }
             else
-                rigid.AddForce((singleTargetPivot.transform.position - transform.position).normalized * speed);
+            {
+                if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, singleTargetPivot.transform.position) * speed)
+                    rigid.velocity = (singleTargetPivot.transform.position - transform.position) * speed;
+                else
+                    rigid.AddForce((singleTargetPivot.transform.position - transform.position).normalized * speed);
 
-            if (Pivots.Length > 1)
-                if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, singleTargetPivot.transform.position) < 0.5f)
-                {
-                    rigid.velocity = Vector2.zero;
-                    singleTarget = false;
-                }
+                if (Pivots.Length > 1)
+                    if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, singleTargetPivot.transform.position) < 0.5f)
+                    {
+                        rigid.velocity = Vector2.zero;
+                        singleTarget = false;
+                    }
+            }
         }
+        if (delayCounter < delay)
+            delayCounter += Time.deltaTime;
     }
 
     public void GotToSingleTarget()

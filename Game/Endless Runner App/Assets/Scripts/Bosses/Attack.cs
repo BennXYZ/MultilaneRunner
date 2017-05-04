@@ -38,6 +38,9 @@ public class Attack : MonoBehaviour {
     float bulletCooldownCounter;
 
     [SerializeField]
+    bool looping;
+
+    [SerializeField]
     bool instantSpawning;
 
     [SerializeField]
@@ -121,7 +124,7 @@ public class Attack : MonoBehaviour {
             else
                 bulletCooldownCounter += Time.deltaTime;
         }
-        if(attacksDone >= numberOfAttacks)
+        if(attacksDone >= numberOfAttacks && !looping)
         {
             attacksDone = 0;
             attacking = false;
