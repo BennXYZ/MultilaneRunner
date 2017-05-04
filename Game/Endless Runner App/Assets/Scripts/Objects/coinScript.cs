@@ -17,6 +17,8 @@ public class coinScript : MonoBehaviour {
 	void Start () {
         if (PlayerPrefs.GetInt("CoinLvl", 0) < requiredCoinLVL)
             GameObject.Destroy(gameObject);
+        else
+            coins = GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForCoinBoost() * coins;
 	}
 	
 	// Update is called once per frame

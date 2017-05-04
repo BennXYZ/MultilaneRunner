@@ -1835,7 +1835,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 566146634}
-  - component: {fileID: 566146635}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -1857,19 +1856,6 @@ Transform:
   m_Father: {fileID: 177911346}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &566146635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 566146633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c2fc17370b79948ac3e1d1be5292c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: 0
-  state: 0
 --- !u!1 &569695495
 GameObject:
   m_ObjectHideFlags: 0
@@ -5597,6 +5583,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1917285323}
         m_MethodName: Mutemusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 630305865}
+        m_MethodName: UpdateSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

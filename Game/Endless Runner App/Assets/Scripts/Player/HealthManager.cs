@@ -82,7 +82,9 @@ public class HealthManager : MonoBehaviour {
         if(iFrameCounter >= iFrames)
         {
             iFrameCounter = 0;
-            health -= damage;
+                health -= damage;
+            if (health < 0)
+                health = 0;
             Hurt.Invoke();
             if (health <= 0)
             {
