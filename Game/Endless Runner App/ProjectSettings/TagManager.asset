@@ -15,6 +15,7 @@ TagManager:
   - ScoreTracker
   - UpgradeManager
   - Coin
+  - HazardProjectile
   layers:
   - Default
   - TransparentFX

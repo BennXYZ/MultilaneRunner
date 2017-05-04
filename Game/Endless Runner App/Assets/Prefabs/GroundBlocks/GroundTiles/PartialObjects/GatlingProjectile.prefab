@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114350806215124566}
   m_Layer: 0
   m_Name: GatlingProjectile
-  m_TagString: Untagged
+  m_TagString: HazardProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileType: 0
-  shootDirection: {x: 0, y: 1}
-  sprayAngle: 0
+  shootDirection: {x: -1, y: -1}
+  sprayAngle: 41
   aimingAtPlayer: 0
   rotateInDirection: 0
   speedUpPerSecond: 0

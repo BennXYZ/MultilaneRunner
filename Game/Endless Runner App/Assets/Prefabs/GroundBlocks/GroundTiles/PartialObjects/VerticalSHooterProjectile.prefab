@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114545813128823950}
   m_Layer: 0
   m_Name: VerticalSHooterProjectile
-  m_TagString: Untagged
+  m_TagString: HazardProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
