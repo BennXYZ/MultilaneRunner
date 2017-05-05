@@ -21,7 +21,7 @@ public class scoreDisplayScript : MonoBehaviour {
         {
             tracker = GameObject.FindGameObjectWithTag("ScoreTracker").GetComponent<scoreTrackerScript>();
             UpdateScore();
-            text.text = "Coins: "  + score.ToString();
+            text.text = score.ToString();
         }
     }
 
@@ -34,7 +34,7 @@ public class scoreDisplayScript : MonoBehaviour {
                 if (score != tracker.TotalScore())
                 {
                     score = tracker.TotalScore();
-                    text.text = "Coins: " + score.ToString();
+                    text.text = score.ToString();
                 }
             }
             else
@@ -42,7 +42,7 @@ public class scoreDisplayScript : MonoBehaviour {
                 if (score != tracker.CurrentScore())
                 {
                     score = tracker.CurrentScore();
-                    text.text = "Coins: " + score.ToString();
+                    text.text = score.ToString();
                 }
             }
         }

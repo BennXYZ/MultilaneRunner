@@ -47,6 +47,7 @@ public class Boss : MonoBehaviour {
 
     private void OnDestroy()
     {
+        if(GameObject.Find("BossHealth") != null)
         GameObject.Find("BossHealth").GetComponent<HealthDisplay>().CheckForBoss();
         Death.Invoke();
     }

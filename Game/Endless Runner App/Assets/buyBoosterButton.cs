@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class buyBoosterButton : MonoBehaviour {
+
+    [SerializeField]
+    Text text;
 
     [SerializeField]
     int prize;
@@ -17,7 +21,7 @@ public class buyBoosterButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        text.text = prize + "\nCoins";
 	}
 	
 	// Update is called once per frame

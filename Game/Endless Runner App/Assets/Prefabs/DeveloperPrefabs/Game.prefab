@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 61667146339139542}
   - component: {fileID: 61868969640012990}
   - component: {fileID: 61980222133665682}
+  - component: {fileID: 61648946499885850}
   - component: {fileID: 114630989829426182}
   m_Layer: 0
   m_Name: PlayerBorder
@@ -594,6 +595,20 @@ Rigidbody2D:
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &61434364044682342
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1461020328936208}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -12.648185, y: -0.2578044}
+  serializedVersion: 2
+  m_Size: {x: 8, y: 12.343408}
+--- !u!61 &61648946499885850
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1057,8 +1072,8 @@ MonoBehaviour:
   forwardJump: 0
   dashForce: 3.58
   dashDuration: 0.17
-  slideDuration: 1
-  slideAmount: 0.793
+  slideDuration: 1.25
+  slideAmount: 0.408
   projectiles:
   - {fileID: 1089224980173328, guid: acbcddf17c61f7e4d99d644e21b672c3, type: 2}
   - {fileID: 1089224980173328, guid: f215c0de41b7d304d97c51662172abcd, type: 2}
@@ -1158,7 +1173,40 @@ MonoBehaviour:
       PublicKeyToken=null
   StartSliding:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 212261548217569098}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 95823524882699472}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: InAir
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 212531070689503334}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   StartWalking:

@@ -69,9 +69,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileType: 0
-  shootDirection: {x: 0.7, y: -1}
-  sprayAngle: 50
-  aimingAtPlayer: 0
+  shootDirection: {x: 0, y: 1}
+  sprayAngle: 76
+  aimingAtPlayer: 1
   rotateInDirection: 1
   speedUpPerSecond: -0.3
   speed: 7

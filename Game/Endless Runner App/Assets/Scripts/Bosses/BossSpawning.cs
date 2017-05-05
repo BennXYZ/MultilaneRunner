@@ -5,7 +5,12 @@ using UnityEngine.Events;
 
 public class BossSpawning : MonoBehaviour {
 
+
+    [SerializeField]
+    int startHealth;
     bool duringBoss;
+
+    int defeatedBosses;
     
     [SerializeField]
     UnityEvent BossStarted;
@@ -36,6 +41,7 @@ public class BossSpawning : MonoBehaviour {
     // Use this for initialization
     void Start () {
         bossCounter = 0;
+        defeatedBosses = 0;
         nextBossTime = Random.value * maxBosslessTimeInSeconds;
         bossSpawned = false;
         duringBoss = false;
@@ -58,7 +64,8 @@ public class BossSpawning : MonoBehaviour {
         }
         else if(bossSpawned && delayCounter >= bossSpawnDelay)
         {
-            GameObject.Instantiate(Bosses[Random.Range(0, Bosses.Length) ], Offset, transform.rotation);
+            GameObject boss = GameObject.Instantiate(Bosses[Random.Range(0, Bosses.Length) ], Offset, transform.rotation);
+            boss.GetComponentInChildren<HealthManager>().SetHealth(startHealth + defeatedBosses);
             BossStarted.Invoke();
             bossSpawned = false;
         }
@@ -67,7 +74,6 @@ public class BossSpawning : MonoBehaviour {
 
     public void StartBoss()
     {
-        Debug.Log("BOSS TIME!");
         GameObject[] groundTiles = GameObject.FindGameObjectsWithTag("Block");
         duringBoss = true;
         delayCounter = 0;
@@ -82,6 +88,9 @@ public class BossSpawning : MonoBehaviour {
         GameObject[] groundTiles = GameObject.FindGameObjectsWithTag("Block");
         duringBoss = false;
         bossSpawned = false;
+        defeatedBosses++;
+        if (defeatedBosses + startHealth > 12)
+            defeatedBosses = 12 - startHealth;
         for (int i = 0; i < groundTiles.Length; i++)
         {
             groundTiles[i].GetComponent<GroundSpawning>().SetBoss(false);

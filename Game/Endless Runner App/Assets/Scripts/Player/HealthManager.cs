@@ -39,15 +39,18 @@ public class HealthManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if(startHealth == 0)
+        if (health == 0)
         {
-            maxHealth = PlayerPrefs.GetInt("PlayerHealth", 1);
-            health = maxHealth;
-        }
-        else
-        {
-            maxHealth = startHealth;
-            health = maxHealth;
+            if (startHealth == 0)
+            {
+                maxHealth = PlayerPrefs.GetInt("PlayerHealth", 1);
+                health = maxHealth;
+            }
+            else
+            {
+                maxHealth = startHealth;
+                health = maxHealth;
+            }
         }
         Beginning.Invoke();
         iFrameCounter = iFrames;
@@ -110,5 +113,11 @@ public class HealthManager : MonoBehaviour {
             GameObject.Destroy(gameObject);
         else
             GameObject.Destroy(DestroyObject);
+    }
+
+    public void SetHealth(int health)
+    {
+        maxHealth = health;
+        this.health = health;
     }
 }

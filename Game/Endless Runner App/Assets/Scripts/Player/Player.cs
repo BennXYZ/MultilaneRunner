@@ -104,10 +104,10 @@ public class Player : MonoBehaviour
 
     private void CompareStates()
     {
-        if (previousState == States.Dashing && nextState != States.Dashing)
+        if (previousState == States.Sliding && nextState != States.Sliding)
             RevertSliding();
 
-        if (currentState == States.Dashing && previousState != States.Dashing)
+        if (currentState == States.Sliding && previousState != States.Sliding)
             Shrink();
 
         //if (currentState == States.Dashing && previousState != States.Dashing)
@@ -253,14 +253,6 @@ public class Player : MonoBehaviour
 
     private States SlideUpdate()
     {
-        if (previousState != currentState)
-        {
-            rigid.velocity = rigid.velocity / 2;
-            slideCounter = 0;
-            float offset = collisionBox.size.y / 4;
-            collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y / 2);
-            collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y - offset);
-        }
 
         slideCounter += Time.deltaTime;
 
@@ -288,7 +280,7 @@ public class Player : MonoBehaviour
 
     public void DashRight()
     {
-        if ((currentState == States.Walking || currentState == States.Jumping || currentState == States.Falling) && dashCounter >= dashDuration)
+        if ((currentState == States.Walking || currentState == States.Jumping || currentState == States.Falling || currentState == States.Sliding) && dashCounter >= dashDuration)
         {
             StartDashing.Invoke();
             animator.SetTrigger("Dash");
@@ -300,7 +292,7 @@ public class Player : MonoBehaviour
 
     public void DashLeft()
     {
-        if (currentState == States.Walking || currentState == States.Jumping || currentState == States.Falling)
+        if ((currentState == States.Walking || currentState == States.Jumping || currentState == States.Falling || currentState == States.Sliding) && dashCounter >= dashDuration)
         {
             StartBackDashing.Invoke();
             animator.SetTrigger("DashB");
@@ -312,17 +304,20 @@ public class Player : MonoBehaviour
 
     public void Sneak()
     {
-        //if (currentState == States.Walking || currentState == States.Dashing)
-        //{
-        //    nextState = States.Sliding;
-        //    StartSliding.Invoke();
-        //}
+        if (currentState == States.Walking || currentState == States.Dashing)
+        {
+            rigid.velocity = rigid.velocity / 2;
+            slideCounter = 0;
+            StartSliding.Invoke();
+            animator.SetTrigger("Slide");
+            nextState = States.Sliding;
+        }
     }
 
     public void Shoot()
     {
         if (Time.timeScale != 0 && shootCooldownCounter >= shootCooldown)
-            if (currentState != States.Dashing)
+            if (currentState != States.Dashing && currentState != States.Sliding)
             {
                 GameObject.Instantiate(projectiles[PlayerPrefs.GetInt("PlayerStrength", 0)], transform.position + new Vector3(projectileOffset.x, projectileOffset.y, 0), transform.rotation);
                 ShootEvent.Invoke();

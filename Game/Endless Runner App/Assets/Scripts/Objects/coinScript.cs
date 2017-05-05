@@ -17,8 +17,6 @@ public class coinScript : MonoBehaviour {
 	void Start () {
         if (PlayerPrefs.GetInt("CoinLvl", 0) < requiredCoinLVL)
             GameObject.Destroy(gameObject);
-        else
-            coins = GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForCoinBoost() * coins;
 	}
 	
 	// Update is called once per frame
@@ -31,9 +29,9 @@ public class coinScript : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             if(GameObject.FindGameObjectWithTag("ScoreTracker") != null)
-            GameObject.FindGameObjectWithTag("ScoreTracker").GetComponent<scoreTrackerScript>().CollectCoin(coins);
+            GameObject.FindGameObjectWithTag("ScoreTracker").GetComponent<scoreTrackerScript>().CollectCoin(GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForCoinBoost() * coins);
             if (GameObject.Find("ScoreManager") != null)
-                GameObject.Find("ScoreManager").GetComponent<acutalScoreScript>().addPoints(score,0,coins);
+                GameObject.Find("ScoreManager").GetComponent<acutalScoreScript>().addPoints(score,0, GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForCoinBoost() * coins);
             GameObject.Destroy(gameObject);
         }
     }
