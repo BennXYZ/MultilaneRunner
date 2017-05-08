@@ -18,7 +18,7 @@ public class acutalScoreDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (script.Score() > 5)
+        if (script.Score() > 100)
             text.text = script.Score().ToString();
         else
             text.text = "Score";

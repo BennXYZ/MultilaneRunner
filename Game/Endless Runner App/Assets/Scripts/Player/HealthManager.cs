@@ -97,6 +97,11 @@ public class HealthManager : MonoBehaviour {
         }
     }
 
+    public void Instakill()
+    {
+        Death.Invoke();
+    }
+
     public int Health()
     {
         return health;
