@@ -43,7 +43,7 @@ public class HealthManager : MonoBehaviour {
         {
             if (startHealth == 0)
             {
-                maxHealth = PlayerPrefs.GetInt("PlayerHealth", 1);
+                maxHealth = PlayerPrefs.GetInt("PlayerHealth", 0) + 1;
                 health = maxHealth;
             }
             else

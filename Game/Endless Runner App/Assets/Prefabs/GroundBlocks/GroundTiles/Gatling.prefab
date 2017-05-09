@@ -147,7 +147,7 @@ MonoBehaviour:
   looping: 1
   instantSpawning: 1
   instantSpawnDelay: 0.4
-  stickWithAttacker: 0
+  stickWithAttacker: 1
   onAttack:
     m_PersistentCalls:
       m_Calls: []

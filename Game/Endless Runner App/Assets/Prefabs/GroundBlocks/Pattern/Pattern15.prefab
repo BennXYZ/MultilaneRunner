@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackType: 0
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1940541510542802, guid: a0b6b18fce23fc444bd51a39e55ca685, type: 2}
   rotateInDirection: 0
   SpawnPivots: []
   spawnAtPlayer: 0
@@ -932,7 +932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTiles:
-  - {fileID: 1501029799069348, guid: e9e42146000ba984882cb1d014b52ad2, type: 2}
+  - {fileID: 1337116915283440, guid: 60a0332a71508544d9e8e8bdda891a6e, type: 2}
   - {fileID: 1127829448516588, guid: 486613fdf0a73ef42abd4cd94d36e65f, type: 2}
   - {fileID: 1498800903233876, guid: bb0e9909c6dbae94091b1028b1933870, type: 2}
   - {fileID: 1374746442970396, guid: e90ea0369d4b049439fc69c9800fd010, type: 2}

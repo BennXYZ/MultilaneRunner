@@ -22,7 +22,7 @@ public class UpgradeScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        HealthSize = PlayerPrefs.GetInt("PlayerHealth", 1);
+        HealthSize = PlayerPrefs.GetInt("PlayerHealth", 0);
         ShotStrength = PlayerPrefs.GetInt("PlayerStrength", 0);
         CoinLvl = PlayerPrefs.GetInt("CoinLvl", 0);
     }
@@ -43,10 +43,10 @@ public class UpgradeScript : MonoBehaviour {
 
     public void TryUpgradeHealth()
     {
-        HealthSize = PlayerPrefs.GetInt("PlayerHealth", 1);
+        HealthSize = PlayerPrefs.GetInt("PlayerHealth", 0);
         if (HealthSize < healthPrices.Length)
         {
-            if (score.TrySpendingCoins(healthPrices[HealthSize - 1]))
+            if (score.TrySpendingCoins(healthPrices[HealthSize]))
                 UpgradeHealth();
         }
     }
@@ -76,7 +76,7 @@ public class UpgradeScript : MonoBehaviour {
     public string getHealthPrize()
     {
         if (HealthSize < healthPrices.Length)
-            return healthPrices[HealthSize - 1].ToString();
+            return healthPrices[HealthSize].ToString();
         else
             return "---";
     }
@@ -139,7 +139,8 @@ public class UpgradeScript : MonoBehaviour {
     private void ResetPlayerPrefs()
     {
         PlayerPrefs.DeleteAll();
-        HealthSize = PlayerPrefs.GetInt("PlayerHealth", 1);
+        HealthSize = PlayerPrefs.GetInt("PlayerHealth", 0);
         ShotStrength = PlayerPrefs.GetInt("PlayerStrength", 0);
+        CoinLvl = PlayerPrefs.GetInt("CoinLvl", 0);
     }
 }

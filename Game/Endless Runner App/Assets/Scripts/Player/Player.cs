@@ -172,6 +172,7 @@ public class Player : MonoBehaviour
         collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y / (1 / slideAmount));
         offset = (offset - collisionBox.size.y) / 2;
         collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y - offset);
+        projectileOffset.y = projectileOffset.y - 1;
     }
 
     private void RevertSliding()
@@ -181,6 +182,7 @@ public class Player : MonoBehaviour
         collisionBox.size = new Vector2(collisionBox.size.x, collisionBox.size.y * (1 / slideAmount));
         offset = (collisionBox.size.y - offset) / 2;
         collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y + offset);
+        projectileOffset.y = projectileOffset.y + 1;
     }
 
     #region StateUpdates
@@ -203,7 +205,7 @@ public class Player : MonoBehaviour
 
         if (transform.position.x <= playerPositioner.transform.position.x)
         {
-            rigid.velocity = rigid.velocity * 0.9f;
+            rigid.velocity = new Vector2(rigid.velocity.x * 0.5f, rigid.velocity.y);
         }
 
         rigid.AddForce(new Vector2(-8, 0) * Time.timeScale);
@@ -241,9 +243,9 @@ public class Player : MonoBehaviour
 
         if (transform.position.x <= playerPositioner.transform.position.x)
         {
-            rigid.velocity = rigid.velocity * 0.9f;
+            rigid.velocity = rigid.velocity * 0.7f;
         }
-
+        else
         rigid.AddForce(new Vector2(-8 , 0) * Time.timeScale);
 
         if (rigid.velocity.y < 0)
@@ -275,6 +277,14 @@ public class Player : MonoBehaviour
             nextState = States.Jumping;
             animator.SetTrigger("Jump");
             animator.SetBool("InAir", true);
+        }
+    }
+
+    public void FallQuick()
+    {
+        if(currentState == States.Jumping || currentState == States.Falling)
+        {
+            rigid.velocity = new Vector2(rigid.velocity.x, -15);
         }
     }
 
@@ -317,9 +327,11 @@ public class Player : MonoBehaviour
     public void Shoot()
     {
         if (Time.timeScale != 0 && shootCooldownCounter >= shootCooldown)
-            if (currentState != States.Dashing && currentState != States.Sliding)
+            if (currentState != States.Dashing)
             {
+                Debug.Log(PlayerPrefs.GetInt("PlayerStrength", 0));
                 GameObject.Instantiate(projectiles[PlayerPrefs.GetInt("PlayerStrength", 0)], transform.position + new Vector3(projectileOffset.x, projectileOffset.y, 0), transform.rotation);
+                if(currentState != States.Sliding)
                 ShootEvent.Invoke();
                 shootCooldownCounter = 0;
             }

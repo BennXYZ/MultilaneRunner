@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114131143918800932}
   - component: {fileID: 50325248676115200}
   - component: {fileID: 114684520574896032}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Projectile2
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4212531663214984}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4035458979973092}
   - component: {fileID: 198029003382522094}
   - component: {fileID: 199388301448146236}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sparks2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4094221270587444}
   - component: {fileID: 198014344564351606}
   - component: {fileID: 199081435738231176}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sparks1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4117201674481484}
   - component: {fileID: 96491516623317214}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

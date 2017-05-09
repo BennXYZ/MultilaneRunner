@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 81142ed455dfa8d4092cfda6adeb6205
-timeCreated: 1493210936
+guid: 238f3fa68c493d447b0eca5a15ac5476
+timeCreated: 1494330746
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -9,9 +9,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Conthrax
+  fontName: FORCED SQUARE
   fontNames:
-  - Conthrax
+  - FORCED SQUARE
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

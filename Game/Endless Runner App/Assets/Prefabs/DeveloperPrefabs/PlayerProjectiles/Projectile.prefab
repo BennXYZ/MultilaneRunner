@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4492580197608014}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4241198644937962}
   - component: {fileID: 198567204008245938}
   - component: {fileID: 199763384385177978}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Wabbeln
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 114131143918800932}
   - component: {fileID: 50325248676115200}
   - component: {fileID: 114684520574896032}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Projectile
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4693774006530608}
   - component: {fileID: 212409215947039690}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4681257843448616}
   - component: {fileID: 199614602245046942}
   - component: {fileID: 198371918561745972}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Blitze
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -76,9 +76,27 @@ GameObject:
   - component: {fileID: 114002427398755610}
   - component: {fileID: 114371957166090394}
   - component: {fileID: 114377556143218040}
+  - component: {fileID: 114926588259979402}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1206389512746832
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4180910887283232}
+  - component: {fileID: 82460628783682878}
+  - component: {fileID: 114665623779613218}
+  m_Layer: 0
+  m_Name: ShootSound
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +177,6 @@ GameObject:
   - component: {fileID: 61667146339139542}
   - component: {fileID: 61868969640012990}
   - component: {fileID: 61980222133665682}
-  - component: {fileID: 61648946499885850}
   - component: {fileID: 114835043688758814}
   m_Layer: 0
   m_Name: PlayerBorder
@@ -373,6 +390,19 @@ Transform:
   m_Father: {fileID: 4577363558609750}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4180910887283232
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206389512746832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4533585156175194}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4197864095401084
 Transform:
   m_ObjectHideFlags: 1
@@ -423,6 +453,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4617559427118268}
+  - {fileID: 4180910887283232}
   m_Father: {fileID: 4563777687089618}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -605,23 +636,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -12.648185, y: -0.2578044}
+  m_Offset: {x: -12.946623, y: -0.2578044}
   serializedVersion: 2
-  m_Size: {x: 8, y: 12.343408}
---- !u!61 &61648946499885850
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1461020328936208}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: -12.648185, y: -0.2578044}
-  serializedVersion: 2
-  m_Size: {x: 7.8616276, y: 12.343408}
+  m_Size: {x: 7.403126, y: 12.343408}
 --- !u!61 &61667146339139542
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -695,6 +712,86 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c2598299711295c4a94192090abce915, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!82 &82460628783682878
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206389512746832}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 40a17a8e596af9d4d8a8a7fd4322c5e2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -864,6 +961,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114535811257152660}
+        m_MethodName: FallQuick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   Right:
@@ -915,6 +1023,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   shootingClickRange: 50
+  actionDistance: 100
 --- !u!114 &114133786612105886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1067,8 +1176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95533759298222178}
-  jumpForce: 3
-  moveSpeed: 1.61
+  jumpForce: 2.5
+  moveSpeed: 0.58
   forwardJump: 0
   dashForce: 3.58
   dashDuration: 0.17
@@ -1076,7 +1185,10 @@ MonoBehaviour:
   slideAmount: 0.408
   projectiles:
   - {fileID: 1089224980173328, guid: acbcddf17c61f7e4d99d644e21b672c3, type: 2}
+  - {fileID: 1089224980173328, guid: acbcddf17c61f7e4d99d644e21b672c3, type: 2}
   - {fileID: 1089224980173328, guid: f215c0de41b7d304d97c51662172abcd, type: 2}
+  - {fileID: 1089224980173328, guid: f215c0de41b7d304d97c51662172abcd, type: 2}
+  - {fileID: 1239710777381424, guid: 55c96f1962526314999f183c204b1b12, type: 2}
   shootCooldown: 1
   projectileOffset: {x: 0.4, y: 0.7}
   StartJumping:
@@ -1228,8 +1340,32 @@ MonoBehaviour:
           m_StringArgument: Shoot
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 82460628783682878}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114665623779613218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206389512746832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c2fc17370b79948ac3e1d1be5292c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: 1
+  state: 1
 --- !u!114 &114706277706891030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1425,6 +1561,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114926588259979402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179991325337182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b78345be2642184abff7b09a8088304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 50390835140033726}
+  fallMultiplicator: 1.4
 --- !u!114 &114990308149804996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1551,7 +1700,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -57565328
+  randomSeed: 1235083111
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4188,7 +4337,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1729598524
+  randomSeed: 694839436
   InitialModule:
     serializedVersion: 3
     enabled: 1

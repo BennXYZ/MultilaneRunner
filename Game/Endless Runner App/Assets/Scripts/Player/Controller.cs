@@ -23,14 +23,19 @@ public class Controller : MonoBehaviour {
     [SerializeField]
     float shootingClickRange;
 
+    [SerializeField]
+    float actionDistance;
+
     bool freeze = false;
+
+    bool action;
 
     Vector2 clickBegin;
     Vector2 clickEnd;
 
     // Use this for initialization
     void Start () {
-
+        action = false;
     }
 	
     public void setFreeze(bool freeze)
@@ -59,10 +64,13 @@ public class Controller : MonoBehaviour {
             }
 
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !action)
+            {
                 clickBegin = Input.mousePosition;
+                action = true;
+            }
 
-            if (Input.GetMouseButtonUp(0))
+            if (action &&(Input.GetMouseButtonUp(0) || (Input.GetMouseButton(0) && Vector2.Distance(Input.mousePosition,clickBegin) > actionDistance)))
             {
                 clickEnd = Input.mousePosition;
                 if (Vector2.Distance(clickBegin, clickEnd) < shootingClickRange)
@@ -84,6 +92,8 @@ public class Controller : MonoBehaviour {
                             Down.Invoke();
                     }
                 }
+
+                action = false;
             }
         }
     }

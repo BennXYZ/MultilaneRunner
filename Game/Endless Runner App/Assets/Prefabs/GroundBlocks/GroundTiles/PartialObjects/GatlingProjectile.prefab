@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4159407557666098}
   - component: {fileID: 212271331535296746}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GroundDummy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 114393953950965424}
   - component: {fileID: 58474372004902228}
   - component: {fileID: 114350806215124566}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GatlingProjectile
   m_TagString: HazardProjectile
   m_Icon: {fileID: 0}

@@ -28,8 +28,8 @@ TagManager:
   - PlayerBorder
   - Player
   - Boss
-  - 
-  - 
+  - PlayerProjectiles
+  - HazardProjectiles
   - 
   - 
   - 
