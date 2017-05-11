@@ -6,9 +6,9 @@ public class screenOrientation : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
-        Screen.autorotateToLandscapeLeft = true;
-        Screen.autorotateToLandscapeRight = true;
+        Screen.orientation = ScreenOrientation.LandscapeRight;
+        Screen.autorotateToLandscapeLeft = false;
+        Screen.autorotateToLandscapeRight = false;
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
 	}

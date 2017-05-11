@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4829227054374850}
   - component: {fileID: 198234321491470864}
   - component: {fileID: 199726741867657266}
+  - component: {fileID: 114131418571392504}
   m_Layer: 0
   m_Name: PlayerDeathParticle
   m_TagString: Untagged
@@ -196,6 +197,17 @@ Transform:
   m_Father: {fileID: 4829227054374850}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114131418571392504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1914579782852874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f250b6874837c941a3e1887b3f466c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198051450247624360
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -15696,7 +15708,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_RenderMode: 1
   m_SortMode: 1
   m_MinParticleSize: 0
@@ -15746,7 +15758,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -15796,7 +15808,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -15846,7 +15858,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -15896,7 +15908,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -15946,7 +15958,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_RenderMode: 0
   m_SortMode: 1
   m_MinParticleSize: 0
