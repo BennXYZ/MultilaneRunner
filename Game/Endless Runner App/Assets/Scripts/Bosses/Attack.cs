@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Attack : MonoBehaviour {
 
@@ -37,13 +38,22 @@ public class Attack : MonoBehaviour {
     float bulletCooldownCounter;
 
     [SerializeField]
+    bool looping;
+
+    [SerializeField]
     bool instantSpawning;
 
     [SerializeField]
     float instantSpawnDelay;
     float instantSpawnDelayTimer;
 
+    [SerializeField]
+    bool stickWithAttacker;
+
     bool attacking;
+
+    [SerializeField]
+    UnityEvent onAttack;
 
 	// Use this for initialization
 	void Start () {
@@ -63,14 +73,21 @@ public class Attack : MonoBehaviour {
             {
                 if (spawnAtPlayer)
                 {
-                    GameObject.Instantiate(Projectile, GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(Random.value *
+                    GameObject projectile = GameObject.Instantiate(Projectile, GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(Random.value *
     maxSpawndistance.x * 2 - maxSpawndistance.x, Random.value * maxSpawndistance.y * 2 - maxSpawndistance.y, 0), transform.rotation);
+
+                    if (stickWithAttacker)
+                        projectile.transform.parent = gameObject.transform;
+
                     bulletCooldownCounter = 0;
                     attacksDone++;
                 }
                 else if (SpawnPivots.Length == 0)
                 {
                     GameObject projectile = GameObject.Instantiate(Projectile, transform.position, transform.rotation);
+
+                    if (stickWithAttacker)
+                        projectile.transform.parent = gameObject.transform;
 
                     bulletCooldownCounter = 0;
 
@@ -82,6 +99,9 @@ public class Attack : MonoBehaviour {
                     {
                         GameObject projectile = GameObject.Instantiate(Projectile, SpawnPivots[Random.Range(0, (int)SpawnPivots.Length)].transform.position + new Vector3(Random.value * maxSpawndistance.x * 2 - maxSpawndistance.x, Random.value * maxSpawndistance.y * 2 - maxSpawndistance.y, 0), transform.rotation);
 
+                        if (stickWithAttacker)
+                            projectile.transform.parent = gameObject.transform;
+
                         bulletCooldownCounter = 0;
 
                         attacksDone++;
@@ -89,6 +109,8 @@ public class Attack : MonoBehaviour {
                     else
                     {
                         GameObject projectile = GameObject.Instantiate(Projectile, SpawnPivots[n].transform.position + new Vector3(Random.value * maxSpawndistance.x * 2 - maxSpawndistance.x, Random.value * maxSpawndistance.y * 2 - maxSpawndistance.y, 0), transform.rotation);
+                        if (stickWithAttacker)
+                            projectile.transform.parent = gameObject.transform;
                         if (n + 1 >= SpawnPivots.Length)
                             n = 0;
                         else
@@ -102,7 +124,7 @@ public class Attack : MonoBehaviour {
             else
                 bulletCooldownCounter += Time.deltaTime;
         }
-        if(attacksDone >= numberOfAttacks)
+        if(attacksDone >= numberOfAttacks && !looping)
         {
             attacksDone = 0;
             attacking = false;
@@ -122,6 +144,7 @@ public class Attack : MonoBehaviour {
 
     public void StartAttack()
     {
+        onAttack.Invoke();
         attacking = true;
         bulletCooldownCounter = bulletCooldown;
         attacksDone = 0;

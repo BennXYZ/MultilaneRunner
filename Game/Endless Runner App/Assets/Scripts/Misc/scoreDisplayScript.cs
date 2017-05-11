@@ -8,6 +8,10 @@ public class scoreDisplayScript : MonoBehaviour {
     scoreTrackerScript tracker;
     [SerializeField]
     Text text;
+
+    [SerializeField]
+    bool totalScore;
+
     int score;
     
 
@@ -16,17 +20,36 @@ public class scoreDisplayScript : MonoBehaviour {
         if (GameObject.FindGameObjectWithTag("ScoreTracker") != null)
         {
             tracker = GameObject.FindGameObjectWithTag("ScoreTracker").GetComponent<scoreTrackerScript>();
-            score = 0;
+            UpdateScore();
+            text.text = score.ToString();
+        }
+    }
+
+    private void UpdateScore()
+    {
+        if (tracker != null)
+        {
+            if (totalScore)
+            {
+                if (score != tracker.TotalScore())
+                {
+                    score = tracker.TotalScore();
+                    text.text = score.ToString();
+                }
+            }
+            else
+            {
+                if (score != tracker.CurrentScore())
+                {
+                    score = tracker.CurrentScore();
+                    text.text = score.ToString();
+                }
+            }
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(tracker != null)
-        if (score != tracker.TotalScore())
-        {
-            score = tracker.TotalScore();
-            text.text = score.ToString();
-        }
+        UpdateScore();
 	}
 }

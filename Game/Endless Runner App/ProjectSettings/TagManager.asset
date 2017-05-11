@@ -14,6 +14,9 @@ TagManager:
   - GameSettings
   - ScoreTracker
   - UpgradeManager
+  - Coin
+  - HazardProjectile
+  - MissionManager
   layers:
   - Default
   - TransparentFX
@@ -25,9 +28,9 @@ TagManager:
   - 
   - PlayerBorder
   - Player
-  - 
-  - 
-  - 
+  - Boss
+  - PlayerProjectiles
+  - HazardProjectiles
   - 
   - 
   - 
@@ -48,6 +51,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Test
+    uniqueID: 2164327279
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

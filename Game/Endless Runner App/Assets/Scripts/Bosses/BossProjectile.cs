@@ -52,7 +52,7 @@ public class BossProjectile : MonoBehaviour
             velocity = (Quaternion.Euler(0, 0, (Random.value * sprayAngle) - (sprayAngle / 2)) * shootDirection).normalized * speed;
         else if (!aimingAtPlayer)
             velocity = Vector2.zero;
-        else if (aimingAtPlayer)
+        else if (aimingAtPlayer && GameObject.FindGameObjectWithTag("Player") != null)
             velocity = (Quaternion.Euler(0, 0, (Random.value * sprayAngle) - (sprayAngle / 2)) * (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position)).normalized * speed;
         if (rotateInDirection)
             transform.rotation = Quaternion.LookRotation(new Vector3(0, 0, 1), velocity);

@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: a8d99b35e150cfb4eb70c1ba9947952d
+timeCreated: 1493021240
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Dash_Backwards_0
+    21300002: Dash_Backwards_1
+    21300004: Dash_Backwards_2
+    21300006: Dash_Backwards_3
+    21300008: Dash_Backwards_4
+    21300010: Dash_Backwards_5
+    21300012: Dash_Backwards_6
+    21300014: Dash_Backwards_7
+    21300016: Dash_Backwards_8
+    21300018: Dash_Backwards_9
+    21300020: Dash_Backwards_10
+    21300022: Dash_Backwards_11
+    21300024: Dash_Backwards_12
+    21300026: Dash_Backwards_13
+    21300028: Dash_Backwards_14
+    21300030: Dash_Backwards_15
+    21300032: Dash_Backwards_16
+    21300034: Dash_Backwards_17
+    21300036: Dash_Backwards_18
+    21300038: Dash_Backwards_19
+    21300040: Dash_Backwards_20
+    21300042: Dash_Backwards_21
+    21300044: Dash_Backwards_22
+    21300046: Dash_Backwards_23
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dash_Backwards_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 462
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_1
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 462
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_2
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 462
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_3
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 462
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_4
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 462
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_5
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 462
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_6
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 462
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_7
+      rect:
+        serializedVersion: 2
+        x: 2177
+        y: 462
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 231
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_9
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 231
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_10
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 231
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_11
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 231
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_12
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 231
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_13
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 231
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_14
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 231
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_15
+      rect:
+        serializedVersion: 2
+        x: 2177
+        y: 231
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_17
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 0
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_18
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 0
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_19
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 0
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_20
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 0
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_21
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 0
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_22
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 0
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dash_Backwards_23
+      rect:
+        serializedVersion: 2
+        x: 2177
+        y: 0
+        width: 311
+        height: 231
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
