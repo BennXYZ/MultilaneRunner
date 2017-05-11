@@ -99,4 +99,10 @@ public class acutalScoreScript : MonoBehaviour
             }
         }
     }
+
+
+    public int GetBosses()
+    {
+        return bosses;
+    }
 }
