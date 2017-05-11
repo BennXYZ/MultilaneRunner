@@ -13,10 +13,13 @@ public class Boss : MonoBehaviour {
 
     UnityEvent Death;
 
+    bool PlayerIsChamp;
+
     // Use this for initialization
     void Start () {
 
         GameObject.Find("BossHealth").GetComponent<HealthDisplay>().CheckForBoss();
+        PlayerIsChamp = true;
 
         Death = new UnityEvent();
         Death.AddListener(GameObject.FindGameObjectWithTag("BossSpawner").GetComponent<BossSpawning>().BossKilled);
@@ -42,6 +45,24 @@ public class Boss : MonoBehaviour {
         if(collision.gameObject.tag == "PlayerProjectile")
         {
             Health.Damage(collision.gameObject.GetComponent<Projectile>().GetDamage());
+        }
+    }
+
+    public void PlayerIsNoob()
+    {
+        Debug.Log("ROFL");
+        PlayerIsChamp = false;
+    }
+
+    public void OnDeath()
+    {
+        MissionManager missions = GameObject.FindGameObjectWithTag("MissionManager").GetComponent<MissionManager>();
+        missions.MissionProgress(3,1);
+        missions.MissionProgress(4, 1);
+        if (PlayerIsChamp)
+        {
+            Debug.Log("LOL");
+            missions.MissionProgress(5, 1);
         }
     }
 

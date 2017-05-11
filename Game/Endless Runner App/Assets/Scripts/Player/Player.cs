@@ -329,11 +329,16 @@ public class Player : MonoBehaviour
         if (Time.timeScale != 0 && shootCooldownCounter >= shootCooldown)
             if (currentState != States.Dashing)
             {
-                Debug.Log(PlayerPrefs.GetInt("PlayerStrength", 0));
                 GameObject.Instantiate(projectiles[PlayerPrefs.GetInt("PlayerStrength", 0)], transform.position + new Vector3(projectileOffset.x, projectileOffset.y, 0), transform.rotation);
                 if(currentState != States.Sliding)
                 ShootEvent.Invoke();
                 shootCooldownCounter = 0;
             }
+    }
+
+    public void Hurt()
+    {
+        if (GameObject.FindGameObjectWithTag("Boss") != null)
+            GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().PlayerIsNoob();
     }
 }

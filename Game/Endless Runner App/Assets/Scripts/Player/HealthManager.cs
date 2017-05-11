@@ -92,7 +92,6 @@ public class HealthManager : MonoBehaviour {
             if (health <= 0)
             {
                 Death.Invoke();
-                Debug.Log("Death");
             }
         }
     }

@@ -32,6 +32,8 @@ public class coinScript : MonoBehaviour {
             GameObject.FindGameObjectWithTag("ScoreTracker").GetComponent<scoreTrackerScript>().CollectCoin(GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForCoinBoost() * coins);
             if (GameObject.Find("ScoreManager") != null)
                 GameObject.Find("ScoreManager").GetComponent<acutalScoreScript>().addPoints(score,0, GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForCoinBoost() * coins);
+            GameObject.FindGameObjectWithTag("MissionManager").GetComponent<MissionManager>().MissionProgress(1, GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForCoinBoost() * coins);
+            GameObject.FindGameObjectWithTag("MissionManager").GetComponent<MissionManager>().MissionProgress(2, GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForCoinBoost() * coins);
             GameObject.Destroy(gameObject);
         }
     }

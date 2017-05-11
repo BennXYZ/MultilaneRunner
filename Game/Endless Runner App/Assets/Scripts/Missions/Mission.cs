@@ -5,6 +5,10 @@ using UnityEngine.Events;
 
 public class Mission : MonoBehaviour {
 
+    public string name;
+
+    public string description;
+
     [SerializeField]
     bool resetsOnLevelEnd;
 
@@ -30,17 +34,39 @@ public class Mission : MonoBehaviour {
 
     }
 
-    public void CheckProgress()
+    public int getGoal()
+    {
+        return goal;
+    }
+
+    public int getProgress()
+    {
+        return progress;
+    }
+
+    public void AddProgress(int value)
+    {
+        progress += value;
+    }
+
+    public bool CheckProgress()
     {
         if(progress >= goal)
         {
             PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score", 0) + prize);
-            Destroy(gameObject);
+            return true;
         }
+        return false;
     }
 
     public void ResetProgress()
     {
         progress = 0;
+    }
+
+    public void ResetOnLevelEnd()
+    {
+        if (resetsOnLevelEnd)
+            progress = 0;
     }
 }

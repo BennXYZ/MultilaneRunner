@@ -28,7 +28,7 @@ public class FadeMusic : MonoBehaviour
     {
         if (!pitchIsTarget)
         {
-            audio.pitch += (pitch - audio.pitch) * Time.deltaTime * speed;
+            audio.pitch += (pitch - audio.pitch) * speed * 0.01f;
             if (audio.pitch >= pitch - 0.01f && audio.pitch <= pitch + 0.01f)
             {
                 audio.pitch = pitch;
