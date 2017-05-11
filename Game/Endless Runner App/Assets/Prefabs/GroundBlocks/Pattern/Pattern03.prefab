@@ -1046,12 +1046,12 @@ MonoBehaviour:
   - {fileID: 1768935374019118, guid: ccf818702f7c4eb48a1064e0125dc1c3, type: 2}
   - {fileID: 1461969309826994, guid: d47ea57483370834081403d7f5b6f45c, type: 2}
   - {fileID: 1144274942070298, guid: f928ac5baa8ee7245a42fac47e43e141, type: 2}
-  - {fileID: 1543910330704030, guid: b330932888304734eb309ceec963327c, type: 2}
-  - {fileID: 1256819273773106, guid: 1b870a723a5558c4eaf090a01f873e4a, type: 2}
+  - {fileID: 1651472754954974, guid: b330932888304734eb309ceec963327c, type: 2}
+  - {fileID: 1699873969255820, guid: 1b870a723a5558c4eaf090a01f873e4a, type: 2}
   - {fileID: 1914287442840996, guid: 1c88972ed32fd8241889259421cef2cf, type: 2}
   - {fileID: 1823736548387492, guid: a898720da2f970644886e9d62012d114, type: 2}
   - {fileID: 1336114449495174, guid: 2d9181df1a6f37c4ab8d3ffc2dce55c1, type: 2}
-  - {fileID: 1760520726437636, guid: b9e9b4fd44ebac741add4accc63eaee3, type: 2}
+  - {fileID: 1613536183549172, guid: b9e9b4fd44ebac741add4accc63eaee3, type: 2}
   - {fileID: 1315853925140844, guid: 328486dd7b1be9d4eb65dc33be00b2cb, type: 2}
   - {fileID: 1268673977448520, guid: a02b841f7c3c89b4ca2e3341215e9aa2, type: 2}
   - {fileID: 1678415722790836, guid: 1a77ff9bd4085cd45b3cba3e1bdb6a65, type: 2}
@@ -1060,6 +1060,7 @@ MonoBehaviour:
   OffSet: {x: 19.3, y: 0}
   SpawnDistance: 20
   blockSpawned: 0
+  isBackgroundSpawner: 0
 --- !u!114 &114872380509322586
 MonoBehaviour:
   m_ObjectHideFlags: 1

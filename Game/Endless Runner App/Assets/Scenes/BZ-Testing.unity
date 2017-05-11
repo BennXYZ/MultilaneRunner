@@ -241,6 +241,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 2078193462}
     m_Modifications:
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.size
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 4077819955486944, guid: e5117910adcfd574a87a61a2b9358c30, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.33
@@ -276,6 +281,76 @@ Prefab:
     - target: {fileID: 1341912723290356, guid: e5117910adcfd574a87a61a2b9358c30, type: 2}
       propertyPath: m_Name
       value: Ground0_Basic (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1498800903233876, guid: bb0e9909c6dbae94091b1028b1933870,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[2]
+      value: 
+      objectReference: {fileID: 1374746442970396, guid: e90ea0369d4b049439fc69c9800fd010,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1868773125376936, guid: 134bdc3aa9eb3244290b97cf18acd88f,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[13]
+      value: 
+      objectReference: {fileID: 1651472754954974, guid: b330932888304734eb309ceec963327c,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[14]
+      value: 
+      objectReference: {fileID: 1699873969255820, guid: 1b870a723a5558c4eaf090a01f873e4a,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[18]
+      value: 
+      objectReference: {fileID: 1613536183549172, guid: b9e9b4fd44ebac741add4accc63eaee3,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[19]
+      value: 
+      objectReference: {fileID: 1315853925140844, guid: 328486dd7b1be9d4eb65dc33be00b2cb,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[20]
+      value: 
+      objectReference: {fileID: 1268673977448520, guid: a02b841f7c3c89b4ca2e3341215e9aa2,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[21]
+      value: 
+      objectReference: {fileID: 1678415722790836, guid: 1a77ff9bd4085cd45b3cba3e1bdb6a65,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[22]
+      value: 
+      objectReference: {fileID: 1833244637782998, guid: 5a841fd010921b64f81c469c4ee50d2a,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: blockChance.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: OffSet.x
+      value: 19.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5117910adcfd574a87a61a2b9358c30, type: 2}
@@ -554,6 +629,7 @@ MonoBehaviour:
   OffSet: {x: 5, y: 0}
   SpawnDistance: 40
   blockSpawned: 0
+  isBackgroundSpawner: 1
 --- !u!114 &115370844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,6 +1188,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 2078193462}
     m_Modifications:
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.size
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 4077819955486944, guid: e5117910adcfd574a87a61a2b9358c30, type: 2}
       propertyPath: m_LocalPosition.x
       value: -12.06
@@ -1148,6 +1229,76 @@ Prefab:
         type: 2}
       propertyPath: blockSpawned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1498800903233876, guid: bb0e9909c6dbae94091b1028b1933870,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[2]
+      value: 
+      objectReference: {fileID: 1374746442970396, guid: e90ea0369d4b049439fc69c9800fd010,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1868773125376936, guid: 134bdc3aa9eb3244290b97cf18acd88f,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[13]
+      value: 
+      objectReference: {fileID: 1651472754954974, guid: b330932888304734eb309ceec963327c,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[14]
+      value: 
+      objectReference: {fileID: 1699873969255820, guid: 1b870a723a5558c4eaf090a01f873e4a,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[18]
+      value: 
+      objectReference: {fileID: 1613536183549172, guid: b9e9b4fd44ebac741add4accc63eaee3,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[19]
+      value: 
+      objectReference: {fileID: 1315853925140844, guid: 328486dd7b1be9d4eb65dc33be00b2cb,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[20]
+      value: 
+      objectReference: {fileID: 1268673977448520, guid: a02b841f7c3c89b4ca2e3341215e9aa2,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[21]
+      value: 
+      objectReference: {fileID: 1678415722790836, guid: 1a77ff9bd4085cd45b3cba3e1bdb6a65,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: groundTiles.Array.data[22]
+      value: 
+      objectReference: {fileID: 1833244637782998, guid: 5a841fd010921b64f81c469c4ee50d2a,
+        type: 2}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: blockChance.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922560519472700, guid: e5117910adcfd574a87a61a2b9358c30,
+        type: 2}
+      propertyPath: OffSet.x
+      value: 19.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5117910adcfd574a87a61a2b9358c30, type: 2}
@@ -3162,6 +3313,7 @@ MonoBehaviour:
   OffSet: {x: 30, y: 0}
   SpawnDistance: 50
   blockSpawned: 0
+  isBackgroundSpawner: 1
 --- !u!114 &428498414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3324,6 +3476,7 @@ MonoBehaviour:
   OffSet: {x: 5, y: 0}
   SpawnDistance: 20
   blockSpawned: 0
+  isBackgroundSpawner: 1
 --- !u!114 &496343027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4957,6 +5110,7 @@ MonoBehaviour:
   OffSet: {x: 30, y: 0}
   SpawnDistance: 40
   blockSpawned: 0
+  isBackgroundSpawner: 1
 --- !u!114 &765611933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5594,6 +5748,7 @@ MonoBehaviour:
   OffSet: {x: 2.5, y: 0}
   SpawnDistance: 20
   blockSpawned: 0
+  isBackgroundSpawner: 1
 --- !u!114 &953788477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5750,6 +5905,7 @@ MonoBehaviour:
   OffSet: {x: 2.5, y: 0}
   SpawnDistance: 20
   blockSpawned: 0
+  isBackgroundSpawner: 1
 --- !u!114 &957552128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6345,6 +6501,11 @@ Prefab:
     - target: {fileID: 4720261215224444, guid: 03485ea7c5b4a3e4b9fbeb9bf798f041, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114742887565653014, guid: 03485ea7c5b4a3e4b9fbeb9bf798f041,
+        type: 2}
+      propertyPath: isBackgroundSpawner
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03485ea7c5b4a3e4b9fbeb9bf798f041, type: 2}
@@ -7375,6 +7536,7 @@ MonoBehaviour:
   OffSet: {x: 30, y: 0}
   SpawnDistance: 50
   blockSpawned: 0
+  isBackgroundSpawner: 1
 --- !u!114 &1333612151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8241,6 +8403,7 @@ MonoBehaviour:
   OffSet: {x: 10, y: 0}
   SpawnDistance: 40
   blockSpawned: 0
+  isBackgroundSpawner: 1
 --- !u!212 &1495958408
 SpriteRenderer:
   m_ObjectHideFlags: 0
