@@ -37,16 +37,4 @@ public class DespawnParticles : MonoBehaviour {
                                 Destroy(gameObject);
         }
     }
-
-    public void RemoveParticle()
-    {
-        for(int i = 0; i < particles.Count; i++)
-        {
-            if(!particles[i].isPlaying)
-            {
-                Destroy(particles[i]);
-                particles.RemoveAt(i);
-            }
-        }
-    }
 }
