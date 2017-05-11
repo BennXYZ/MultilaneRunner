@@ -87,33 +87,38 @@ public class GroundSpawning : MonoBehaviour
             switch(bosses)
             {
                 case 0:
-                    max = 3;
+                    max = 4;
                     break;
                 case 1:
-                    max = 5;
+                    max = 6;
                     break;
                 case 2:
-                    max = 8;
+                    max = 9;
                     break;
                 case 3:
-                    max = 12;
+                    max = 13;
                     break;
                 default:
-                    max = 18;
+                    max = 19;
                     break;
             }
 
             int toSpawnIndex = Random.Range(min, max);
 
+            Debug.Log(min);
+            Debug.Log(toSpawnIndex);
+
+            Debug.Log(groundTiles[0]);
             GameObject nextBlock = GameObject.Instantiate(groundTiles[toSpawnIndex],
             new Vector3(transform.localPosition.x + OffSet.x, transform.localPosition.y + OffSet.y, transform.localPosition.z), transform.rotation, transform.parent);
+            Debug.Log(nextBlock);
             //nextBlock.transform.Translate(manager.Direction * manager.Speed * Time.deltaTime);
-            nextBlock.name = groundTiles[toSpawnIndex].name;
+            //nextBlock.name = groundTiles[toSpawnIndex].name;
             return true;
         }
         else
         {
-            int toSpawnIndex = Random.Range(19, 22);
+            int toSpawnIndex = Random.Range(19, 23);
 
             GameObject nextBlock = GameObject.Instantiate(groundTiles[toSpawnIndex],
                         new Vector3(transform.localPosition.x + OffSet.x, transform.localPosition.y + OffSet.y, transform.localPosition.z),
