@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTiles:
-  - {fileID: 1337116915283440}
+  - {fileID: 1127829448516588, guid: 486613fdf0a73ef42abd4cd94d36e65f, type: 2}
   - {fileID: 1498800903233876, guid: bb0e9909c6dbae94091b1028b1933870, type: 2}
   - {fileID: 1374746442970396, guid: e90ea0369d4b049439fc69c9800fd010, type: 2}
   - {fileID: 1868773125376936, guid: 134bdc3aa9eb3244290b97cf18acd88f, type: 2}
@@ -541,16 +541,21 @@ MonoBehaviour:
   - {fileID: 1768935374019118, guid: ccf818702f7c4eb48a1064e0125dc1c3, type: 2}
   - {fileID: 1461969309826994, guid: d47ea57483370834081403d7f5b6f45c, type: 2}
   - {fileID: 1144274942070298, guid: f928ac5baa8ee7245a42fac47e43e141, type: 2}
-  - {fileID: 1543910330704030, guid: b330932888304734eb309ceec963327c, type: 2}
-  - {fileID: 1256819273773106, guid: 1b870a723a5558c4eaf090a01f873e4a, type: 2}
+  - {fileID: 1651472754954974, guid: b330932888304734eb309ceec963327c, type: 2}
+  - {fileID: 1699873969255820, guid: 1b870a723a5558c4eaf090a01f873e4a, type: 2}
   - {fileID: 1914287442840996, guid: 1c88972ed32fd8241889259421cef2cf, type: 2}
   - {fileID: 1823736548387492, guid: a898720da2f970644886e9d62012d114, type: 2}
   - {fileID: 1336114449495174, guid: 2d9181df1a6f37c4ab8d3ffc2dce55c1, type: 2}
-  - {fileID: 1760520726437636, guid: b9e9b4fd44ebac741add4accc63eaee3, type: 2}
+  - {fileID: 1613536183549172, guid: b9e9b4fd44ebac741add4accc63eaee3, type: 2}
+  - {fileID: 1315853925140844, guid: 328486dd7b1be9d4eb65dc33be00b2cb, type: 2}
+  - {fileID: 1268673977448520, guid: a02b841f7c3c89b4ca2e3341215e9aa2, type: 2}
+  - {fileID: 1678415722790836, guid: 1a77ff9bd4085cd45b3cba3e1bdb6a65, type: 2}
+  - {fileID: 1833244637782998, guid: 5a841fd010921b64f81c469c4ee50d2a, type: 2}
   blockChance: 00000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   OffSet: {x: 19.3, y: 0}
   SpawnDistance: 20
   blockSpawned: 0
+  isBackgroundSpawner: 0
 --- !u!212 &212046789847626822
 SpriteRenderer:
   m_ObjectHideFlags: 1

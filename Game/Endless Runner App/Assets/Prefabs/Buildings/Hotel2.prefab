@@ -184,6 +184,7 @@ MonoBehaviour:
   OffSet: {x: 40, y: 0}
   SpawnDistance: 50
   blockSpawned: 0
+  isBackgroundSpawner: 1
 --- !u!114 &114116211519401560
 MonoBehaviour:
   m_ObjectHideFlags: 1
