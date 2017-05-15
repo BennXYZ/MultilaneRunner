@@ -13,8 +13,9 @@ public class PivotMovement : MonoBehaviour
 
     bool singleTarget;
 
-    [SerializeField]
-    float speed;
+    public float speed;
+
+    bool freezed;
 
     [SerializeField]
     bool backtrackMovement;
@@ -31,6 +32,7 @@ public class PivotMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        freezed = false;
         rigid = gameObject.GetComponent<Rigidbody2D>();
         nextPivot = 0;
         delayCounter = 0;
@@ -39,39 +41,49 @@ public class PivotMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (delayCounter >= delay)
+        if (!freezed)
         {
-            if (!singleTarget)
+            if (delayCounter >= delay)
             {
-                if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) * speed)
-                    rigid.velocity = (Pivots[nextPivot].transform.position - transform.position) * speed;
-                else
-                    rigid.AddForce((Pivots[nextPivot].transform.position - transform.position).normalized * speed);
+                if (!singleTarget)
+                {
+                    if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) * speed)
+                        rigid.velocity = (Pivots[nextPivot].transform.position - transform.position) * speed;
+                    else
+                        rigid.AddForce((Pivots[nextPivot].transform.position - transform.position).normalized * speed);
 
-                if (Pivots.Length > 1)
-                    if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) < 0.5f)
-                    {
-                        rigid.velocity = Vector2.zero;
-                        ChangePivot();
-                    }
-            }
-            else
-            {
-                if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, singleTargetPivot.transform.position) * speed)
-                    rigid.velocity = (singleTargetPivot.transform.position - transform.position) * speed;
+                    if (Pivots.Length > 1)
+                        if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, Pivots[nextPivot].transform.position) < 0.5f)
+                        {
+                            rigid.velocity = Vector2.zero;
+                            ChangePivot();
+                        }
+                }
                 else
-                    rigid.AddForce((singleTargetPivot.transform.position - transform.position).normalized * speed);
+                {
+                    if (rigid.velocity.magnitude >= Vector2.Distance(transform.position, singleTargetPivot.transform.position) * speed)
+                        rigid.velocity = (singleTargetPivot.transform.position - transform.position) * speed;
+                    else
+                        rigid.AddForce((singleTargetPivot.transform.position - transform.position).normalized * speed);
 
-                if (Pivots.Length > 1)
-                    if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, singleTargetPivot.transform.position) < 0.5f)
-                    {
-                        rigid.velocity = Vector2.zero;
-                        singleTarget = false;
-                    }
+                    if (Pivots.Length > 1)
+                        if (rigid.velocity.magnitude < 0.1f && Vector2.Distance(transform.position, singleTargetPivot.transform.position) < 0.5f)
+                        {
+                            rigid.velocity = Vector2.zero;
+                            singleTarget = false;
+                        }
+                }
             }
+            if (delayCounter < delay)
+                delayCounter += Time.deltaTime;
         }
-        if (delayCounter < delay)
-            delayCounter += Time.deltaTime;
+        else
+            rigid.velocity = Vector2.zero;
+    }
+
+    public void Freeze(bool state)
+    {
+        freezed = state;
     }
 
     public void GotToSingleTarget()

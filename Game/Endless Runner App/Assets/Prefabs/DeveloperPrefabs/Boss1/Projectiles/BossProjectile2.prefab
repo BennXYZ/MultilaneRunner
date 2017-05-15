@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114484909306132932}
   - component: {fileID: 58747665378283812}
   - component: {fileID: 58380219633684286}
+  - component: {fileID: 114635152856909716}
   m_Layer: 0
   m_Name: BossProjectile2
   m_TagString: Untagged
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813447113297318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9779373, y: -1.0421293, z: 0}
+  m_LocalPosition: {x: -12.290172, y: -12.329578, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4741970101917562}
@@ -134,6 +135,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!114 &114635152856909716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1813447113297318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2e72a57e09bc048a4ab52d8cf7f1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMultiplicator: 1
 --- !u!114 &114751528714857250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,14 +159,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileType: 0
-  shootDirection: {x: -1, y: 0}
+  shootDirection: {x: 0, y: 0}
   sprayAngle: 0
   aimingAtPlayer: 0
   rotateInDirection: 0
   speedUpPerSecond: 0
   speed: 5
   hitDelay: 0
-  endDelay: 2.9
+  endDelay: 5
   destroyDelay: 5
 --- !u!212 &212154816914729634
 SpriteRenderer:

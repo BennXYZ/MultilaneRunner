@@ -57,7 +57,9 @@ GameObject:
   - component: {fileID: 61530963321764658}
   - component: {fileID: 114174583543493598}
   - component: {fileID: 114323586377927046}
+  - component: {fileID: 114819910766627402}
   - component: {fileID: 114592598931814342}
+  - component: {fileID: 114120002694290682}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -284,7 +286,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1585794249400786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.0631604, y: -1.7571274, z: -0.08984375}
+  m_LocalPosition: {x: 6.9555345, y: -0.79132324, z: -0.08984375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4941790843193224}
@@ -504,6 +506,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114120002694290682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261413387775758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422b420de066baf4cafc8a4cb7af0328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1351162503430520, guid: 68db32c85a1becd468b3a9e8831ab32d, type: 2}
 --- !u!114 &114148722108164270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -570,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488ef41e314ae0a4a85fbca7edec66a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 12
+  startHealth: 1
   iFrames: 5
   showIFrames: 1
   Beginning:
@@ -581,16 +595,16 @@ MonoBehaviour:
   Death:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114323586377927046}
-        m_MethodName: Destroy
-        m_Mode: 1
+      - m_Target: {fileID: 114819910766627402}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 114174583543493598}
         m_MethodName: AddPoints
@@ -606,6 +620,39 @@ MonoBehaviour:
       - m_Target: {fileID: 114174583543493598}
         m_MethodName: OnDeath
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114747306469964824}
+        m_MethodName: Freeze
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 114120002694290682}
+        m_MethodName: SpawnParticle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 114592598931814342}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -720,6 +767,35 @@ MonoBehaviour:
   speed: 1
   backtrackMovement: 1
   delay: 0
+--- !u!114 &114819910766627402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261413387775758}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e9d3c61456fae428898d8d6444b074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times:
+  - 2.3
+  events:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114323586377927046}
+        m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114935551499493816
 MonoBehaviour:
   m_ObjectHideFlags: 1
