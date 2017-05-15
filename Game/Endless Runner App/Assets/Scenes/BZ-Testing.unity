@@ -5256,6 +5256,11 @@ Prefab:
       propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1326531562}
+    - target: {fileID: 114706277706891030, guid: e2a7ab30b47ff904588ab53c09916891,
+        type: 2}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      value: 
+      objectReference: {fileID: 2078193463}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2a7ab30b47ff904588ab53c09916891, type: 2}
   m_IsPrefabParent: 0
