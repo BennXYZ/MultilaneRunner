@@ -91,8 +91,12 @@ public class GroundSpawning : MonoBehaviour
                 //transform.rotation, transform.parent);
                 //    Catch.name = groundTiles[groundTiles.Length - 1].name;
                 //    //Catch.transform.Translate(manager.Direction * manager.Speed * Time.deltaTime);
+                int bosses;
 
-                int bosses = GameObject.Find("ScoreManager").GetComponent<acutalScoreScript>().GetBosses();
+                if (GameObject.Find("ScoreManager") != null)
+                    bosses = GameObject.Find("ScoreManager").GetComponent<acutalScoreScript>().GetBosses();
+                else
+                    bosses = 0;
                 int min = 0;
                 int max;
 
@@ -116,14 +120,8 @@ public class GroundSpawning : MonoBehaviour
                 }
 
                 int toSpawnIndex = Random.Range(min, max);
-
-                Debug.Log(min);
-                Debug.Log(toSpawnIndex);
-
-                Debug.Log(groundTiles[0]);
                 GameObject nextBlock = GameObject.Instantiate(groundTiles[toSpawnIndex],
                 new Vector3(transform.localPosition.x + OffSet.x, transform.localPosition.y + OffSet.y, transform.localPosition.z), transform.rotation, transform.parent);
-                Debug.Log(nextBlock);
                 //nextBlock.transform.Translate(manager.Direction * manager.Speed * Time.deltaTime);
                 //nextBlock.name = groundTiles[toSpawnIndex].name;
                 return true;

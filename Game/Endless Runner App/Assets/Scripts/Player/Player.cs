@@ -49,6 +49,12 @@ public class Player : MonoBehaviour
     Vector2 projectileOffset;
 
     [SerializeField]
+    GameObject Trail;
+
+    [SerializeField]
+    float verticalTrailOffset;
+
+    [SerializeField]
     UnityEvent StartJumping;
 
     [SerializeField]
@@ -173,6 +179,7 @@ public class Player : MonoBehaviour
         offset = (offset - collisionBox.size.y) / 2;
         collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y - offset);
         projectileOffset.y = projectileOffset.y - 1;
+        Trail.transform.position += Vector3.up * -verticalTrailOffset;
     }
 
     private void RevertSliding()
@@ -183,6 +190,7 @@ public class Player : MonoBehaviour
         offset = (collisionBox.size.y - offset) / 2;
         collisionBox.offset = new Vector2(collisionBox.offset.x, collisionBox.offset.y + offset);
         projectileOffset.y = projectileOffset.y + 1;
+        Trail.transform.position += Vector3.up * verticalTrailOffset;
     }
 
     #region StateUpdates

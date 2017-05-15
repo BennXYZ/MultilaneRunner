@@ -19,10 +19,6 @@ public class DisplayMission : MonoBehaviour {
 
     Mission mission;
 
-	// Use this for initialization
-	void Start () {
-	}
-
     private void OnEnable()
     {
         switch (state)

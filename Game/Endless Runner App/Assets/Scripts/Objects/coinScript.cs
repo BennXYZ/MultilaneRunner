@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class coinScript : MonoBehaviour {
 
@@ -12,6 +13,9 @@ public class coinScript : MonoBehaviour {
 
     [SerializeField]
     int requiredCoinLVL;
+
+    [SerializeField]
+    UnityEvent collected;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +38,7 @@ public class coinScript : MonoBehaviour {
                 GameObject.Find("ScoreManager").GetComponent<acutalScoreScript>().addPoints(score,0, GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForCoinBoost() * coins);
             GameObject.FindGameObjectWithTag("MissionManager").GetComponent<MissionManager>().MissionProgress(1, GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForCoinBoost() * coins);
             GameObject.FindGameObjectWithTag("MissionManager").GetComponent<MissionManager>().MissionProgress(2, GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForCoinBoost() * coins);
+            collected.Invoke();
             GameObject.Destroy(gameObject);
         }
     }

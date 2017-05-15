@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4303381441848842}
   - component: {fileID: 114126810264594460}
   - component: {fileID: 61445731866800616}
+  - component: {fileID: 114772449352689912}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -51,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1429149102246582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.01, y: 1.77, z: 0}
+  m_LocalPosition: {x: -19.793953, y: -9.9560795, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4632127044978154}
@@ -99,6 +100,34 @@ MonoBehaviour:
   coins: 1
   score: 0
   requiredCoinLVL: 2
+  collected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114772449352689912}
+        m_MethodName: SpawnParticle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114772449352689912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1429149102246582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422b420de066baf4cafc8a4cb7af0328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1488642227913372, guid: 2336f9c7cc3a85245accc5a0b1cc0259, type: 2}
 --- !u!212 &212739670904537430
 SpriteRenderer:
   m_ObjectHideFlags: 1
