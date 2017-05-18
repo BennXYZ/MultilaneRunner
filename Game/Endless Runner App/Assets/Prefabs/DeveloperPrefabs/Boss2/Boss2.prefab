@@ -741,8 +741,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   initialDelay: 3
-  minAttackDelay: 4
-  maxAttackDelay: 5
+  minAttackDelay: 5
+  maxAttackDelay: 6
 --- !u!114 &114960076531071072
 MonoBehaviour:
   m_ObjectHideFlags: 1

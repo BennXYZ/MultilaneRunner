@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a2ffce5a54e613e4397e97fff7ba2f85
-timeCreated: 1495105055
+timeCreated: 1495108608
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -100,13 +100,13 @@ TextureImporter:
       name: Ladebalken_1
       rect:
         serializedVersion: 2
-        x: 194
+        x: 235
         y: 367
-        width: 883
+        width: 775
         height: 77
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 15, y: 0, z: 16, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
