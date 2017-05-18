@@ -161,7 +161,7 @@ public class UpgradeScript : MonoBehaviour {
 
 
 
-    private void ResetPlayerPrefs()
+    public void ResetPlayerPrefs()
     {
         PlayerPrefs.DeleteAll();
         HealthSize = PlayerPrefs.GetInt("PlayerHealth", 0);

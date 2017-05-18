@@ -6458,8 +6458,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1341453278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.54, y: 5.77, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.54, y: 5.81, z: 0}
+  m_LocalScale: {x: 1.2141422, y: 1.2141422, z: 1.2141422}
   m_Children: []
   m_Father: {fileID: 1837724684}
   m_RootOrder: 0
@@ -6555,7 +6555,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 9200
-  m_Sprite: {fileID: 21300000, guid: 174c474e36d275e47ae7e5003f06e4c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26692308b91bf8448acd58caa5239340, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8151,11 +8151,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthSprites:
   - {fileID: 21300000, guid: cd9f71230cdf2504e8b2f0cb43657178, type: 3}
-  - {fileID: 21300000, guid: 86e0b22af7c535944baff87f2b64e3a5, type: 3}
-  - {fileID: 21300000, guid: f97a261c09a0ccd44a366ac2681a8ecc, type: 3}
-  - {fileID: 21300000, guid: 10cc49bcaa225e843a15023ac00b85d1, type: 3}
-  - {fileID: 21300000, guid: 6778a317037723c48a71bad3e8bfff72, type: 3}
-  - {fileID: 21300000, guid: c3c35e733d03f0b41947a14dfa414c03, type: 3}
+  - {fileID: 21300000, guid: f3fdb7927e36af94192ea4af5c3278a3, type: 3}
+  - {fileID: 21300000, guid: c57fb6b6c5d499c44bc5451797aef458, type: 3}
+  - {fileID: 21300000, guid: af1526faf1af3f4459be85406b94aee7, type: 3}
+  - {fileID: 21300000, guid: b44ddc1fb5ef7fb4990b5ef380981b0f, type: 3}
+  - {fileID: 21300000, guid: 5b28bd5e367e3fd4f9d71bdc436f40c8, type: 3}
   renderer: {fileID: 1722552020}
   manager: {fileID: 2015474437}
   bossHealth: 0
@@ -8178,7 +8178,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c3c35e733d03f0b41947a14dfa414c03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b28bd5e367e3fd4f9d71bdc436f40c8, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -9025,6 +9025,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114990308149804996, guid: e2a7ab30b47ff904588ab53c09916891,
+        type: 2}
+      propertyPath: events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2a7ab30b47ff904588ab53c09916891, type: 2}
   m_IsPrefabParent: 0
@@ -9444,6 +9449,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   Bosses:
+  - {fileID: 1585794249400786, guid: 035cd25143b580846ab49231527043a4, type: 2}
   - {fileID: 1300220830329812, guid: 84a637ff79392c24a9baa773b830ac67, type: 2}
   Offset: {x: 30, y: 0}
   minBosslessTimeInSeconds: 5
