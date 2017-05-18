@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4501645157645762}
+  - component: {fileID: 61596666642682702}
+  - component: {fileID: 114438406515843764}
   m_Layer: 0
   m_Name: LaserAttack
   m_TagString: Untagged
@@ -165,8 +167,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096990476631156}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.34, y: -1.13, z: -1.06}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.06}
   m_LocalScale: {x: 0.580738, y: 0.13965, z: 0.580738}
   m_Children:
   - {fileID: 4401335730562898}
@@ -230,6 +232,20 @@ Transform:
   m_Father: {fileID: 4501645157645762}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61596666642682702
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1096990476631156}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -15.896051, y: 0.19950335}
+  serializedVersion: 2
+  m_Size: {x: 32.79207, y: 1.3990126}
 --- !u!95 &95545519069601218
 Animator:
   serializedVersion: 3
@@ -280,6 +296,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fdfa538a03a9d448d00cb2cc80c4d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114438406515843764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1096990476631156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b4056552992534691dc70dcc8c3a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProjectileType: 0
+  shootDirection: {x: 0, y: 0}
+  sprayAngle: 0
+  aimingAtPlayer: 0
+  rotateInDirection: 0
+  speedUpPerSecond: 0
+  speed: 0
+  hitDelay: 2.5
+  endDelay: 10
+  destroyDelay: 10
 --- !u!114 &114625503703822354
 MonoBehaviour:
   m_ObjectHideFlags: 1

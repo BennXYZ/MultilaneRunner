@@ -67,6 +67,11 @@ public class MovementManager : MonoBehaviour {
     {
         if(GameObject.Find("BoostManager").GetComponent<boostManager>().CheckForSpeedBoost() || manualSpeedBoost)
         {
+            GameObject[] groundTiles = GameObject.FindGameObjectsWithTag("Block");
+            for (int i = 0; i < groundTiles.Length; i++)
+            {
+                groundTiles[i].GetComponent<GroundSpawning>().SetFirstGround(true);
+            }
             startBoost.Invoke();
             manualSpeedBoost = false;
             speed = boostStrength * speed;
@@ -87,6 +92,11 @@ public class MovementManager : MonoBehaviour {
             boostDurationCounter += Time.deltaTime;
         if(boostDurationCounter >= boostDuration)
         {
+            GameObject[] groundTiles = GameObject.FindGameObjectsWithTag("Block");
+            for (int i = 0; i < groundTiles.Length; i++)
+            {
+                groundTiles[i].GetComponent<GroundSpawning>().SetFirstGround(false);
+            }
             endBoost.Invoke();
             ResetSpeed();
             boostDurationCounter = -1;

@@ -46,6 +46,11 @@ public class GroundSpawning : MonoBehaviour
         }
     }
 
+    public void SetFirstGround(bool state)
+    {
+        isBackgroundSpawner = state;
+    }
+
     public void SetBoss(bool bossState)
     {
         Boss = bossState;
@@ -97,7 +102,7 @@ public class GroundSpawning : MonoBehaviour
                     bosses = GameObject.Find("ScoreManager").GetComponent<acutalScoreScript>().GetBosses();
                 else
                     bosses = 0;
-                int min = 0;
+                int min = 1;
                 int max;
 
                 switch (bosses)
@@ -128,7 +133,7 @@ public class GroundSpawning : MonoBehaviour
             }
             else
             {
-                int toSpawnIndex = Random.Range(19, 23);
+                int toSpawnIndex = 19;
 
                 GameObject nextBlock = GameObject.Instantiate(groundTiles[toSpawnIndex],
                             new Vector3(transform.localPosition.x + OffSet.x, transform.localPosition.y + OffSet.y, transform.localPosition.z),

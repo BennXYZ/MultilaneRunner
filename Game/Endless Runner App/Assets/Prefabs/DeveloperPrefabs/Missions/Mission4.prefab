@@ -55,5 +55,5 @@ MonoBehaviour:
   description: Defeat X Bosses
   resetsOnLevelEnd: 0
   index: 4
-  goal: 5
-  prize: 3
+  goal: 10
+  prize: 25

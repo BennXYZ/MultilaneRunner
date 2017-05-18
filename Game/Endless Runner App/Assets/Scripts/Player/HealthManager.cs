@@ -16,6 +16,10 @@ public class HealthManager : MonoBehaviour {
     float iFrameCounter;
 
     [SerializeField]
+    float timePerIframe;
+    float timePerIframeCounter;
+
+    [SerializeField]
     bool showIFrames;
 
     [SerializeField]
@@ -54,6 +58,7 @@ public class HealthManager : MonoBehaviour {
         }
         Beginning.Invoke();
         iFrameCounter = iFrames;
+        timePerIframeCounter = timePerIframe;
         if (showIFrames)
             renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
 	}
@@ -65,6 +70,7 @@ public class HealthManager : MonoBehaviour {
             if (showIFrames)
                 ShowIFrames();
             iFrameCounter += Time.deltaTime;
+            timePerIframeCounter += Time.deltaTime;
         }
         else if (showIFrames)
             if (!renderer.enabled)
@@ -108,7 +114,11 @@ public class HealthManager : MonoBehaviour {
 
     private void ShowIFrames()
     {
-        renderer.enabled = !renderer.enabled;
+        if (timePerIframeCounter >= timePerIframe)
+        {
+            renderer.enabled = !renderer.enabled;
+            timePerIframeCounter = 0;
+        }
     }
 
     public void Destroy()

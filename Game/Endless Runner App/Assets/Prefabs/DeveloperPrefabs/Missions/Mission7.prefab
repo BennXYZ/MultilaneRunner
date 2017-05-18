@@ -55,5 +55,5 @@ MonoBehaviour:
   description: use a Coinboost
   resetsOnLevelEnd: 0
   index: 7
-  goal: 5
-  prize: 3
+  goal: 10
+  prize: 15

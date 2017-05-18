@@ -11,20 +11,45 @@ public class UpgradeScript : MonoBehaviour {
     private int HealthSize;
     private int CoinLvl;
 
+    [Range(0,5)]
+    [SerializeField]
+    int HealthStart;
+
     [SerializeField]
     private int[] healthPrices;
 
+    [Range(0, 5)]
+    [SerializeField]
+    int ShotStart;
+
     [SerializeField]
     private int[] shotPrices;
+
+    [Range(0, 5)]
+    [SerializeField]
+    int CoinStart;
 
     [SerializeField]
     private int[] coinPrices;
 
     // Use this for initialization
     void Start () {
-        HealthSize = PlayerPrefs.GetInt("PlayerHealth", 0);
-        ShotStrength = PlayerPrefs.GetInt("PlayerStrength", 0);
-        CoinLvl = PlayerPrefs.GetInt("CoinLvl", 0);
+        HealthSize = PlayerPrefs.GetInt("PlayerHealth", -1);
+        ShotStrength = PlayerPrefs.GetInt("PlayerStrength", -1);
+        CoinLvl = PlayerPrefs.GetInt("CoinLvl", -1);
+
+        if (HealthSize == -1)
+            HealthSize = HealthStart;
+
+        if (ShotStrength == -1)
+            ShotStrength = ShotStart;
+
+        if (CoinLvl == -1)
+            CoinLvl = CoinStart;
+
+        PlayerPrefs.SetInt("PlayerStrength", ShotStrength);
+        PlayerPrefs.SetInt("PlayerHealth", HealthSize);
+        PlayerPrefs.SetInt("CoinLvl", CoinLvl);
     }
 	
 	// Update is called once per frame

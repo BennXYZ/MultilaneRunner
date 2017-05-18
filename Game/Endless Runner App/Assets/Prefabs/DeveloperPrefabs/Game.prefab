@@ -389,7 +389,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1461020328936208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4577363558609750}
@@ -402,7 +402,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1320687024963256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.35, y: 0.23, z: 10}
+  m_LocalPosition: {x: -14.35, y: 0.83, z: 10}
   m_LocalScale: {x: 8.029505, y: 8.029497, z: 8.029497}
   m_Children: []
   m_Father: {fileID: 4577363558609750}
@@ -456,7 +456,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1093021663570264}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.32, y: 10.04, z: 10}
+  m_LocalPosition: {x: -1.32, y: 10.64, z: 10}
   m_LocalScale: {x: 21.278212, y: 8.0295, z: 8.0295}
   m_Children: []
   m_Father: {fileID: 4577363558609750}
@@ -469,7 +469,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1054004886271528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.42, y: 0.17, z: 10}
+  m_LocalPosition: {x: 14.42, y: 0.77, z: 10}
   m_LocalScale: {x: 8.02951, y: 8.0295, z: 8.0295}
   m_Children: []
   m_Father: {fileID: 4577363558609750}
@@ -525,7 +525,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1851416291679904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0.67, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4085693682035664}
@@ -724,9 +724,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 2.543375, y: -15.344903}
+  m_Offset: {x: 2.543373, y: -15.839409}
   serializedVersion: 2
-  m_Size: {x: 76.094315, y: 21.30396}
+  m_Size: {x: 76.094315, y: 20.314949}
 --- !u!81 &81813708593861026
 AudioListener:
   m_ObjectHideFlags: 1
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95533759298222178}
-  jumpForce: 2.5
+  jumpForce: 3.2
   moveSpeed: 0.58
   forwardJump: 0
   dashForce: 3.58
@@ -1247,10 +1247,10 @@ MonoBehaviour:
   slideDuration: 1.25
   slideAmount: 0.408
   projectiles:
-  - {fileID: 1089224980173328, guid: acbcddf17c61f7e4d99d644e21b672c3, type: 2}
-  - {fileID: 1089224980173328, guid: acbcddf17c61f7e4d99d644e21b672c3, type: 2}
+  - {fileID: 1929438818232422, guid: 9e31404a2f6598c42910da90bb54ed5c, type: 2}
   - {fileID: 1089224980173328, guid: f215c0de41b7d304d97c51662172abcd, type: 2}
-  - {fileID: 1089224980173328, guid: f215c0de41b7d304d97c51662172abcd, type: 2}
+  - {fileID: 1728209659779376, guid: ae27f7042d672ea41bd0513197cc8040, type: 2}
+  - {fileID: 1859935748654758, guid: dd52eed819fef424bb1cc5eec148af0a, type: 2}
   - {fileID: 1239710777381424, guid: 55c96f1962526314999f183c204b1b12, type: 2}
   shootCooldown: 1
   projectileOffset: {x: 0.4, y: 0.7}
@@ -1545,6 +1545,17 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_MethodName: CheckHighscore
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

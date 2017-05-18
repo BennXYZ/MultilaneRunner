@@ -23,6 +23,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     float dashForce;
 
+    [Range(0, 1)]
+    [SerializeField]
+    float backDashStrength;
+
     [Range(0, 5)]
     [SerializeField]
     float dashDuration;
@@ -203,6 +207,12 @@ public class Player : MonoBehaviour
      (rigid.gravityScale / Mathf.Abs(rigid.gravityScale)) * 200) * Time.timeScale);
         }
 
+
+        if (transform.position.x <= playerPositioner.transform.position.x)
+        {
+            rigid.velocity = new Vector2(rigid.velocity.x * 0.7f, rigid.velocity.y);
+        }
+
         if (rigid.velocity.y < 0)
             return States.Falling;
         return currentState;
@@ -214,6 +224,11 @@ public class Player : MonoBehaviour
         if (transform.position.x <= playerPositioner.transform.position.x)
         {
             rigid.velocity = new Vector2(rigid.velocity.x * 0.5f, rigid.velocity.y);
+        }
+
+        if (transform.position.x <= playerPositioner.transform.position.x)
+        {
+            rigid.velocity = new Vector2(rigid.velocity.x * 0.7f, rigid.velocity.y);
         }
 
         rigid.AddForce(new Vector2(-8, 0) * Time.timeScale);
@@ -290,7 +305,7 @@ public class Player : MonoBehaviour
 
     public void FallQuick()
     {
-        if(currentState == States.Jumping || currentState == States.Falling)
+        if(currentState == States.Jumping || currentState == States.Falling || currentState == States.Dashing)
         {
             rigid.velocity = new Vector2(rigid.velocity.x, -15);
         }
@@ -316,7 +331,7 @@ public class Player : MonoBehaviour
             animator.SetTrigger("DashB");
             nextState = States.Dashing;
             dashCounter = 0;
-            dashDirection = -0.5f;
+            dashDirection = -backDashStrength;
         }
     }
 
